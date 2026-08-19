@@ -22,7 +22,8 @@ SCREENSHOT 1 — HERO
 Place one wide, uncluttered workspace screenshot here.
 Suggested file: assets/screenshots/writersstudio-workspace.webp
 Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
-Show: a realistic novel project, the Explorer, 2–3 open tabs, and the editor in a polished theme.
+Show: the included Pride and Prejudice sample, the Explorer, 2–3 open tabs, and the editor in a polished theme.
+Suggested setup: Final Manuscript → Volume I → Chapter 3, with Story Overview and Elizabeth Bennet also open.
 Avoid: empty states, menus covering the UI, tiny text, or personal/test data.
 
 After adding the file, remove the comment markers around this block:
@@ -55,6 +56,7 @@ Suggested file: assets/screenshots/writersstudio-history.webp
 Recommended crop: approximately 3:2, 1400–1800 px wide.
 Show: several clearly named save points, two visible story branches, and the preview/details area.
 Keep the graph readable; five to eight points are more persuasive than a dense stress-test history.
+Suggested setup: copy the included sample outside this repository, enable History, and create a short alternate revision branch from one Demo Draft.
 
 After adding the file, remove the comment markers around this block:
 
@@ -90,6 +92,7 @@ Suggested file: assets/screenshots/writersstudio-story-overview.webp
 Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
 Show: the visual Timeline in one group and a complete Character profile in the other.
 Use the same project, theme, window size, and data style as the hero screenshot.
+Suggested setup: filter the sample timeline by Elizabeth & Darcy and open Elizabeth Bennet's profile.
 
 After adding the file, remove the comment markers around this block:
 
@@ -97,6 +100,20 @@ After adding the file, remove the comment markers around this block:
   <img src="./assets/screenshots/writersstudio-story-overview.webp" alt="A story timeline and character profile shown side by side in WritersStudio" width="100%" />
 </p>
 -->
+
+## Explore a complete sample project
+
+The repository includes a ready-to-open WritersStudio edition of Jane Austen's
+_Pride and Prejudice_: the complete 61-chapter novel in three volumes, plus
+modern demo drafts, outlines, 15 character profiles, and a 36-event story
+timeline with relationship threads and links back to the manuscript.
+
+**[Browse the Pride and Prejudice sample](./samples/pride-and-prejudice/)**
+
+The novel is public domain. Supplemental planning material was created for
+this sample and is clearly separated from Austen's text. Copy the sample folder
+to another writable location before opening it; the sample guide explains why
+and provides exact source provenance.
 
 ## Download WritersStudio
 

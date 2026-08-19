@@ -1,6 +1,6 @@
 # Pride and Prejudice sample project plan
 
-Status: implementation plan
+Status: complete
 
 ## Objective
 
@@ -155,3 +155,23 @@ begins.
 - Generated files contain no temporary sources or unrelated project changes.
 - All focused validation passes, the integration branch is clean, and it is
   ready for the user's later merge or push without merging to `main` here.
+
+## Completion record
+
+Completed on 2026-08-19.
+
+- The current schema validator accepted the project with zero diagnostics.
+- The launcher parser confirmed the stable project identity.
+- The current repository runtime opened an isolated copy as a schema version 4
+  project without rewriting its configuration.
+- The final manuscript contains 61 chapters in three volumes: 64 manuscript
+  nodes and 122,025 words including chapter headings.
+- The supplemental layer contains five demo drafts, nine planning documents,
+  15 parsed character profiles, and 36 timeline points across five story
+  branches.
+- Every declared storage file exists exactly once; relation targets, linked
+  ordering, Unicode text, Markdown emphasis, and source boundaries passed the
+  focused audit.
+- No nested repository, machine-local WritersStudio state, imported XHTML,
+  temporary source path, runner lock, runtime copy, or task-owned process
+  remained after validation.
