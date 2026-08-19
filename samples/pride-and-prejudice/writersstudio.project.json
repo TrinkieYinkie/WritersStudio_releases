@@ -754,9 +754,110 @@
       "storageFolder": "section_pnp_demo_drafts",
       "previousSectionId": "section_pnp_final_manuscript",
       "nextSectionId": "section_pnp_outline_notes",
-      "rootFirstNodeId": null,
-      "rootLastNodeId": null,
-      "nodes": {},
+      "rootFirstNodeId": "node_pnp_draft_lab",
+      "rootLastNodeId": "node_pnp_draft_lab",
+      "nodes": {
+        "node_pnp_draft_lab": {
+          "id": "node_pnp_draft_lab",
+          "title": "Draft Lab",
+          "storageKey": "draft-lab.md",
+          "contentType": "markdown",
+          "parentId": null,
+          "previousSiblingId": null,
+          "nextSiblingId": null,
+          "firstChildId": "node_pnp_draft_opening",
+          "lastChildId": "node_pnp_draft_confrontation"
+        },
+        "node_pnp_draft_opening": {
+          "id": "node_pnp_draft_opening",
+          "title": "Opening — Exploratory Retelling",
+          "storageKey": "opening-exploratory-retelling.md",
+          "contentType": "markdown",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            }
+          ],
+          "parentId": "node_pnp_draft_lab",
+          "previousSiblingId": null,
+          "nextSiblingId": "node_pnp_draft_assembly",
+          "firstChildId": null,
+          "lastChildId": null
+        },
+        "node_pnp_draft_assembly": {
+          "id": "node_pnp_draft_assembly",
+          "title": "Meryton Assembly — Scene Pass",
+          "storageKey": "meryton-assembly-scene-pass.md",
+          "contentType": "markdown",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_03"
+            }
+          ],
+          "parentId": "node_pnp_draft_lab",
+          "previousSiblingId": "node_pnp_draft_opening",
+          "nextSiblingId": "node_pnp_draft_letter",
+          "firstChildId": null,
+          "lastChildId": null
+        },
+        "node_pnp_draft_letter": {
+          "id": "node_pnp_draft_letter",
+          "title": "Darcy’s Letter — Compression Exercise",
+          "storageKey": "darcy-letter-compression.md",
+          "contentType": "markdown",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_35"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_36"
+            }
+          ],
+          "parentId": "node_pnp_draft_lab",
+          "previousSiblingId": "node_pnp_draft_assembly",
+          "nextSiblingId": "node_pnp_draft_pemberley",
+          "firstChildId": null,
+          "lastChildId": null
+        },
+        "node_pnp_draft_pemberley": {
+          "id": "node_pnp_draft_pemberley",
+          "title": "Pemberley — Sensory Pass",
+          "storageKey": "pemberley-sensory-pass.md",
+          "contentType": "markdown",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_43"
+            }
+          ],
+          "parentId": "node_pnp_draft_lab",
+          "previousSiblingId": "node_pnp_draft_letter",
+          "nextSiblingId": "node_pnp_draft_confrontation",
+          "firstChildId": null,
+          "lastChildId": null
+        },
+        "node_pnp_draft_confrontation": {
+          "id": "node_pnp_draft_confrontation",
+          "title": "Lady Catherine at Longbourn — Dialogue Polish",
+          "storageKey": "lady-catherine-dialogue-polish.md",
+          "contentType": "markdown",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_56"
+            }
+          ],
+          "parentId": "node_pnp_draft_lab",
+          "previousSiblingId": "node_pnp_draft_pemberley",
+          "nextSiblingId": null,
+          "firstChildId": null,
+          "lastChildId": null
+        }
+      },
       "createdAt": "2026-08-19T00:00:00.000Z",
       "updatedAt": "2026-08-19T00:00:00.000Z"
     },
@@ -767,9 +868,82 @@
       "storageFolder": "section_pnp_outline_notes",
       "previousSectionId": "section_pnp_demo_drafts",
       "nextSectionId": "section_pnp_characters",
-      "firstItemId": null,
-      "lastItemId": null,
-      "items": {},
+      "firstItemId": "note_pnp_welcome",
+      "lastItemId": "note_pnp_conventions",
+      "items": {
+        "note_pnp_welcome": {
+          "id": "note_pnp_welcome",
+          "title": "Welcome to the Sample",
+          "storageKey": "welcome-to-the-sample.md",
+          "contentType": "markdown",
+          "previousItemId": null,
+          "nextItemId": "note_pnp_overview"
+        },
+        "note_pnp_overview": {
+          "id": "note_pnp_overview",
+          "title": "Story Overview",
+          "storageKey": "story-overview.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_welcome",
+          "nextItemId": "note_pnp_volume_1"
+        },
+        "note_pnp_volume_1": {
+          "id": "note_pnp_volume_1",
+          "title": "Volume I Outline",
+          "storageKey": "volume-1-outline.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_overview",
+          "nextItemId": "note_pnp_volume_2"
+        },
+        "note_pnp_volume_2": {
+          "id": "note_pnp_volume_2",
+          "title": "Volume II Outline",
+          "storageKey": "volume-2-outline.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_volume_1",
+          "nextItemId": "note_pnp_volume_3"
+        },
+        "note_pnp_volume_3": {
+          "id": "note_pnp_volume_3",
+          "title": "Volume III Outline",
+          "storageKey": "volume-3-outline.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_volume_2",
+          "nextItemId": "note_pnp_themes"
+        },
+        "note_pnp_themes": {
+          "id": "note_pnp_themes",
+          "title": "Themes and Motifs",
+          "storageKey": "themes-and-motifs.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_volume_3",
+          "nextItemId": "note_pnp_locations"
+        },
+        "note_pnp_locations": {
+          "id": "note_pnp_locations",
+          "title": "Locations",
+          "storageKey": "locations.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_themes",
+          "nextItemId": "note_pnp_relationships"
+        },
+        "note_pnp_relationships": {
+          "id": "note_pnp_relationships",
+          "title": "Relationship Map",
+          "storageKey": "relationship-map.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_locations",
+          "nextItemId": "note_pnp_conventions"
+        },
+        "note_pnp_conventions": {
+          "id": "note_pnp_conventions",
+          "title": "Editorial Conventions",
+          "storageKey": "editorial-conventions.md",
+          "contentType": "markdown",
+          "previousItemId": "note_pnp_relationships",
+          "nextItemId": null
+        }
+      },
       "createdAt": "2026-08-19T00:00:00.000Z",
       "updatedAt": "2026-08-19T00:00:00.000Z"
     },
@@ -780,10 +954,294 @@
       "storageFolder": "section_pnp_characters",
       "previousSectionId": "section_pnp_outline_notes",
       "nextSectionId": "section_pnp_timeline",
-      "firstItemId": null,
-      "lastItemId": null,
-      "items": {},
-      "fieldDefinitions": [],
+      "firstItemId": "character_elizabeth_bennet",
+      "lastItemId": "character_mrs_gardiner",
+      "items": {
+        "character_elizabeth_bennet": {
+          "id": "character_elizabeth_bennet",
+          "title": "Elizabeth Bennet",
+          "storageKey": "elizabeth-bennet.json",
+          "contentType": "characterProfile",
+          "previousItemId": null,
+          "nextItemId": "character_fitzwilliam_darcy",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            }
+          ]
+        },
+        "character_fitzwilliam_darcy": {
+          "id": "character_fitzwilliam_darcy",
+          "title": "Fitzwilliam Darcy",
+          "storageKey": "fitzwilliam-darcy.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_elizabeth_bennet",
+          "nextItemId": "character_jane_bennet",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_03"
+            }
+          ]
+        },
+        "character_jane_bennet": {
+          "id": "character_jane_bennet",
+          "title": "Jane Bennet",
+          "storageKey": "jane-bennet.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_fitzwilliam_darcy",
+          "nextItemId": "character_charles_bingley",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            }
+          ]
+        },
+        "character_charles_bingley": {
+          "id": "character_charles_bingley",
+          "title": "Charles Bingley",
+          "storageKey": "charles-bingley.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_jane_bennet",
+          "nextItemId": "character_george_wickham",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_03"
+            }
+          ]
+        },
+        "character_george_wickham": {
+          "id": "character_george_wickham",
+          "title": "George Wickham",
+          "storageKey": "george-wickham.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_charles_bingley",
+          "nextItemId": "character_lydia_bennet",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_15"
+            }
+          ]
+        },
+        "character_lydia_bennet": {
+          "id": "character_lydia_bennet",
+          "title": "Lydia Bennet",
+          "storageKey": "lydia-bennet.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_george_wickham",
+          "nextItemId": "character_charlotte_lucas",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_02"
+            }
+          ]
+        },
+        "character_charlotte_lucas": {
+          "id": "character_charlotte_lucas",
+          "title": "Charlotte Lucas",
+          "storageKey": "charlotte-lucas.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_lydia_bennet",
+          "nextItemId": "character_william_collins",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_05"
+            }
+          ]
+        },
+        "character_william_collins": {
+          "id": "character_william_collins",
+          "title": "William Collins",
+          "storageKey": "william-collins.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_charlotte_lucas",
+          "nextItemId": "character_lady_catherine",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_13"
+            }
+          ]
+        },
+        "character_lady_catherine": {
+          "id": "character_lady_catherine",
+          "title": "Lady Catherine de Bourgh",
+          "storageKey": "lady-catherine-de-bourgh.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_william_collins",
+          "nextItemId": "character_mr_bennet",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_29"
+            }
+          ]
+        },
+        "character_mr_bennet": {
+          "id": "character_mr_bennet",
+          "title": "Mr Bennet",
+          "storageKey": "mr-bennet.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_lady_catherine",
+          "nextItemId": "character_mrs_bennet",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            }
+          ]
+        },
+        "character_mrs_bennet": {
+          "id": "character_mrs_bennet",
+          "title": "Mrs Bennet",
+          "storageKey": "mrs-bennet.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_mr_bennet",
+          "nextItemId": "character_georgiana_darcy",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            }
+          ]
+        },
+        "character_georgiana_darcy": {
+          "id": "character_georgiana_darcy",
+          "title": "Georgiana Darcy",
+          "storageKey": "georgiana-darcy.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_mrs_bennet",
+          "nextItemId": "character_caroline_bingley",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_35"
+            }
+          ]
+        },
+        "character_caroline_bingley": {
+          "id": "character_caroline_bingley",
+          "title": "Caroline Bingley",
+          "storageKey": "caroline-bingley.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_georgiana_darcy",
+          "nextItemId": "character_mr_gardiner",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_03"
+            }
+          ]
+        },
+        "character_mr_gardiner": {
+          "id": "character_mr_gardiner",
+          "title": "Mr Gardiner",
+          "storageKey": "mr-gardiner.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_caroline_bingley",
+          "nextItemId": "character_mrs_gardiner",
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_25"
+            }
+          ]
+        },
+        "character_mrs_gardiner": {
+          "id": "character_mrs_gardiner",
+          "title": "Mrs Gardiner",
+          "storageKey": "mrs-gardiner.json",
+          "contentType": "characterProfile",
+          "previousItemId": "character_mr_gardiner",
+          "nextItemId": null,
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_25"
+            }
+          ]
+        }
+      },
+      "fieldDefinitions": [
+        {
+          "id": "appearance",
+          "source": "system",
+          "systemFieldId": "appearance",
+          "valueType": "text"
+        },
+        {
+          "id": "personality",
+          "source": "system",
+          "systemFieldId": "personality",
+          "valueType": "text"
+        },
+        {
+          "id": "motivation",
+          "source": "system",
+          "systemFieldId": "motivation",
+          "valueType": "text"
+        },
+        {
+          "id": "background",
+          "source": "system",
+          "systemFieldId": "background",
+          "valueType": "text"
+        },
+        {
+          "id": "age",
+          "source": "system",
+          "systemFieldId": "age",
+          "valueType": "text"
+        },
+        {
+          "id": "occupation",
+          "source": "system",
+          "systemFieldId": "occupation",
+          "valueType": "text"
+        },
+        {
+          "id": "storyRole",
+          "source": "user",
+          "label": "Story role",
+          "valueType": "text"
+        },
+        {
+          "id": "family",
+          "source": "user",
+          "label": "Family and connections",
+          "valueType": "text"
+        },
+        {
+          "id": "residence",
+          "source": "user",
+          "label": "Residence",
+          "valueType": "text"
+        },
+        {
+          "id": "arc",
+          "source": "user",
+          "label": "Character arc",
+          "valueType": "text"
+        },
+        {
+          "id": "relationships",
+          "source": "user",
+          "label": "Key relationships",
+          "valueType": "text"
+        },
+        {
+          "id": "firstAppearance",
+          "source": "user",
+          "label": "First appearance",
+          "valueType": "text"
+        }
+      ],
       "createdAt": "2026-08-19T00:00:00.000Z",
       "updatedAt": "2026-08-19T00:00:00.000Z"
     },
@@ -794,9 +1252,1270 @@
       "storageFolder": "section_pnp_timeline",
       "previousSectionId": "section_pnp_characters",
       "nextSectionId": null,
-      "firstPointId": null,
-      "lastPointId": null,
-      "points": {},
+      "firstPointId": "timeline_01",
+      "lastPointId": "timeline_36",
+      "points": {
+        "timeline_01": {
+          "id": "timeline_01",
+          "title": "Netherfield Is Let",
+          "storageKey": "01-netherfield-is-let.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_01"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            }
+          ],
+          "previousPointId": null,
+          "nextPointId": "timeline_02"
+        },
+        "timeline_02": {
+          "id": "timeline_02",
+          "title": "The Meryton Assembly",
+          "storageKey": "02-the-meryton-assembly.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_03"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            }
+          ],
+          "previousPointId": "timeline_01",
+          "nextPointId": "timeline_03"
+        },
+        "timeline_03": {
+          "id": "timeline_03",
+          "title": "Jane Rides to Netherfield",
+          "storageKey": "03-jane-rides-to-netherfield.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_07"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_bennet"
+            }
+          ],
+          "previousPointId": "timeline_02",
+          "nextPointId": "timeline_04"
+        },
+        "timeline_04": {
+          "id": "timeline_04",
+          "title": "Elizabeth Stays at Netherfield",
+          "storageKey": "04-elizabeth-stays-at-netherfield.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_08"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_09"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_10"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_11"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_12"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_caroline_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            }
+          ],
+          "previousPointId": "timeline_03",
+          "nextPointId": "timeline_05"
+        },
+        "timeline_05": {
+          "id": "timeline_05",
+          "title": "Mr Collins Arrives",
+          "storageKey": "05-mr-collins-arrives.md",
+          "contentType": "markdown",
+          "tags": [
+            "Charlotte & Collins",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_13"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            }
+          ],
+          "previousPointId": "timeline_04",
+          "nextPointId": "timeline_06"
+        },
+        "timeline_06": {
+          "id": "timeline_06",
+          "title": "Wickham Tells His Story",
+          "storageKey": "06-wickham-tells-his-story.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Lydia & Wickham"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_15"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_16"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            }
+          ],
+          "previousPointId": "timeline_05",
+          "nextPointId": "timeline_07"
+        },
+        "timeline_07": {
+          "id": "timeline_07",
+          "title": "The Netherfield Ball",
+          "storageKey": "07-the-netherfield-ball.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_18"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_bennet"
+            }
+          ],
+          "previousPointId": "timeline_06",
+          "nextPointId": "timeline_08"
+        },
+        "timeline_08": {
+          "id": "timeline_08",
+          "title": "Collins Proposes to Elizabeth",
+          "storageKey": "08-collins-proposes-to-elizabeth.md",
+          "contentType": "markdown",
+          "tags": [
+            "Charlotte & Collins",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_19"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_20"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            }
+          ],
+          "previousPointId": "timeline_07",
+          "nextPointId": "timeline_09"
+        },
+        "timeline_09": {
+          "id": "timeline_09",
+          "title": "Bingley Leaves Netherfield",
+          "storageKey": "09-bingley-leaves-netherfield.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_21"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_caroline_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            }
+          ],
+          "previousPointId": "timeline_08",
+          "nextPointId": "timeline_10"
+        },
+        "timeline_10": {
+          "id": "timeline_10",
+          "title": "Charlotte Accepts Collins",
+          "storageKey": "10-charlotte-accepts-collins.md",
+          "contentType": "markdown",
+          "tags": [
+            "Charlotte & Collins"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_22"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charlotte_lucas"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_09",
+          "nextPointId": "timeline_11"
+        },
+        "timeline_11": {
+          "id": "timeline_11",
+          "title": "Jane Goes to London",
+          "storageKey": "11-jane-goes-to-london.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_24"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_25"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_26"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_caroline_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_10",
+          "nextPointId": "timeline_12"
+        },
+        "timeline_12": {
+          "id": "timeline_12",
+          "title": "Elizabeth Travels to Hunsford",
+          "storageKey": "12-elizabeth-travels-to-hunsford.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Charlotte & Collins"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_27"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_28"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charlotte_lucas"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            }
+          ],
+          "previousPointId": "timeline_11",
+          "nextPointId": "timeline_13"
+        },
+        "timeline_13": {
+          "id": "timeline_13",
+          "title": "Lady Catherine Questions Elizabeth",
+          "storageKey": "13-lady-catherine-questions-elizabeth.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Charlotte & Collins"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_29"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lady_catherine"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charlotte_lucas"
+            }
+          ],
+          "previousPointId": "timeline_12",
+          "nextPointId": "timeline_14"
+        },
+        "timeline_14": {
+          "id": "timeline_14",
+          "title": "Darcy Visits the Parsonage",
+          "storageKey": "14-darcy-visits-the-parsonage.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_30"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_31"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_32"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charlotte_lucas"
+            }
+          ],
+          "previousPointId": "timeline_13",
+          "nextPointId": "timeline_15"
+        },
+        "timeline_15": {
+          "id": "timeline_15",
+          "title": "Fitzwilliam Reveals the Separation",
+          "storageKey": "15-fitzwilliam-reveals-the-separation.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_33"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            }
+          ],
+          "previousPointId": "timeline_14",
+          "nextPointId": "timeline_16"
+        },
+        "timeline_16": {
+          "id": "timeline_16",
+          "title": "Darcy’s First Proposal",
+          "storageKey": "16-darcys-first-proposal.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_34"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_15",
+          "nextPointId": "timeline_17"
+        },
+        "timeline_17": {
+          "id": "timeline_17",
+          "title": "Darcy Delivers His Letter",
+          "storageKey": "17-darcy-delivers-his-letter.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley",
+            "Lydia & Wickham"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_35"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_georgiana_darcy"
+            }
+          ],
+          "previousPointId": "timeline_16",
+          "nextPointId": "timeline_18"
+        },
+        "timeline_18": {
+          "id": "timeline_18",
+          "title": "Elizabeth Re-reads the Past",
+          "storageKey": "18-elizabeth-re-reads-the-past.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Lydia & Wickham"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_36"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            }
+          ],
+          "previousPointId": "timeline_17",
+          "nextPointId": "timeline_19"
+        },
+        "timeline_19": {
+          "id": "timeline_19",
+          "title": "Elizabeth Leaves Kent",
+          "storageKey": "19-elizabeth-leaves-kent.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Charlotte & Collins"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_37"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_38"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charlotte_lucas"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_william_collins"
+            }
+          ],
+          "previousPointId": "timeline_18",
+          "nextPointId": "timeline_20"
+        },
+        "timeline_20": {
+          "id": "timeline_20",
+          "title": "Lydia Is Invited to Brighton",
+          "storageKey": "20-lydia-is-invited-to-brighton.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_39"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_40"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_41"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            }
+          ],
+          "previousPointId": "timeline_19",
+          "nextPointId": "timeline_21"
+        },
+        "timeline_21": {
+          "id": "timeline_21",
+          "title": "The Gardiners Visit Pemberley",
+          "storageKey": "21-the-gardiners-visit-pemberley.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_42"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_43"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            }
+          ],
+          "previousPointId": "timeline_20",
+          "nextPointId": "timeline_22"
+        },
+        "timeline_22": {
+          "id": "timeline_22",
+          "title": "Darcy Meets Elizabeth at Pemberley",
+          "storageKey": "22-darcy-meets-elizabeth-at-pemberley.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_43"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_gardiner"
+            }
+          ],
+          "previousPointId": "timeline_21",
+          "nextPointId": "timeline_23"
+        },
+        "timeline_23": {
+          "id": "timeline_23",
+          "title": "Elizabeth Meets Georgiana",
+          "storageKey": "23-elizabeth-meets-georgiana.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_44"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_45"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_georgiana_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_caroline_bingley"
+            }
+          ],
+          "previousPointId": "timeline_22",
+          "nextPointId": "timeline_24"
+        },
+        "timeline_24": {
+          "id": "timeline_24",
+          "title": "News of Lydia’s Elopement",
+          "storageKey": "24-news-of-lydias-elopement.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Bennet Family",
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_46"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            }
+          ],
+          "previousPointId": "timeline_23",
+          "nextPointId": "timeline_25"
+        },
+        "timeline_25": {
+          "id": "timeline_25",
+          "title": "The Search Moves to London",
+          "storageKey": "25-the-search-moves-to-london.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_47"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_48"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            }
+          ],
+          "previousPointId": "timeline_24",
+          "nextPointId": "timeline_26"
+        },
+        "timeline_26": {
+          "id": "timeline_26",
+          "title": "Darcy Finds Lydia and Wickham",
+          "storageKey": "26-darcy-finds-lydia-and-wickham.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_52"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_gardiner"
+            }
+          ],
+          "previousPointId": "timeline_25",
+          "nextPointId": "timeline_27"
+        },
+        "timeline_27": {
+          "id": "timeline_27",
+          "title": "The Marriage Is Arranged",
+          "storageKey": "27-the-marriage-is-arranged.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_49"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_50"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            }
+          ],
+          "previousPointId": "timeline_26",
+          "nextPointId": "timeline_28"
+        },
+        "timeline_28": {
+          "id": "timeline_28",
+          "title": "Lydia Returns as a Bride",
+          "storageKey": "28-lydia-returns-as-a-bride.md",
+          "contentType": "markdown",
+          "tags": [
+            "Lydia & Wickham",
+            "Bennet Family",
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_51"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_27",
+          "nextPointId": "timeline_29"
+        },
+        "timeline_29": {
+          "id": "timeline_29",
+          "title": "Mrs Gardiner Reveals Darcy’s Role",
+          "storageKey": "29-mrs-gardiner-reveals-darcys-role.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Lydia & Wickham"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_52"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_gardiner"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            }
+          ],
+          "previousPointId": "timeline_28",
+          "nextPointId": "timeline_30"
+        },
+        "timeline_30": {
+          "id": "timeline_30",
+          "title": "Bingley and Darcy Return",
+          "storageKey": "30-bingley-and-darcy-return.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_53"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_54"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_29",
+          "nextPointId": "timeline_31"
+        },
+        "timeline_31": {
+          "id": "timeline_31",
+          "title": "Bingley Proposes to Jane",
+          "storageKey": "31-bingley-proposes-to-jane.md",
+          "contentType": "markdown",
+          "tags": [
+            "Jane & Bingley",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_55"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mrs_bennet"
+            }
+          ],
+          "previousPointId": "timeline_30",
+          "nextPointId": "timeline_32"
+        },
+        "timeline_32": {
+          "id": "timeline_32",
+          "title": "Lady Catherine Confronts Elizabeth",
+          "storageKey": "32-lady-catherine-confronts-elizabeth.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_56"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lady_catherine"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            }
+          ],
+          "previousPointId": "timeline_31",
+          "nextPointId": "timeline_33"
+        },
+        "timeline_33": {
+          "id": "timeline_33",
+          "title": "Darcy Learns He May Hope",
+          "storageKey": "33-darcy-learns-he-may-hope.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_60"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lady_catherine"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_32",
+          "nextPointId": "timeline_34"
+        },
+        "timeline_34": {
+          "id": "timeline_34",
+          "title": "Darcy’s Second Proposal",
+          "storageKey": "34-darcys-second-proposal.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_58"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            }
+          ],
+          "previousPointId": "timeline_33",
+          "nextPointId": "timeline_35"
+        },
+        "timeline_35": {
+          "id": "timeline_35",
+          "title": "Elizabeth Secures Her Father’s Consent",
+          "storageKey": "35-elizabeth-secures-her-fathers-consent.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_59"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_mr_bennet"
+            }
+          ],
+          "previousPointId": "timeline_34",
+          "nextPointId": "timeline_36"
+        },
+        "timeline_36": {
+          "id": "timeline_36",
+          "title": "The Families Settle Into the Future",
+          "storageKey": "36-the-families-settle-into-the-future.md",
+          "contentType": "markdown",
+          "tags": [
+            "Elizabeth & Darcy",
+            "Jane & Bingley",
+            "Lydia & Wickham",
+            "Charlotte & Collins",
+            "Bennet Family"
+          ],
+          "relations": [
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_60"
+            },
+            {
+              "kind": "related-document",
+              "targetId": "node_pnp_chapter_61"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_elizabeth_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_fitzwilliam_darcy"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_jane_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_charles_bingley"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_lydia_bennet"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_george_wickham"
+            },
+            {
+              "kind": "involves-character",
+              "targetId": "character_georgiana_darcy"
+            }
+          ],
+          "previousPointId": "timeline_35",
+          "nextPointId": null
+        }
+      },
       "createdAt": "2026-08-19T00:00:00.000Z",
       "updatedAt": "2026-08-19T00:00:00.000Z"
     }
