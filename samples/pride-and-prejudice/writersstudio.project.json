@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 4,
+  "project": {
+    "id": "project_pnp_public_domain_sample_2026",
+    "title": "Pride and Prejudice",
+    "template": "public-domain-sample",
+    "author": "Jane Austen",
+    "createdAt": "2026-08-19T00:00:00.000Z",
+    "updatedAt": "2026-08-19T00:00:00.000Z"
+  },
+  "storage": {
+    "contentRoot": "content",
+    "exportsRoot": "exports",
+    "internalRoot": ".writersstudio"
+  },
+  "settings": {
+    "locale": {
+      "projectLanguage": "en"
+    },
+    "export": {
+      "defaultFormat": "docx"
+    }
+  },
+  "history": {
+    "recording": "off"
+  },
+  "sectionOrder": {
+    "firstSectionId": "section_pnp_final_manuscript",
+    "lastSectionId": "section_pnp_timeline"
+  },
+  "sections": {
+    "section_pnp_final_manuscript": {
+      "id": "section_pnp_final_manuscript",
+      "title": "Final Manuscript",
+      "type": "treeMarkdown",
+      "storageFolder": "section_pnp_final_manuscript",
+      "previousSectionId": null,
+      "nextSectionId": "section_pnp_demo_drafts",
+      "rootFirstNodeId": null,
+      "rootLastNodeId": null,
+      "nodes": {},
+      "createdAt": "2026-08-19T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z"
+    },
+    "section_pnp_demo_drafts": {
+      "id": "section_pnp_demo_drafts",
+      "title": "Demo Drafts",
+      "type": "treeMarkdown",
+      "storageFolder": "section_pnp_demo_drafts",
+      "previousSectionId": "section_pnp_final_manuscript",
+      "nextSectionId": "section_pnp_outline_notes",
+      "rootFirstNodeId": null,
+      "rootLastNodeId": null,
+      "nodes": {},
+      "createdAt": "2026-08-19T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z"
+    },
+    "section_pnp_outline_notes": {
+      "id": "section_pnp_outline_notes",
+      "title": "Outline and Notes",
+      "type": "flatMarkdown",
+      "storageFolder": "section_pnp_outline_notes",
+      "previousSectionId": "section_pnp_demo_drafts",
+      "nextSectionId": "section_pnp_characters",
+      "firstItemId": null,
+      "lastItemId": null,
+      "items": {},
+      "createdAt": "2026-08-19T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z"
+    },
+    "section_pnp_characters": {
+      "id": "section_pnp_characters",
+      "title": "Characters",
+      "type": "characters",
+      "storageFolder": "section_pnp_characters",
+      "previousSectionId": "section_pnp_outline_notes",
+      "nextSectionId": "section_pnp_timeline",
+      "firstItemId": null,
+      "lastItemId": null,
+      "items": {},
+      "fieldDefinitions": [],
+      "createdAt": "2026-08-19T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z"
+    },
+    "section_pnp_timeline": {
+      "id": "section_pnp_timeline",
+      "title": "Story Timeline",
+      "type": "timeline",
+      "storageFolder": "section_pnp_timeline",
+      "previousSectionId": "section_pnp_characters",
+      "nextSectionId": null,
+      "firstPointId": null,
+      "lastPointId": null,
+      "points": {},
+      "createdAt": "2026-08-19T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z"
+    }
+  }
+}
