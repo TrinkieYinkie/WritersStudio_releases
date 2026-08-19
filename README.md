@@ -17,21 +17,9 @@ A calm, local-first desktop studio for novels and long-form fiction.
 
 </div>
 
-<!--
-SCREENSHOT 1 — HERO
-Place one wide, uncluttered workspace screenshot here.
-Suggested file: assets/screenshots/writersstudio-workspace.webp
-Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
-Show: the included Pride and Prejudice sample, the Explorer, 2–3 open tabs, and the editor in a polished theme.
-Suggested setup: Final Manuscript → Volume I → Chapter 3, with Story Overview and Elizabeth Bennet also open.
-Avoid: empty states, menus covering the UI, tiny text, or personal/test data.
-
-After adding the file, remove the comment markers around this block:
-
 <p align="center">
-  <img src="./assets/screenshots/writersstudio-workspace.webp" alt="A novel project open in the WritersStudio desktop workspace" width="100%" />
+  <img src="./assets/screenshots/writersstudio-manuscript-workspace.webp" alt="Project notes and a Pride and Prejudice manuscript chapter open side by side in WritersStudio" width="100%" />
 </p>
--->
 
 ## One place for the entire story
 
@@ -42,6 +30,21 @@ WritersStudio brings your manuscript, structure, characters, timeline, notes, an
 | **Visual Markdown editor**<br>Format prose directly—without writing markup by hand.                  | **Flexible project tree**<br>Arrange chapters, scenes, notes, and custom sections around your process.                       |
 | **Tabs and split views**<br>Keep a scene beside its notes, character, or timeline while you write.   | **Project-wide search and replace**<br>Find text across the whole project, with case-sensitive and regular-expression modes. |
 | **Character profiles**<br>Build reusable profiles with custom fields and links to related documents. | **Visual timeline**<br>See events in story order and filter them by narrative thread.                                        |
+
+<details>
+<summary><strong>See more of the workspace</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./assets/screenshots/writersstudio-story-overview-split-view.webp" alt="A story timeline and editable story overview open in a horizontal split view" width="100%" />
+</p>
+
+<p align="center">
+  <img src="./assets/screenshots/writersstudio-project-organization.webp" alt="Drafts, outlines, and planning notes organized in the WritersStudio project tree" width="100%" />
+</p>
+
+</details>
 
 ## Rewrite without fear
 
@@ -85,21 +88,20 @@ Export selected sections to **DOCX** for further editing or **PDF** for sharing 
 
 Open a character beside the manuscript, trace events across the visual timeline, or keep notes next to the scene that needs them. The workspace adapts to the way you think instead of forcing every part of a novel into one document.
 
-<!--
-SCREENSHOT 3 — STORY OVERVIEW
-Use one split-view screenshot instead of separate Character and Timeline images.
-Suggested file: assets/screenshots/writersstudio-story-overview.webp
-Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
-Show: the visual Timeline in one group and a complete Character profile in the other.
-Use the same project, theme, window size, and data style as the hero screenshot.
-Suggested setup: filter the sample timeline by Elizabeth & Darcy and open Elizabeth Bennet's profile.
-
-After adding the file, remove the comment markers around this block:
-
-<p align="center">
-  <img src="./assets/screenshots/writersstudio-story-overview.webp" alt="A story timeline and character profile shown side by side in WritersStudio" width="100%" />
-</p>
--->
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="./assets/screenshots/writersstudio-story-timeline.webp" alt="The visual story timeline in WritersStudio" width="100%" />
+    </td>
+    <td width="50%" align="center">
+      <img src="./assets/screenshots/writersstudio-character-gallery.webp" alt="The character gallery focused on Elizabeth Bennet" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Trace events, story branches, and related manuscript pages.</sub></td>
+    <td align="center"><sub>Keep character details, motivations, and relationships close at hand.</sub></td>
+  </tr>
+</table>
 
 ## Explore a complete sample project
 
