@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "Mrs Gardiner",
+  "fields": [
+    {
+      "fieldId": "appearance",
+      "value": "An amiable, elegant woman; the novel emphasizes manners and intelligence over detailed features."
+    },
+    {
+      "fieldId": "personality",
+      "value": "Warm, perceptive, tactful, sensible, and capable of giving advice without claiming authority."
+    },
+    {
+      "fieldId": "motivation",
+      "value": "To care for her nieces, encourage prudent judgment, and preserve trust through honest counsel."
+    },
+    {
+      "fieldId": "background",
+      "value": "Connected to Derbyshire before marriage and familiar with Lambton and the Pemberley area."
+    },
+    {
+      "fieldId": "age",
+      "value": "Not stated; an established married adult."
+    },
+    {
+      "fieldId": "occupation",
+      "value": "Manages the Gardiner household; no paid occupation stated."
+    },
+    {
+      "fieldId": "storyRole",
+      "value": "Elizabeth’s trusted adult confidante and the mediator who later explains Darcy’s hidden intervention."
+    },
+    {
+      "fieldId": "family",
+      "value": "Wife of Mr Gardiner; aunt of the Bennet sisters; mother of several children."
+    },
+    {
+      "fieldId": "residence",
+      "value": "Gracechurch Street, London."
+    },
+    {
+      "fieldId": "arc",
+      "value": "Guides Elizabeth away from imprudent attachment, accompanies her to Pemberley, and delivers the evidence that completes Darcy’s moral revelation."
+    },
+    {
+      "fieldId": "relationships",
+      "value": "Elizabeth: affectionate niece and confidante. Darcy: impressed observer. Mr Gardiner: companion in travel and family responsibility."
+    },
+    {
+      "fieldId": "firstAppearance",
+      "value": "Chapter 25 during the Christmas visit to Longbourn."
+    }
+  ]
+}

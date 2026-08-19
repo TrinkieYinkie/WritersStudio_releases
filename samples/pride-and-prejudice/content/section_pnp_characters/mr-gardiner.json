@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "Mr Gardiner",
+  "fields": [
+    {
+      "fieldId": "appearance",
+      "value": "Presented as gentlemanlike and sensible; detailed physical description is not central."
+    },
+    {
+      "fieldId": "personality",
+      "value": "Intelligent, practical, good-humoured, responsible, and quietly generous."
+    },
+    {
+      "fieldId": "motivation",
+      "value": "To support his nieces, protect the family during crisis, and act with fairness and discretion."
+    },
+    {
+      "fieldId": "background",
+      "value": "Mrs Bennet’s brother, a London merchant living in Gracechurch Street; socially and morally more refined than class prejudice predicts."
+    },
+    {
+      "fieldId": "age",
+      "value": "Not stated; an established married adult."
+    },
+    {
+      "fieldId": "occupation",
+      "value": "Merchant in London."
+    },
+    {
+      "fieldId": "storyRole",
+      "value": "Practical helper, travelling companion, and corrective to assumptions about trade and gentility."
+    },
+    {
+      "fieldId": "family",
+      "value": "Husband of Mrs Gardiner; uncle of the Bennet sisters; father of several children."
+    },
+    {
+      "fieldId": "residence",
+      "value": "Gracechurch Street, London."
+    },
+    {
+      "fieldId": "arc",
+      "value": "Helps make the Pemberley encounter possible and takes visible responsibility during Lydia’s crisis while Darcy works privately."
+    },
+    {
+      "fieldId": "relationships",
+      "value": "Elizabeth: affectionate uncle and host. Darcy: develops mutual respect. Lydia: helps negotiate the apparent rescue."
+    },
+    {
+      "fieldId": "firstAppearance",
+      "value": "Chapter 25 during the Christmas visit to Longbourn."
+    }
+  ]
+}

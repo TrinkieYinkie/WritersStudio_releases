@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "Mrs Bennet",
+  "fields": [
+    {
+      "fieldId": "appearance",
+      "value": "No detailed portrait; the narrative emphasizes her animated nerves, complaints, and social performance."
+    },
+    {
+      "fieldId": "personality",
+      "value": "Excitable, indiscreet, status-conscious, persistent, and genuinely anxious about her daughters’ futures."
+    },
+    {
+      "fieldId": "motivation",
+      "value": "To marry her daughters advantageously before the Longbourn entail leaves them financially vulnerable."
+    },
+    {
+      "fieldId": "background",
+      "value": "Daughter of a Meryton attorney and sister of Mrs Phillips and Mr Gardiner; married above her original social position."
+    },
+    {
+      "fieldId": "age",
+      "value": "Not stated; middle-aged and mother of five adult or near-adult daughters."
+    },
+    {
+      "fieldId": "occupation",
+      "value": "Mistress of the Longbourn household."
+    },
+    {
+      "fieldId": "storyRole",
+      "value": "Comic engine and a persistent expression of the real economic pressure behind the marriage plot."
+    },
+    {
+      "fieldId": "family",
+      "value": "Wife of Mr Bennet; mother of the five Bennet sisters; sister of Mr Gardiner and Mrs Phillips."
+    },
+    {
+      "fieldId": "residence",
+      "value": "Longbourn, Hertfordshire."
+    },
+    {
+      "fieldId": "arc",
+      "value": "Pursues marriages with little restraint, suffers the Lydia crisis intensely, and celebrates the final matches without deeper change."
+    },
+    {
+      "fieldId": "relationships",
+      "value": "Lydia: indulged favourite. Jane and Elizabeth: daughters whose courtships she publicizes. Mr Bennet: spouse who retreats into mockery."
+    },
+    {
+      "fieldId": "firstAppearance",
+      "value": "Chapter 1 at Longbourn."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "George Wickham",
+  "fields": [
+    {
+      "fieldId": "appearance",
+      "value": "Handsome, polished, and immediately engaging in address."
+    },
+    {
+      "fieldId": "personality",
+      "value": "Charming, adaptable, resentful, self-indulgent, and skilled at turning partial truth into persuasive grievance."
+    },
+    {
+      "fieldId": "motivation",
+      "value": "To secure pleasure, money, status, and revenge while avoiding responsibility for past choices."
+    },
+    {
+      "fieldId": "background",
+      "value": "Son of Pemberley’s late steward; educated with Darcy’s support and once intended for a church living."
+    },
+    {
+      "fieldId": "age",
+      "value": "Not stated precisely; near Darcy’s generation."
+    },
+    {
+      "fieldId": "occupation",
+      "value": "Militia officer; later receives a commission in the regular army."
+    },
+    {
+      "fieldId": "storyRole",
+      "value": "False romantic alternative and catalyst for the novel’s major reputational crisis."
+    },
+    {
+      "fieldId": "family",
+      "value": "Godson of Darcy’s father; son of the former Pemberley steward."
+    },
+    {
+      "fieldId": "residence",
+      "value": "Moves with the militia; later stationed in the north with Lydia."
+    },
+    {
+      "fieldId": "arc",
+      "value": "His appealing surface is progressively separated from his conduct; the marriage to Lydia limits scandal without reforming him."
+    },
+    {
+      "fieldId": "relationships",
+      "value": "Darcy: childhood connection turned grievance. Elizabeth: wins and loses her confidence. Lydia: elopes and marries. Georgiana: attempted elopement in the past."
+    },
+    {
+      "fieldId": "firstAppearance",
+      "value": "Chapter 15 in Meryton."
+    }
+  ]
+}

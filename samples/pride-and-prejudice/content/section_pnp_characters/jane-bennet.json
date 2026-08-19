@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "Jane Bennet",
+  "fields": [
+    {
+      "fieldId": "appearance",
+      "value": "The eldest Bennet sister and widely admired for her beauty and gentle expression."
+    },
+    {
+      "fieldId": "personality",
+      "value": "Warm, modest, generous, composed, and reluctant to suspect ill motives."
+    },
+    {
+      "fieldId": "motivation",
+      "value": "To love without bitterness and to think well of others while protecting private feeling."
+    },
+    {
+      "fieldId": "background",
+      "value": "Eldest of the five Bennet daughters and Elizabeth’s closest confidante."
+    },
+    {
+      "fieldId": "age",
+      "value": "Not stated precisely; the eldest Bennet daughter and a young adult."
+    },
+    {
+      "fieldId": "occupation",
+      "value": "Gentlewoman; no paid occupation."
+    },
+    {
+      "fieldId": "storyRole",
+      "value": "Half of the principal parallel romance and a moral counterpoint to Elizabeth’s sharper judgment."
+    },
+    {
+      "fieldId": "family",
+      "value": "Daughter of Mr and Mrs Bennet; especially close to Elizabeth."
+    },
+    {
+      "fieldId": "residence",
+      "value": "Longbourn; later an estate near Pemberley with Bingley."
+    },
+    {
+      "fieldId": "arc",
+      "value": "Endures separation without surrendering generosity, then accepts Bingley when he returns with independent purpose."
+    },
+    {
+      "fieldId": "relationships",
+      "value": "Bingley: mutual affection. Elizabeth: intimate sister. Caroline: misplaced trust followed by clearer understanding."
+    },
+    {
+      "fieldId": "firstAppearance",
+      "value": "Chapter 1 within the Bennet family."
+    }
+  ]
+}
