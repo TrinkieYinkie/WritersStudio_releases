@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/writersstudio-icon.png" alt="WritersStudio icon" width="112" />
+
 # WritersStudio
 
 ### Build the world. Shape the story. Keep every word yours.
@@ -18,7 +20,7 @@ A calm, local-first desktop studio for novels and long-form fiction.
 <!--
 SCREENSHOT 1 — HERO
 Place one wide, uncluttered workspace screenshot here.
-Suggested file: assets/writersstudio-workspace.webp
+Suggested file: assets/screenshots/writersstudio-workspace.webp
 Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
 Show: a realistic novel project, the Explorer, 2–3 open tabs, and the editor in a polished theme.
 Avoid: empty states, menus covering the UI, tiny text, or personal/test data.
@@ -26,7 +28,7 @@ Avoid: empty states, menus covering the UI, tiny text, or personal/test data.
 After adding the file, remove the comment markers around this block:
 
 <p align="center">
-  <img src="./assets/writersstudio-workspace.webp" alt="A novel project open in the WritersStudio desktop workspace" width="100%" />
+  <img src="./assets/screenshots/writersstudio-workspace.webp" alt="A novel project open in the WritersStudio desktop workspace" width="100%" />
 </p>
 -->
 
@@ -49,7 +51,7 @@ Git provides the foundation under the hood; WritersStudio presents it as a writi
 <!--
 SCREENSHOT 2 — HISTORY
 Place one focused History screenshot here.
-Suggested file: assets/writersstudio-history.webp
+Suggested file: assets/screenshots/writersstudio-history.webp
 Recommended crop: approximately 3:2, 1400–1800 px wide.
 Show: several clearly named save points, two visible story branches, and the preview/details area.
 Keep the graph readable; five to eight points are more persuasive than a dense stress-test history.
@@ -57,7 +59,7 @@ Keep the graph readable; five to eight points are more persuasive than a dense s
 After adding the file, remove the comment markers around this block:
 
 <p align="center">
-  <img src="./assets/writersstudio-history.webp" alt="Local save points and story branches in WritersStudio History" width="100%" />
+  <img src="./assets/screenshots/writersstudio-history.webp" alt="Local save points and story branches in WritersStudio History" width="100%" />
 </p>
 -->
 
@@ -84,7 +86,7 @@ Open a character beside the manuscript, trace events across the visual timeline,
 <!--
 SCREENSHOT 3 — STORY OVERVIEW
 Use one split-view screenshot instead of separate Character and Timeline images.
-Suggested file: assets/writersstudio-story-overview.webp
+Suggested file: assets/screenshots/writersstudio-story-overview.webp
 Recommended crop: 16:9 or 16:10, 1600–2000 px wide.
 Show: the visual Timeline in one group and a complete Character profile in the other.
 Use the same project, theme, window size, and data style as the hero screenshot.
@@ -92,7 +94,7 @@ Use the same project, theme, window size, and data style as the hero screenshot.
 After adding the file, remove the comment markers around this block:
 
 <p align="center">
-  <img src="./assets/writersstudio-story-overview.webp" alt="A story timeline and character profile shown side by side in WritersStudio" width="100%" />
+  <img src="./assets/screenshots/writersstudio-story-overview.webp" alt="A story timeline and character profile shown side by side in WritersStudio" width="100%" />
 </p>
 -->
 
