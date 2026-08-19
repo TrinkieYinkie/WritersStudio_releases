@@ -18,7 +18,7 @@ A calm, local-first desktop studio for novels and long-form fiction.
 </div>
 
 <p align="center">
-  <img src="./assets/screenshots/writersstudio-manuscript-workspace.webp" alt="Project notes and a Pride and Prejudice manuscript chapter open side by side in WritersStudio" width="100%" />
+  <img src="./assets/screenshots/writersstudio-manuscript-workspace.webp" alt="A Pride and Prejudice manuscript chapter open in the WritersStudio editor" width="100%" />
 </p>
 
 ## One place for the entire story
