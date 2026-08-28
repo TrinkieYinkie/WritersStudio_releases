@@ -1800,12 +1800,42 @@ h1 em {
   font-size: clamp(4rem, 9vw, 8.8rem);
 }
 
-.final-cta .button {
-  width: max-content;
+.final-actions {
+  width: min(100%, 47rem);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.75rem;
   margin: 2.4rem auto 0;
 }
 
-.final-cta-copy > p:last-child {
+.final-cta .button {
+  width: max-content;
+  margin: 0;
+}
+
+.button-sample {
+  border-color: rgba(251, 248, 241, 0.28);
+  color: var(--paper-bright);
+  background: rgba(251, 248, 241, 0.06);
+}
+
+.button-sample:hover {
+  border-color: rgba(251, 248, 241, 0.5);
+  color: var(--paper-bright);
+  background: rgba(251, 248, 241, 0.12);
+  transform: translateY(-2px);
+}
+
+.final-sample-note {
+  max-width: 42rem;
+  margin: 1.15rem auto 0;
+  color: rgba(251, 248, 241, 0.62);
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.final-promises {
   margin: 1.2rem 0 0;
   color: rgba(251, 248, 241, 0.45);
   font-size: 0.62rem;
@@ -2940,6 +2970,10 @@ html[data-theme="dark"] .site-footer {
 
   .final-cta .button {
     width: 100%;
+  }
+
+  .final-actions {
+    flex-direction: column;
   }
 
   .site-footer {

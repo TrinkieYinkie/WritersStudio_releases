@@ -97,17 +97,20 @@ Open a character beside the manuscript, trace events across the visual timeline,
 
 ## Explore a complete sample project
 
-The repository includes a ready-to-open WritersStudio edition of Jane Austen's
-_Pride and Prejudice_: the complete 61-chapter novel in three volumes, plus
-modern demo drafts, outlines, 15 character profiles, and a 36-event story
-timeline with relationship threads and links back to the manuscript.
+The standalone sample repository contains a ready-to-open WritersStudio
+edition of Jane Austen's _Pride and Prejudice_: the complete 61-chapter novel
+in three volumes, plus modern demo drafts, outlines, 15 character profiles, a
+36-event story timeline, and an illustrative version history.
 
-**[Browse the Pride and Prejudice sample](./samples/pride-and-prejudice/)**
+**[Get the Pride and Prejudice sample on GitHub](https://github.com/TrinkieYinkie/WritersStudio_sample_project)**
 
-The novel is public domain. Supplemental planning material was created for
-this sample and is clearly separated from Austen's text. Copy the sample folder
-to another writable location before opening it; the sample guide explains why
-and provides exact source provenance.
+Install WritersStudio before opening the sample. Clone the sample repository
+to keep its Git-backed version history; GitHub's Download ZIP action provides
+the project files without `.git` and therefore without that history.
+
+The novel is public domain. Supplemental planning material and the sample
+history were created for this demonstration and are clearly separated from
+Austen's text. The sample repository documents the exact source provenance.
 
 ## Download WritersStudio
 
