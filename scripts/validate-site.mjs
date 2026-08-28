@@ -68,9 +68,8 @@ const requiredHtmlPatterns = [
   /<a class="text-link" href="#inside"><span data-i18n="hero\.seeHow">/u,
   /<a class="scroll-cue" href="#inside">/u,
   /<section class="trust-strip" id="inside"/u,
-  /href="https:\/\/github\.com\/TrinkieYinkie\/WritersStudio_sample_project"/u,
-  /data-i18n="final\.sample">Get the sample on GitHub/u,
-  /data-i18n="final\.sampleNote">Install WritersStudio first\./u,
+  /data-i18n="final\.titleSecond">from scratch\.<\/span>/u,
+  /data-i18n="final\.startNote">Choose Empty project when WritersStudio opens\./u,
   /data-theme-toggle/u,
   /class="theme-shot theme-shot-light"/u,
   /class="theme-shot theme-shot-dark"/u,
@@ -88,6 +87,11 @@ for (const pattern of requiredHtmlPatterns) {
 }
 assert.doesNotMatch(html, /samples\/pride-and-prejudice/u, 'The landing must not link to the removed embedded sample.')
 assert.doesNotMatch(html, /data-i18n="split\.sample"/u, 'The obsolete inline sample action must stay removed.')
+assert.doesNotMatch(
+  html,
+  /WritersStudio_sample_project|data-i18n="(?:final|footer)\.sample/u,
+  'The landing must not advertise or link to the standalone sample project.'
+)
 assert.match(readme, /https:\/\/github\.com\/TrinkieYinkie\/WritersStudio_sample_project/u)
 await assert.rejects(
   access(resolve(repositoryRoot, 'samples/pride-and-prejudice')),

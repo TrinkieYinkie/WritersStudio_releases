@@ -1814,20 +1814,7 @@ h1 em {
   margin: 0;
 }
 
-.button-sample {
-  border-color: rgba(251, 248, 241, 0.28);
-  color: var(--paper-bright);
-  background: rgba(251, 248, 241, 0.06);
-}
-
-.button-sample:hover {
-  border-color: rgba(251, 248, 241, 0.5);
-  color: var(--paper-bright);
-  background: rgba(251, 248, 241, 0.12);
-  transform: translateY(-2px);
-}
-
-.final-sample-note {
+.final-start-note {
   max-width: 42rem;
   margin: 1.15rem auto 0;
   color: rgba(251, 248, 241, 0.62);

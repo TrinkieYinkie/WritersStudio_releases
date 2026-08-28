@@ -16,8 +16,8 @@ screens rather than relying on decorative mockups.
 - Primary audience: novelists and long-form fiction writers who have outgrown a
   single document but do not want a complex project-management tool.
 - Primary action: download the latest compatible WritersStudio release.
-- Secondary actions: inspect the product, choose an older release, open the
-  sample project, or visit GitHub release notes.
+- Secondary actions: inspect the product, choose an older release, or visit
+  GitHub release notes.
 - Positioning: direct, capable, stored on the user's computer, and permanently free for the desktop
   application. A future optional WritersStudio Cloud service may be paid, but it
   is not required for local writing.
@@ -114,7 +114,7 @@ screens rather than relying on decorative mockups.
   automatic backup, source availability, or analytics behavior that is not in
   the current product contract.
 - Windows must be described as an unsigned early-access beta and macOS as in
-  development. The History capture must be labelled as an illustrative sample,
+  development. The History capture must be labelled as an illustrative demo,
   not an authentic record of Jane Austen's writing process.
 
 ## Verification

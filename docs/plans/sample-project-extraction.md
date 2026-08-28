@@ -4,8 +4,9 @@
 
 Move the complete Pride and Prejudice sample out of the releases repository so
 the sample repository itself is the WritersStudio project and its Git history
-is the history shown by the app. Replace every local sample link with one clear
-GitHub entry point and explain that WritersStudio must be installed first.
+is the history shown by the app. Keep its GitHub entry point in the repository
+README, where technical users can find the install-first instructions without
+adding sample-project decisions to the public landing page.
 
 ## Stages
 
@@ -42,8 +43,10 @@ GitHub entry point and explain that WritersStudio must be installed first.
 - The standalone repository is a complete, openable WritersStudio project with
   an illustrative English Git history and alternate branch.
 - The releases repository no longer contains the sample project.
-- The landing has a visible GitHub sample action and clear install-first copy.
-- README and all three locales point to the standalone repository.
+- The landing does not advertise or link to the standalone sample; its final
+  action explains that a new project can be created from scratch.
+- README points to the standalone repository and contains the install-first
+  instructions.
 - Both task branches are clean, validated, and not pushed.
 
 ## Completion
