@@ -45,3 +45,11 @@ GitHub entry point and explain that WritersStudio must be installed first.
 - The landing has a visible GitHub sample action and clear install-first copy.
 - README and all three locales point to the standalone repository.
 - Both task branches are clean, validated, and not pushed.
+
+## Completion
+
+- Standalone project: `feature/sample-project-history` at `1516219`, with the
+  alternate `draft/quieter-pemberley-reunion` branch at `64a310b`.
+- Landing integration: `feature/writersstudio-landing` through merge commit
+  `2f0af06`.
+- No repository was pushed and neither `main` branch was changed locally.
