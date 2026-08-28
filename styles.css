@@ -471,16 +471,37 @@ h1 em {
   font-weight: 750;
 }
 
+.hero-actions .text-link {
+  color: var(--ink-soft);
+  font-weight: 650;
+  opacity: 0.68;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.hero-actions .text-link:hover,
+.hero-actions .text-link:focus-visible {
+  color: var(--ink);
+  opacity: 1;
+}
+
 .hero-promises {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem 1.2rem;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: max-content;
+  max-width: 100%;
   margin: 1.8rem 0 0;
   padding: 0;
   color: var(--ink-soft);
   font-size: 0.72rem;
   font-weight: 650;
   list-style: none;
+}
+
+.hero-promises li {
+  display: flex;
+  align-items: baseline;
 }
 
 .hero-promises li > span[aria-hidden="true"] {
@@ -633,7 +654,7 @@ h1 em {
 
 .scroll-cue {
   position: absolute;
-  bottom: clamp(3rem, 5vh, 4.25rem);
+  bottom: clamp(2.1rem, 3vh, 2.75rem);
   left: 50%;
   display: flex;
   align-items: center;
