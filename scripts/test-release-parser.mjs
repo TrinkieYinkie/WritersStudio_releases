@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { classifyReleaseAsset, collectPlatformReleases } from '../app.js'
+import { classifyReleaseAsset, collectPlatformReleases, selectInitialLocale } from '../app.js'
 
 const githubAsset = (name, size = 42_000_000) => ({
   browser_download_url: `https://github.com/TrinkieYinkie/WritersStudio_releases/releases/download/v1.2.0/${name}`,
@@ -58,4 +58,10 @@ assert.deepEqual(macos.map((release) => release.tag), ['v1.2.0'])
 assert.equal(collectPlatformReleases([], 'windows').length, 0)
 assert.equal(collectPlatformReleases(releases, 'linux').length, 0)
 
-console.log('Release parser fixtures passed · Windows, macOS, drafts, metadata, ordering, and empty states.')
+assert.equal(selectInitialLocale({ storedLocale: 'es', deviceLocales: ['ru-RU'] }), 'es')
+assert.equal(selectInitialLocale({ deviceLocales: ['ru-RU', 'en-US'] }), 'ru')
+assert.equal(selectInitialLocale({ deviceLocales: ['es-MX'] }), 'es')
+assert.equal(selectInitialLocale({ deviceLocales: ['de-DE', 'fr-FR'] }), 'en')
+assert.equal(selectInitialLocale({ storedLocale: 'de', deviceLocales: ['es-ES'] }), 'es')
+
+console.log('Release parser fixtures passed · platforms, drafts, metadata, ordering, empty states, and locale selection.')

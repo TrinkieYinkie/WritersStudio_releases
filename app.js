@@ -1,27 +1,98 @@
 const RELEASES_API = 'https://api.github.com/repos/TrinkieYinkie/WritersStudio_releases/releases?per_page=100'
 const RELEASES_PAGE = 'https://github.com/TrinkieYinkie/WritersStudio_releases/releases'
 const GITHUB_HOSTS = new Set(['github.com', 'objects.githubusercontent.com'])
+const LOCALES_URL = 'locales.json'
+const LOCALE_STORAGE_KEY = 'writersstudio.locale'
+const DEFAULT_LOCALE = 'en'
+const localeState = {
+  catalog: undefined,
+  locale: DEFAULT_LOCALE,
+  messages: Object.freeze({})
+}
+const releaseState = {
+  count: 0,
+  status: 'idle',
+  platforms: {
+    windows: [],
+    macos: []
+  }
+}
 
 const platformCopy = Object.freeze({
   windows: Object.freeze({
-    label: 'Windows',
-    emptyTitle: 'Windows public beta',
-    emptyVersion: 'First public build coming soon',
-    emptyDetail: '64-bit Windows · installer from GitHub Releases',
-    downloadLabel: 'Download for Windows',
-    releasesLabel: 'View Windows releases',
-    olderEmpty: 'No older Windows releases are published yet.'
+    labelKey: 'platform.windows',
+    emptyTitleKey: 'release.windowsTitle',
+    emptyVersionKey: 'dynamic.windowsEmptyVersion',
+    emptyDetailKey: 'release.windowsDetail',
+    downloadKey: 'dynamic.downloadWindows',
+    releasesKey: 'release.windowsView',
+    olderEmptyKey: 'release.windowsOlderEmpty'
   }),
   macos: Object.freeze({
-    label: 'macOS',
-    emptyTitle: 'WritersStudio for macOS',
-    emptyVersion: 'Not published yet',
-    emptyDetail: 'The page is ready for the first official macOS build.',
-    downloadLabel: 'Download for macOS',
-    releasesLabel: 'View macOS releases',
-    olderEmpty: 'No macOS releases are published yet.'
+    labelKey: 'platform.macos',
+    emptyTitleKey: 'release.macosTitle',
+    emptyVersionKey: 'release.macosVersion',
+    emptyDetailKey: 'release.macosDetail',
+    downloadKey: 'dynamic.downloadMacos',
+    releasesKey: 'release.macosView',
+    olderEmptyKey: 'release.macosOlderEmpty'
   })
 })
+
+const fallbackMessages = Object.freeze({
+  'dynamic.apiUnavailable': 'GitHub release data is unavailable right now. The official Releases page remains available.',
+  'dynamic.downloadMacos': 'Download for macOS',
+  'dynamic.downloadWindows': 'Download for Windows',
+  'dynamic.getVersion': 'Get {version}',
+  'dynamic.latestBeta': 'Latest public beta',
+  'dynamic.latestStable': 'Latest stable release',
+  'dynamic.loadedMany': 'Loaded directly from the official GitHub repository · {count} public releases',
+  'dynamic.loadedOne': 'Loaded directly from the official GitHub repository · 1 public release',
+  'dynamic.macosEmptyVersion': 'Not published yet',
+  'dynamic.noPublicBuild': 'No public build is published yet',
+  'dynamic.noPublicReleases': 'No public releases yet. This page will update automatically when the first one is published.',
+  'dynamic.officialRelease': 'Official {platform} release',
+  'dynamic.releaseUnavailable': 'Could not reach GitHub · try the official releases page',
+  'dynamic.windowsEmptyVersion': 'First public build coming soon',
+  'nav.getFree': 'Get it free',
+  'platform.macos': 'macOS',
+  'platform.windows': 'Windows',
+  'release.macosDetail': 'The page is ready for the first official macOS build.',
+  'release.macosOlderEmpty': 'No macOS releases are published yet.',
+  'release.macosTitle': 'WritersStudio for macOS',
+  'release.macosVersion': 'Not published yet',
+  'release.macosView': 'View macOS releases',
+  'release.windowsDetail': '64-bit Windows · installer from GitHub Releases',
+  'release.windowsOlderEmpty': 'No older Windows releases are published yet.',
+  'release.windowsTitle': 'Windows public beta',
+  'release.windowsView': 'View Windows releases'
+})
+
+function translate(key, values = {}) {
+  const template = localeState.messages[key] ?? fallbackMessages[key] ?? key
+  return Object.entries(values).reduce(
+    (result, [name, value]) => result.replaceAll(`{${name}}`, String(value)),
+    template
+  )
+}
+
+export function selectInitialLocale({
+  storedLocale,
+  deviceLocales = [],
+  supportedLocales = ['en', 'ru', 'es'],
+  defaultLocale = DEFAULT_LOCALE
+}) {
+  const supported = new Set(supportedLocales.map((locale) => locale.toLowerCase()))
+  const normalize = (value) => typeof value === 'string' ? value.toLowerCase().split('-')[0] : undefined
+  const stored = normalize(storedLocale)
+  if (stored && supported.has(stored)) return stored
+  for (const candidate of deviceLocales) {
+    const normalized = normalize(candidate)
+    if (normalized && supported.has(normalized)) return normalized
+  }
+  const normalizedDefault = normalize(defaultLocale)
+  return normalizedDefault && supported.has(normalizedDefault) ? normalizedDefault : supportedLocales[0]
+}
 
 function safeGithubUrl(value, fallback = RELEASES_PAGE) {
   try {
@@ -121,12 +192,19 @@ function formatBytes(value) {
 function formatDate(value) {
   const date = new Date(value)
   if (Number.isNaN(date.valueOf())) return undefined
-  return new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric' }).format(date)
+  const dateLocales = { en: 'en', ru: 'ru', es: 'es' }
+  return new Intl.DateTimeFormat(dateLocales[localeState.locale] ?? 'en', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  }).format(date)
 }
 
 function releaseDetail(release, asset) {
   const parts = [asset.architecture, formatBytes(asset.size), formatDate(release.publishedAt)].filter(Boolean)
-  return parts.length > 0 ? parts.join(' · ') : `Official ${platformCopy[asset.platform].label} release`
+  return parts.length > 0
+    ? parts.join(' · ')
+    : translate('dynamic.officialRelease', { platform: translate(platformCopy[asset.platform].labelKey) })
 }
 
 function createReleaseMenuItem(release, asset) {
@@ -137,7 +215,7 @@ function createReleaseMenuItem(release, asset) {
   const version = document.createElement('strong')
   version.textContent = release.tag
   const size = document.createElement('span')
-  size.textContent = formatBytes(asset.size) ?? platformCopy[asset.platform].label
+  size.textContent = formatBytes(asset.size) ?? translate(platformCopy[asset.platform].labelKey)
   const detail = document.createElement('span')
   detail.textContent = [asset.architecture, formatDate(release.publishedAt), asset.name].filter(Boolean).join(' · ')
 
@@ -161,22 +239,22 @@ function renderPlatform(panel, platform, releases) {
 
   if (!latest) {
     statusLine?.classList.remove('is-ready')
-    if (status) status.textContent = 'No public build is published yet'
-    if (title) title.textContent = copy.emptyTitle
-    if (version) version.textContent = copy.emptyVersion
-    if (detail) detail.textContent = copy.emptyDetail
+    if (status) status.textContent = translate('dynamic.noPublicBuild')
+    if (title) title.textContent = translate(copy.emptyTitleKey)
+    if (version) version.textContent = translate(copy.emptyVersionKey)
+    if (detail) detail.textContent = translate(copy.emptyDetailKey)
     if (download) download.href = RELEASES_PAGE
-    if (downloadText) downloadText.textContent = copy.releasesLabel
+    if (downloadText) downloadText.textContent = translate(copy.releasesKey)
     if (notes) notes.href = RELEASES_PAGE
   } else {
     const primaryAsset = latest.assets[0]
     statusLine?.classList.add('is-ready')
-    if (status) status.textContent = latest.prerelease ? 'Latest public beta' : 'Latest stable release'
-    if (title) title.textContent = `${copy.label} ${latest.tag}`
+    if (status) status.textContent = translate(latest.prerelease ? 'dynamic.latestBeta' : 'dynamic.latestStable')
+    if (title) title.textContent = `${translate(copy.labelKey)} ${latest.tag}`
     if (version) version.textContent = latest.name === latest.tag ? latest.tag : latest.name
     if (detail) detail.textContent = releaseDetail(latest, primaryAsset)
     if (download) download.href = primaryAsset.url
-    if (downloadText) downloadText.textContent = copy.downloadLabel
+    if (downloadText) downloadText.textContent = translate(copy.downloadKey)
     if (notes) notes.href = latest.url
   }
 
@@ -186,7 +264,7 @@ function renderPlatform(panel, platform, releases) {
   if (older.length === 0) {
     const empty = document.createElement('p')
     empty.dataset.releaseMenuEmpty = ''
-    empty.textContent = copy.olderEmpty
+    empty.textContent = translate(copy.olderEmptyKey)
     menu.append(empty)
     menuButton.disabled = true
     menuButton.setAttribute('aria-disabled', 'true')
@@ -197,6 +275,193 @@ function renderPlatform(panel, platform, releases) {
   menuButton.removeAttribute('aria-disabled')
   for (const release of older) {
     for (const asset of release.assets) menu.append(createReleaseMenuItem(release, asset))
+  }
+}
+
+function storedLocale() {
+  try {
+    return window.localStorage.getItem(LOCALE_STORAGE_KEY)
+  } catch {
+    return undefined
+  }
+}
+
+function persistLocale(locale) {
+  try {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale)
+  } catch {
+    // The selected language still applies for this page when storage is unavailable.
+  }
+}
+
+function renderReleaseState() {
+  const apiStatus = document.querySelector('[data-api-status]')
+  const heroDownload = document.querySelector('[data-hero-download]')
+  const headerDownload = document.querySelector('[data-header-download]')
+
+  if (releaseState.status === 'idle') return
+
+  for (const platform of Object.keys(releaseState.platforms)) {
+    const panel = document.querySelector(`[data-platform-panel="${platform}"]`)
+    if (panel) renderPlatform(panel, platform, releaseState.platforms[platform])
+  }
+
+  if (releaseState.status === 'error') {
+    if (apiStatus) apiStatus.textContent = translate('dynamic.apiUnavailable')
+    for (const panel of document.querySelectorAll('[data-platform-panel]')) {
+      const status = panel.querySelector('[data-release-status]')
+      if (status) status.textContent = translate('dynamic.releaseUnavailable')
+    }
+  } else if (apiStatus) {
+    apiStatus.textContent = releaseState.count === 0
+      ? translate('dynamic.noPublicReleases')
+      : translate(releaseState.count === 1 ? 'dynamic.loadedOne' : 'dynamic.loadedMany', {
+          count: releaseState.count
+        })
+  }
+
+  const current = releaseState.platforms[detectedPlatform()][0]
+  if (current) {
+    const primaryAsset = current.assets[0]
+    if (heroDownload) heroDownload.href = primaryAsset.url
+    if (headerDownload) {
+      headerDownload.href = primaryAsset.url
+      headerDownload.textContent = translate('dynamic.getVersion', { version: current.tag })
+    }
+  } else {
+    if (heroDownload) heroDownload.href = '#download'
+    if (headerDownload) {
+      headerDownload.href = '#download'
+      headerDownload.textContent = translate('nav.getFree')
+    }
+  }
+}
+
+function applyLocale(locale, { persist = false } = {}) {
+  const entry = localeState.catalog?.locales?.[locale]
+  if (!entry) return
+
+  localeState.locale = locale
+  localeState.messages = entry.messages
+  document.documentElement.lang = locale
+  document.title = entry.pageTitle
+  const description = document.querySelector('meta[name="description"]')
+  if (description) description.content = entry.pageDescription
+
+  for (const element of document.querySelectorAll('[data-i18n]')) {
+    element.textContent = translate(element.dataset.i18n)
+  }
+  for (const element of document.querySelectorAll('[data-i18n-aria-label]')) {
+    element.setAttribute('aria-label', translate(element.dataset.i18nAriaLabel))
+  }
+  for (const element of document.querySelectorAll('[data-i18n-alt]')) {
+    element.setAttribute('alt', translate(element.dataset.i18nAlt))
+  }
+
+  const code = document.querySelector('[data-language-code]')
+  if (code) code.textContent = entry.shortLabel
+  for (const option of document.querySelectorAll('[data-language-option]')) {
+    option.setAttribute('aria-checked', String(option.dataset.languageOption === locale))
+  }
+  if (persist) persistLocale(locale)
+  renderReleaseState()
+}
+
+async function loadLocaleCatalog() {
+  const controller = new AbortController()
+  const timeout = window.setTimeout(() => controller.abort(), 5_000)
+  try {
+    const response = await fetch(LOCALES_URL, { signal: controller.signal })
+    if (!response.ok) throw new Error(`Locales returned ${response.status}.`)
+    const catalog = await response.json()
+    if (!catalog || typeof catalog !== 'object' || !catalog.locales) throw new TypeError('Locales catalog is invalid.')
+    return catalog
+  } finally {
+    window.clearTimeout(timeout)
+  }
+}
+
+function closeLanguageMenu({ returnFocus = false } = {}) {
+  const button = document.querySelector('[data-language-button]')
+  const menu = document.querySelector('[data-language-menu]')
+  if (!button || !menu) return
+  button.setAttribute('aria-expanded', 'false')
+  menu.hidden = true
+  if (returnFocus) button.focus()
+}
+
+function initializeLanguagePicker() {
+  const picker = document.querySelector('[data-language-picker]')
+  const button = picker?.querySelector('[data-language-button]')
+  const menu = picker?.querySelector('[data-language-menu]')
+  const options = [...(picker?.querySelectorAll('[data-language-option]') ?? [])]
+  if (!picker || !button || !menu || options.length === 0) return
+
+  const open = ({ focusSelected = false } = {}) => {
+    button.setAttribute('aria-expanded', 'true')
+    menu.hidden = false
+    if (focusSelected) {
+      options.find((option) => option.dataset.languageOption === localeState.locale)?.focus()
+    }
+  }
+
+  button.addEventListener('click', () => {
+    if (button.getAttribute('aria-expanded') === 'true') closeLanguageMenu()
+    else open()
+  })
+  button.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowDown') return
+    event.preventDefault()
+    open({ focusSelected: true })
+  })
+
+  options.forEach((option, index) => {
+    option.addEventListener('click', () => {
+      applyLocale(option.dataset.languageOption, { persist: true })
+      closeLanguageMenu({ returnFocus: true })
+    })
+    option.addEventListener('keydown', (event) => {
+      let nextIndex
+      if (event.key === 'ArrowDown') nextIndex = (index + 1) % options.length
+      if (event.key === 'ArrowUp') nextIndex = (index - 1 + options.length) % options.length
+      if (event.key === 'Home') nextIndex = 0
+      if (event.key === 'End') nextIndex = options.length - 1
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeLanguageMenu({ returnFocus: true })
+        return
+      }
+      if (nextIndex === undefined) return
+      event.preventDefault()
+      options[nextIndex].focus()
+    })
+  })
+
+  document.addEventListener('pointerdown', (event) => {
+    if (!picker.contains(event.target)) closeLanguageMenu()
+  })
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+      closeLanguageMenu({ returnFocus: true })
+    }
+  })
+}
+
+async function initializeLocalization() {
+  const button = document.querySelector('[data-language-button]')
+  try {
+    localeState.catalog = await loadLocaleCatalog()
+    const locale = selectInitialLocale({
+      storedLocale: storedLocale(),
+      deviceLocales: navigator.languages ?? [navigator.language],
+      supportedLocales: localeState.catalog.supportedLocales,
+      defaultLocale: localeState.catalog.defaultLocale ?? DEFAULT_LOCALE
+    })
+    applyLocale(locale)
+    initializeLanguagePicker()
+  } catch {
+    if (button) button.disabled = true
+    document.documentElement.lang = DEFAULT_LOCALE
   }
 }
 
@@ -377,7 +642,6 @@ function initializeHeader() {
 }
 
 async function loadReleases() {
-  const status = document.querySelector('[data-api-status]')
   const controller = new AbortController()
   const timeout = window.setTimeout(() => controller.abort(), 10_000)
 
@@ -390,52 +654,34 @@ async function loadReleases() {
     const releases = await response.json()
     if (!Array.isArray(releases)) throw new TypeError('GitHub releases response is not an array.')
 
-    const platformReleases = {
+    releaseState.platforms = {
       windows: collectPlatformReleases(releases, 'windows'),
       macos: collectPlatformReleases(releases, 'macos')
     }
-
-    for (const platform of Object.keys(platformReleases)) {
-      const panel = document.querySelector(`[data-platform-panel="${platform}"]`)
-      if (panel) renderPlatform(panel, platform, platformReleases[platform])
-    }
-
-    if (status) {
-      const count = releases.filter((release) => release?.draft !== true).length
-      status.textContent = count === 0
-        ? 'No public releases yet. This page will update automatically when the first one is published.'
-        : `Loaded directly from the official GitHub repository · ${count} public ${count === 1 ? 'release' : 'releases'}`
-    }
-
-    const current = platformReleases[detectedPlatform()][0]
-    if (current) {
-      const primaryAsset = current.assets[0]
-      for (const link of document.querySelectorAll('[data-hero-download], [data-header-download]')) {
-        link.href = primaryAsset.url
-        if (link.matches('[data-header-download]')) link.textContent = `Get ${current.tag}`
-      }
-    }
+    releaseState.count = releases.filter((release) => release?.draft !== true).length
+    releaseState.status = 'loaded'
   } catch {
-    if (status) {
-      status.textContent = 'GitHub release data is unavailable right now. The official Releases page remains available.'
-    }
-    for (const panel of document.querySelectorAll('[data-platform-panel]')) {
-      const releaseStatus = panel.querySelector('[data-release-status]')
-      if (releaseStatus) releaseStatus.textContent = 'Could not reach GitHub · try the official releases page'
+    releaseState.count = 0
+    releaseState.status = 'error'
+    releaseState.platforms = {
+      windows: [],
+      macos: []
     }
   } finally {
     window.clearTimeout(timeout)
+    renderReleaseState()
   }
 }
 
-function initializePage() {
+async function initializePage() {
   document.querySelector('[data-current-year]').textContent = String(new Date().getFullYear())
   initializeHeader()
   initializePlatformTabs()
   initializeReleaseMenus()
   initializeStory()
   initializeReveal()
+  await initializeLocalization()
   void loadReleases()
 }
 
-if (typeof document !== 'undefined') initializePage()
+if (typeof document !== 'undefined') void initializePage()

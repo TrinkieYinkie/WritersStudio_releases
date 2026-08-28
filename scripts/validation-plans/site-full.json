@@ -18,6 +18,11 @@
       "timeoutMilliseconds": 30000
     },
     {
+      "name": "Localization catalog",
+      "args": ["scripts/validate-locales.mjs"],
+      "timeoutMilliseconds": 30000
+    },
+    {
       "name": "GitHub release parser fixtures",
       "args": ["scripts/test-release-parser.mjs"],
       "timeoutMilliseconds": 30000

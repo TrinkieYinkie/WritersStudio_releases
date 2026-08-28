@@ -11,6 +11,7 @@ const requiredFiles = [
   'assets/og.png',
   'assets/writersstudio-icon.png',
   'index.html',
+  'locales.json',
   'robots.txt',
   'sitemap.xml',
   'styles.css'
@@ -37,10 +38,14 @@ const requiredHtmlPatterns = [
   /role="tablist"/u,
   /role="tabpanel"/u,
   /data-release-menu-button/u,
+  /data-language-picker/u,
+  /data-language-option="ru"/u,
+  /data-language-option="es"/u,
   /Free forever on desktop/u,
   /Git-powered autosaves and story branches/u,
   /Every version\. Zero terminal\./u,
-  /Desktop stays free\./u
+  /Desktop stays free\./u,
+  /data-i18n="cloud\.status">TO BE DONE</u
 ]
 
 for (const pattern of requiredHtmlPatterns) {
@@ -49,6 +54,10 @@ for (const pattern of requiredHtmlPatterns) {
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/u)
 assert.match(css, /@media \(forced-colors: active\)/u)
 assert.match(css, /scrollbar-color/u)
+assert.match(css, /\.eyebrow > span\[aria-hidden="true"\]/u)
+assert.match(css, /\.hero-promises li > span\[aria-hidden="true"\]/u)
+assert.doesNotMatch(css, /\.eyebrow span\s*\{/u, 'Translation wrappers must not inherit the eyebrow marker geometry.')
+assert.doesNotMatch(css, /\.hero-promises span\s*\{/u, 'Translation wrappers must not inherit promise-check styling.')
 assert.equal(cname, 'writersstudio.app')
 assert.match(robots, /Sitemap: https:\/\/writersstudio\.app\/sitemap\.xml/u)
 assert.match(sitemap, /<loc>https:\/\/writersstudio\.app\/<\/loc>/u)

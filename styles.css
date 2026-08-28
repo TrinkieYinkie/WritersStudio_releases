@@ -159,13 +159,114 @@ a:focus-visible {
 }
 
 .header-cta {
-  justify-self: end;
   padding: 0.68rem 1.05rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 750;
   transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.language-picker {
+  position: relative;
+}
+
+.language-picker > button {
+  min-width: 3.25rem;
+  min-height: 2.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: rgba(251, 248, 241, 0.62);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.language-picker > button:hover,
+.language-picker > button[aria-expanded="true"] {
+  border-color: rgba(169, 67, 49, 0.45);
+  color: var(--ink);
+  background: var(--paper-bright);
+}
+
+.language-picker > button span:last-child {
+  color: var(--accent-dark);
+  font-size: 0.85rem;
+  transition: transform 160ms ease;
+}
+
+.language-picker > button[aria-expanded="true"] span:last-child {
+  transform: rotate(180deg);
+}
+
+.language-picker > button:focus-visible,
+.language-menu button:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+.language-menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  min-width: 10rem;
+  padding: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: rgba(251, 248, 241, 0.98);
+  box-shadow: 0 18px 48px rgba(41, 34, 27, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-menu button {
+  position: relative;
+  width: 100%;
+  min-height: 2.45rem;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  border: 0;
+  border-radius: 0.55rem;
+  color: var(--ink-soft);
+  background: transparent;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.language-menu button:hover,
+.language-menu button[aria-checked="true"] {
+  color: var(--ink);
+  background: rgba(227, 111, 83, 0.1);
+}
+
+.language-menu button[aria-checked="true"]::after {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  color: var(--accent-dark);
+  content: "✓";
+  transform: translateY(-50%);
 }
 
 .header-cta:hover {
@@ -214,7 +315,7 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.eyebrow span {
+.eyebrow > span[aria-hidden="true"] {
   width: 1.85rem;
   height: 1px;
   background: currentColor;
@@ -305,7 +406,7 @@ h1 em {
   list-style: none;
 }
 
-.hero-promises span {
+.hero-promises li > span[aria-hidden="true"] {
   margin-right: 0.25rem;
   color: var(--accent-dark);
 }
@@ -1357,6 +1458,41 @@ h1 em {
   font-size: clamp(3.5rem, 6.3vw, 6.5rem);
 }
 
+.cloud-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 1.35rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(169, 67, 49, 0.22);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: rgba(227, 111, 83, 0.08);
+  font-size: 0.6rem;
+}
+
+.cloud-status > span:first-child {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0.25rem rgba(227, 111, 83, 0.12);
+}
+
+.cloud-status strong {
+  color: var(--accent-dark);
+  letter-spacing: 0.09em;
+}
+
+.cloud-status strong + span::before {
+  margin-right: 0.5rem;
+  color: rgba(95, 90, 83, 0.45);
+  content: "·";
+}
+
 .cloud-copy > p:last-child {
   margin-top: 2rem;
 }
@@ -1789,6 +1925,16 @@ h1 em {
     padding: 0.58rem 0.85rem;
   }
 
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .language-picker > button {
+    min-width: 2.75rem;
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+  }
+
   .hero {
     padding: 8.2rem 1rem 4.5rem;
   }
@@ -2033,6 +2179,8 @@ h1 em {
   .free-seal,
   .button,
   .header-cta,
+  .language-picker > button,
+  .language-menu,
   .story-window,
   .download-center,
   .platform-tab,

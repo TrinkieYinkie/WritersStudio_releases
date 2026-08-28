@@ -36,7 +36,20 @@ screens rather than relying on decorative mockups.
    states, and an accessible older-version selector populated from the public
    GitHub Releases API.
 5. **Cloud boundary and FAQ:** make the future optional paid service distinct
-   from the permanently free desktop application.
+   from the permanently free desktop application. Mark Cloud explicitly as
+   `TO BE DONE`; reserve a future support/donation action without publishing an
+   unapproved destination.
+
+## Localization
+
+- Keep all editable interface copy in `locales.json`, synchronized across
+  English, Russian, and Spanish.
+- Use a visitor's saved choice first, then match the device language for `ru`
+  or `es`, and fall back to English for every other device language or failure.
+- Let visitors change the language from an application-owned keyboard-accessible
+  picker and remember that choice locally without an account or network request.
+- Keep English metadata in the static document as the crawler-safe fallback;
+  update page title and description when the runtime locale loads.
 
 ## Visual direction
 
@@ -69,6 +82,8 @@ screens rather than relying on decorative mockups.
   not be mistaken for the primary installer.
 - GitHub is offline, rate-limited, or returns malformed data.
 - The page is opened from `file://`, GitHub Pages, or the custom domain.
+- Local storage is unavailable, the locale file fails to load, or the device
+  reports an unsupported language; the page must remain usable in English.
 - Visitors use keyboard navigation, a screen reader, forced colors, reduced
   motion, a narrow phone, or a short viewport.
 - Marketing claims must not promise macOS availability, cloud functionality,
@@ -94,6 +109,8 @@ screens rather than relying on decorative mockups.
   free forever, and where downloads come from.
 - Windows and macOS have distinct states and older versions are discoverable.
 - Existing real product screenshots drive the scroll narrative.
+- English, Russian, and Spanish copy stays synchronized and the first visit
+  selects a supported device language while defaulting safely to English.
 - The site passes the bounded validation plan and remains usable when GitHub's
   API is unavailable.
 - The only remaining launch inputs are factual release/legal/support details or
