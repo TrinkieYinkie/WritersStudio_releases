@@ -1,0 +1,26 @@
+{
+  "token": "writersstudio-site-full",
+  "heartbeatMilliseconds": 5000,
+  "steps": [
+    {
+      "name": "Browser module syntax",
+      "args": ["--check", "app.js"],
+      "timeoutMilliseconds": 15000
+    },
+    {
+      "name": "Lifecycle scripts syntax",
+      "args": ["--check", "scripts/serve-site.mjs"],
+      "timeoutMilliseconds": 15000
+    },
+    {
+      "name": "Static site contract",
+      "args": ["scripts/validate-site.mjs"],
+      "timeoutMilliseconds": 30000
+    },
+    {
+      "name": "GitHub release parser fixtures",
+      "args": ["scripts/test-release-parser.mjs"],
+      "timeoutMilliseconds": 30000
+    }
+  ]
+}
