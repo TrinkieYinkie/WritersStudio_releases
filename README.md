@@ -8,8 +8,9 @@
 
 A calm, local-first desktop studio for novels and long-form fiction.
 
-[![Public Beta](https://img.shields.io/badge/status-public%20beta-C56C55?style=flat-square)](../../releases/latest)
-![Windows](https://img.shields.io/badge/platform-Windows-56616D?style=flat-square&logo=windows)
+[![Early access](https://img.shields.io/badge/status-early%20access-C56C55?style=flat-square)](../../releases/latest)
+![Windows beta](https://img.shields.io/badge/Windows-beta-56616D?style=flat-square&logo=windows)
+![macOS in development](https://img.shields.io/badge/macOS-in%20development-6D638A?style=flat-square&logo=apple)
 ![Free](https://img.shields.io/badge/WS%20Local-free-60866B?style=flat-square)
 ![No account required](https://img.shields.io/badge/account-not%20required-6D638A?style=flat-square)
 
@@ -17,9 +18,24 @@ A calm, local-first desktop studio for novels and long-form fiction.
 
 </div>
 
+## Every draft stays within reach
+
+WritersStudio keeps a local History for every new project. Create named save
+points, browse earlier versions, preview the past without disturbing the current
+draft, and continue from any point on a separate story branch.
+
+Git provides the foundation under the hood; WritersStudio presents it as a
+writing tool. No command line, account, remote repository, or network connection
+is required.
+
 <p align="center">
-  <img src="./assets/screenshots/writersstudio-manuscript-workspace.webp" alt="A Pride and Prejudice manuscript chapter open in the WritersStudio editor" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/screenshots/writersstudio-history-dark.webp" />
+    <img src="./assets/screenshots/writersstudio-history-light.webp" alt="Local save points and story branches in WritersStudio History" width="100%" />
+  </picture>
 </p>
+
+<p align="center"><sub>Illustrative demo. This revision history was created in WritersStudio for the sample project; it is not an authentic record of Jane Austen's work on <em>Pride and Prejudice</em>.</sub></p>
 
 ## One place for the entire story
 
@@ -31,42 +47,12 @@ WritersStudio brings your manuscript, structure, characters, timeline, notes, an
 | **Tabs and split views**<br>Keep a scene beside its notes, character, or timeline while you write.   | **Project-wide search and replace**<br>Find text across the whole project, with case-sensitive and regular-expression modes. |
 | **Character profiles**<br>Build reusable profiles with custom fields and links to related documents. | **Visual timeline**<br>See events in story order and filter them by narrative thread.                                        |
 
-<details>
-<summary><strong>See more of the workspace</strong></summary>
-
-<br>
-
 <p align="center">
-  <img src="./assets/screenshots/writersstudio-story-overview-split-view.webp" alt="A story timeline and editable story overview open in a horizontal split view" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/screenshots/writersstudio-manuscript-dark.webp" />
+    <img src="./assets/screenshots/writersstudio-manuscript-light.webp" alt="A Pride and Prejudice manuscript chapter open in the WritersStudio editor" width="100%" />
+  </picture>
 </p>
-
-<p align="center">
-  <img src="./assets/screenshots/writersstudio-project-organization.webp" alt="Drafts, outlines, and planning notes organized in the WritersStudio project tree" width="100%" />
-</p>
-
-</details>
-
-## Rewrite without fear
-
-WritersStudio keeps a local History for every new project. Create named save points, browse earlier versions, preview the past without disturbing the current draft, and explore a different direction on a new story branch.
-
-Git provides the foundation under the hood; WritersStudio presents it as a writing tool. No command line, account, remote repository, or network connection is required.
-
-<!--
-SCREENSHOT 2 — HISTORY
-Place one focused History screenshot here.
-Suggested file: assets/screenshots/writersstudio-history.webp
-Recommended crop: approximately 3:2, 1400–1800 px wide.
-Show: several clearly named save points, two visible story branches, and the preview/details area.
-Keep the graph readable; five to eight points are more persuasive than a dense stress-test history.
-Suggested setup: copy the included sample outside this repository, enable History, and create a short alternate revision branch from one Demo Draft.
-
-After adding the file, remove the comment markers around this block:
-
-<p align="center">
-  <img src="./assets/screenshots/writersstudio-history.webp" alt="Local save points and story branches in WritersStudio History" width="100%" />
-</p>
--->
 
 ## Your manuscript stays yours
 
@@ -91,10 +77,16 @@ Open a character beside the manuscript, trace events across the visual timeline,
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="./assets/screenshots/writersstudio-story-timeline.webp" alt="The visual story timeline in WritersStudio" width="100%" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./assets/screenshots/writersstudio-timeline-dark.webp" />
+        <img src="./assets/screenshots/writersstudio-timeline-light.webp" alt="A story point open for editing on the WritersStudio timeline" width="100%" />
+      </picture>
     </td>
     <td width="50%" align="center">
-      <img src="./assets/screenshots/writersstudio-character-gallery.webp" alt="The character gallery focused on Elizabeth Bennet" width="100%" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./assets/screenshots/writersstudio-characters-dark.webp" />
+        <img src="./assets/screenshots/writersstudio-characters-light.webp" alt="The character gallery focused on Elizabeth Bennet" width="100%" />
+      </picture>
     </td>
   </tr>
   <tr>
@@ -119,7 +111,11 @@ and provides exact source provenance.
 
 ## Download WritersStudio
 
-The first public beta is distributed for **Windows** through GitHub Releases.
+WritersStudio is in **early access**. The current **Windows beta** is distributed
+through GitHub Releases and is not digitally signed yet, so Windows may ask you
+to confirm the installer. Download builds only from this official repository.
+
+The **macOS version is in development** and is not available for download yet.
 
 1. Open the **[latest release](../../releases/latest)**.
 2. Download `WritersStudio-<version>-Setup.exe` from **Assets**.
@@ -138,14 +134,14 @@ Preview translations with an explicit English fallback are available for German,
 
 ## What comes next
 
-The first chapter of WritersStudio is deliberately local. Optional **WritersStudio Cloud** is planned for a later release, bringing multi-device sync and off-device backup while keeping the local-first foundation intact.
+The first chapter of WritersStudio is deliberately local. Optional **WritersStudio Cloud** is **TO BE DONE**. It may later provide multi-device sync and off-device backup while keeping the local-first foundation intact. The desktop application will remain free.
 
 ## Frequently asked questions
 
 <details>
 <summary><strong>Is WritersStudio free?</strong></summary>
 
-Yes. WritersStudio Local is free to download and use.
+Yes. WritersStudio Local is free to download and use, and it will remain free.
 
 </details>
 
@@ -173,7 +169,7 @@ No. This public repository hosts official installers, release notes, and product
 <details>
 <summary><strong>Which platforms are supported?</strong></summary>
 
-The first public release supports Windows. Additional platforms may be announced in future release notes.
+The early-access beta is available for Windows. The Windows build is not digitally signed yet. macOS support is in development.
 
 </details>
 

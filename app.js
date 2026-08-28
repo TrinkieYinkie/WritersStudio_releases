@@ -3,6 +3,7 @@ const RELEASES_PAGE = 'https://github.com/TrinkieYinkie/WritersStudio_releases/r
 const GITHUB_HOSTS = new Set(['github.com', 'objects.githubusercontent.com'])
 const LOCALES_URL = 'locales.json'
 const LOCALE_STORAGE_KEY = 'writersstudio.locale'
+const THEME_STORAGE_KEY = 'writersstudio.theme'
 const DEFAULT_LOCALE = 'en'
 const localeState = {
   catalog: undefined,
@@ -57,15 +58,17 @@ const fallbackMessages = Object.freeze({
   'nav.getFree': 'Get it free',
   'platform.macos': 'macOS',
   'platform.windows': 'Windows',
-  'release.macosDetail': 'The page is ready for the first official macOS build.',
+  'release.macosDetail': 'We are working on the first macOS build. There is no macOS download yet.',
   'release.macosOlderEmpty': 'No macOS releases are published yet.',
-  'release.macosTitle': 'WritersStudio for macOS',
-  'release.macosVersion': 'Not published yet',
+  'release.macosTitle': 'macOS — in development',
+  'release.macosVersion': 'Coming later',
   'release.macosView': 'View macOS releases',
-  'release.windowsDetail': '64-bit Windows · installer from GitHub Releases',
+  'release.windowsDetail': '64-bit Windows · unsigned early-access installer from GitHub Releases',
   'release.windowsOlderEmpty': 'No older Windows releases are published yet.',
-  'release.windowsTitle': 'Windows public beta',
-  'release.windowsView': 'View Windows releases'
+  'release.windowsTitle': 'Windows beta',
+  'release.windowsView': 'View Windows releases',
+  'theme.toDark': 'Switch to dark theme',
+  'theme.toLight': 'Switch to light theme'
 })
 
 function translate(key, values = {}) {
@@ -294,6 +297,59 @@ function persistLocale(locale) {
   }
 }
 
+function storedTheme() {
+  try {
+    const theme = window.localStorage.getItem(THEME_STORAGE_KEY)
+    return theme === 'light' || theme === 'dark' ? theme : undefined
+  } catch {
+    return undefined
+  }
+}
+
+function persistTheme(theme) {
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
+  } catch {
+    // The selected theme still applies for this page when storage is unavailable.
+  }
+}
+
+function currentTheme() {
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+}
+
+function updateThemeControl() {
+  const button = document.querySelector('[data-theme-toggle]')
+  if (!button) return
+  const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark'
+  button.setAttribute('aria-label', translate(nextTheme === 'dark' ? 'theme.toDark' : 'theme.toLight'))
+  button.dataset.nextTheme = nextTheme
+}
+
+function applyTheme(theme, { persist = false } = {}) {
+  if (theme !== 'light' && theme !== 'dark') return
+  document.documentElement.dataset.theme = theme
+  document.documentElement.style.colorScheme = theme
+  const themeColor = document.querySelector('meta[name="theme-color"]')
+  if (themeColor) themeColor.content = theme === 'dark' ? '#18171b' : '#f4f1eb'
+  if (persist) persistTheme(theme)
+  updateThemeControl()
+}
+
+function initializeTheme() {
+  const button = document.querySelector('[data-theme-toggle]')
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)')
+  applyTheme(currentTheme())
+  if (button) {
+    button.addEventListener('click', () => {
+      applyTheme(currentTheme() === 'dark' ? 'light' : 'dark', { persist: true })
+    })
+  }
+  systemPreference.addEventListener('change', (event) => {
+    if (!storedTheme()) applyTheme(event.matches ? 'dark' : 'light')
+  })
+}
+
 function renderReleaseState() {
   const apiStatus = document.querySelector('[data-api-status]')
   const heroDownload = document.querySelector('[data-hero-download]')
@@ -364,6 +420,7 @@ function applyLocale(locale, { persist = false } = {}) {
     option.setAttribute('aria-checked', String(option.dataset.languageOption === locale))
   }
   if (persist) persistLocale(locale)
+  updateThemeControl()
   renderReleaseState()
 }
 
@@ -675,6 +732,7 @@ async function loadReleases() {
 
 async function initializePage() {
   document.querySelector('[data-current-year]').textContent = String(new Date().getFullYear())
+  initializeTheme()
   initializeHeader()
   initializePlatformTabs()
   initializeReleaseMenus()

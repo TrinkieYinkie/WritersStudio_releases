@@ -30,6 +30,22 @@
     <meta name="twitter:image" content="https://writersstudio.app/assets/og.png" />
     <meta name="twitter:image:alt" content="WritersStudio: write the book and keep every draft." />
     <link rel="icon" href="assets/writersstudio-icon.png" />
+    <script>
+      (() => {
+        const storageKey = 'writersstudio.theme'
+        let storedTheme
+        try {
+          storedTheme = window.localStorage.getItem(storageKey)
+        } catch {
+          storedTheme = undefined
+        }
+        const theme = storedTheme === 'light' || storedTheme === 'dark'
+          ? storedTheme
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = theme
+        document.documentElement.style.colorScheme = theme
+      })()
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="app.js"></script>
     <title>WritersStudio — autosaves and version history for writers</title>
@@ -50,6 +66,21 @@
       </nav>
 
       <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark theme"
+          data-theme-toggle
+          data-i18n-aria-label="theme.toDark"
+        >
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20 15.6A8.2 8.2 0 0 1 8.4 4a8.5 8.5 0 1 0 11.6 11.6Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3.5" />
+            <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6" />
+          </svg>
+        </button>
         <div class="language-picker" data-language-picker>
           <button
             type="button"
@@ -99,28 +130,44 @@
           </ul>
         </div>
 
-        <div class="hero-stage" aria-label="WritersStudio manuscript workspace preview">
+        <div class="hero-stage" aria-label="WritersStudio version history preview">
           <div class="free-seal" aria-label="Free desktop app" data-i18n-aria-label="hero.freeForever">
             <span data-i18n="hero.free">Free</span>
             <strong data-i18n="hero.forever">for desktop</strong>
           </div>
-          <div class="app-window">
+          <div
+            class="app-window"
+            role="img"
+            aria-label="WritersStudio history showing a main draft, an alternate Pemberley branch, and the selected save point"
+            data-i18n-aria-label="hero.historyAlt"
+          >
             <div class="app-window-bar" aria-hidden="true">
               <span></span><span></span><span></span>
-              <p>PRIDE AND PREJUDICE · CHAPTER 2</p>
+              <p>PRIDE AND PREJUDICE · HISTORY</p>
             </div>
             <img
-              src="assets/screenshots/writersstudio-manuscript-workspace.webp"
-              alt="A Pride and Prejudice manuscript open in the WritersStudio editor"
-              width="1920"
-              height="1280"
+              class="theme-shot theme-shot-light"
+              src="assets/screenshots/writersstudio-history-light.webp"
+              alt=""
+              aria-hidden="true"
+              width="3120"
+              height="2078"
               fetchpriority="high"
+            />
+            <img
+              class="theme-shot theme-shot-dark"
+              src="assets/screenshots/writersstudio-history-dark.webp"
+              alt=""
+              aria-hidden="true"
+              width="3120"
+              height="2080"
             />
           </div>
           <aside class="ownership-note">
             <span class="ownership-note-icon" aria-hidden="true">↘</span>
             <p><strong data-i18n="hero.ownershipTitle">Your project is a folder on your computer.</strong><br /><span data-i18n="hero.ownershipText">Open it, copy it, or back it up with another app.</span></p>
           </aside>
+          <p class="hero-disclaimer"><span aria-hidden="true">*</span> <span data-i18n="hero.historyDisclaimer">Illustrative demo. This revision history was created in WritersStudio for the sample project; it is not an authentic record of Jane Austen's work on Pride and Prejudice.</span></p>
         </div>
 
         <a class="scroll-cue" href="#features">
@@ -165,40 +212,76 @@
               </div>
               <figure class="story-frame is-active" data-story-visual="0">
                 <img
-                  src="assets/screenshots/writersstudio-manuscript-workspace.webp"
+                  class="theme-shot theme-shot-light"
+                  src="assets/screenshots/writersstudio-manuscript-light.webp"
                   alt="A chapter open in the visual manuscript editor"
-                  width="1920"
-                  height="1280"
+                  width="3120"
+                  height="2080"
+                  loading="lazy"
+                />
+                <img
+                  class="theme-shot theme-shot-dark"
+                  src="assets/screenshots/writersstudio-manuscript-dark.webp"
+                  alt="A chapter open in the visual manuscript editor"
+                  width="3120"
+                  height="2080"
                   loading="lazy"
                 />
                 <figcaption data-i18n="story.visualEditor">Visual manuscript editor</figcaption>
               </figure>
               <figure class="story-frame" data-story-visual="1" aria-hidden="true">
                 <img
-                  src="assets/screenshots/writersstudio-project-organization.webp"
+                  class="theme-shot theme-shot-light"
+                  src="assets/screenshots/writersstudio-onboarding-arrange-light.webp"
                   alt="Drafts, outlines, and notes organized in a flexible project tree"
-                  width="1920"
-                  height="1280"
+                  width="3118"
+                  height="2078"
+                  loading="lazy"
+                />
+                <img
+                  class="theme-shot theme-shot-dark"
+                  src="assets/screenshots/writersstudio-onboarding-arrange-dark.webp"
+                  alt="Drafts, outlines, and notes organized in a flexible project tree"
+                  width="3120"
+                  height="2068"
                   loading="lazy"
                 />
                 <figcaption data-i18n="story.visualOrganization">Flexible project organization</figcaption>
               </figure>
               <figure class="story-frame" data-story-visual="2" aria-hidden="true">
                 <img
-                  src="assets/screenshots/writersstudio-character-gallery.webp"
+                  class="theme-shot theme-shot-light"
+                  src="assets/screenshots/writersstudio-characters-light.webp"
                   alt="Character profiles arranged in the WritersStudio character gallery"
-                  width="1920"
-                  height="1280"
+                  width="3118"
+                  height="2080"
+                  loading="lazy"
+                />
+                <img
+                  class="theme-shot theme-shot-dark"
+                  src="assets/screenshots/writersstudio-characters-dark.webp"
+                  alt="Character profiles arranged in the WritersStudio character gallery"
+                  width="3120"
+                  height="2080"
                   loading="lazy"
                 />
                 <figcaption data-i18n="story.visualCharacters">Character gallery</figcaption>
               </figure>
               <figure class="story-frame" data-story-visual="3" aria-hidden="true">
                 <img
-                  src="assets/screenshots/writersstudio-story-timeline.webp"
+                  class="theme-shot theme-shot-light"
+                  src="assets/screenshots/writersstudio-timeline-light.webp"
                   alt="Story events connected across the visual timeline"
-                  width="1920"
-                  height="1280"
+                  width="3120"
+                  height="2080"
+                  loading="lazy"
+                />
+                <img
+                  class="theme-shot theme-shot-dark"
+                  src="assets/screenshots/writersstudio-timeline-dark.webp"
+                  alt="Story events connected across the visual timeline"
+                  width="3120"
+                  height="2080"
                   loading="lazy"
                 />
                 <figcaption data-i18n="story.visualTimeline">Visual story timeline</figcaption>
@@ -333,10 +416,19 @@
         </div>
         <div class="split-image reveal">
           <img
-            src="assets/screenshots/writersstudio-story-overview-split-view.webp"
+            class="theme-shot theme-shot-light"
+            src="assets/screenshots/writersstudio-split-workspace-light.webp"
             alt="A visual story timeline and manuscript notes shown together in a split workspace"
-            width="1920"
-            height="1280"
+            width="3118"
+            height="2080"
+            loading="lazy"
+          />
+          <img
+            class="theme-shot theme-shot-dark"
+            src="assets/screenshots/writersstudio-split-workspace-dark.webp"
+            alt="A visual story timeline and manuscript notes shown together in a split workspace"
+            width="3118"
+            height="2076"
             loading="lazy"
           />
           <span data-i18n="split.caption">Timeline above · draft below</span>
@@ -354,6 +446,10 @@
         </header>
 
         <div class="download-center reveal" data-download-center>
+          <p class="early-access-banner">
+            <strong data-i18n="download.earlyAccess">Early access</strong>
+            <span data-i18n="download.earlyAccessDetail">Windows beta available now · macOS is in development</span>
+          </p>
           <div class="platform-tabs" role="tablist" aria-label="Choose your operating system">
             <button
               class="platform-tab is-active"
@@ -393,9 +489,9 @@
             <div class="release-primary">
               <div class="release-meta">
                 <p class="release-status"><span data-release-dot></span><span data-release-status data-i18n="release.checking">Checking official releases…</span></p>
-                <h3 data-release-title data-i18n="release.windowsTitle">Windows public beta</h3>
+                <h3 data-release-title data-i18n="release.windowsTitle">Windows beta</h3>
                 <p class="release-version" data-release-version data-i18n="release.windowsVersion">Latest available version</p>
-                <p class="release-detail" data-release-detail data-i18n="release.windowsDetail">64-bit Windows · installer from GitHub Releases</p>
+                <p class="release-detail" data-release-detail data-i18n="release.windowsDetail">64-bit Windows · unsigned early-access installer from GitHub Releases</p>
               </div>
               <div class="release-actions">
                 <a
@@ -425,7 +521,7 @@
             <div class="release-advisory">
               <span aria-hidden="true">i</span>
               <p data-i18n="release.windowsAdvisory">
-                Public preview builds may be unsigned, so Windows can show a SmartScreen warning. Only download installers from this official repository; never disable system-wide protection.
+                The current beta is not digitally signed yet, so Windows may ask you to confirm the installer. Download it only from this official GitHub repository.
               </p>
             </div>
           </div>
@@ -441,9 +537,9 @@
             <div class="release-primary">
               <div class="release-meta">
                 <p class="release-status"><span data-release-dot></span><span data-release-status data-i18n="release.checking">Checking official releases…</span></p>
-                <h3 data-release-title data-i18n="release.macosTitle">WritersStudio for macOS</h3>
-                <p class="release-version" data-release-version data-i18n="release.macosVersion">Not published yet</p>
-                <p class="release-detail" data-release-detail data-i18n="release.macosDetail">The page is ready for the first official macOS build.</p>
+                <h3 data-release-title data-i18n="release.macosTitle">macOS — in development</h3>
+                <p class="release-version" data-release-version data-i18n="release.macosVersion">Coming later</p>
+                <p class="release-detail" data-release-detail data-i18n="release.macosDetail">We are working on the first macOS build. There is no macOS download yet.</p>
               </div>
               <div class="release-actions">
                 <a
@@ -473,7 +569,7 @@
             <div class="release-advisory release-advisory-neutral">
               <span aria-hidden="true">i</span>
               <p data-i18n="release.macosAdvisory">
-                macOS is a planned platform. Until an official asset appears above, WritersStudio is not available for download on macOS.
+                macOS support is in development. This section will offer the first official build when it is ready.
               </p>
             </div>
           </div>

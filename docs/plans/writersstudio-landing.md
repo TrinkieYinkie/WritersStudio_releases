@@ -26,7 +26,7 @@ screens rather than relying on decorative mockups.
 
 1. **Hero and trust:** concise promise, prominent free-desktop treatment,
    Windows/macOS download controls, no-account/offline/local assurances, and a
-   real manuscript screenshot.
+   real History screenshot with its selected save point open.
 2. **Scroll story:** a sticky product frame changes between manuscript,
    organization, character, and timeline views as the visitor reads the
    corresponding copy.
@@ -67,19 +67,24 @@ screens rather than relying on decorative mockups.
 
 ## Visual direction
 
-- Present WritersStudio as a serious working tool: modern sans-serif type,
-  neutral surfaces, crisp rules, compact spacing, and mostly rectangular
-  geometry.
-- Use the existing coral color only for functional emphasis such as status,
-  focus, and primary interaction. Avoid decorative gradients, paper texture,
-  calligraphic display type, seals, ornamental circles, and oversized romantic
-  composition.
-- Let real application captures carry the visual interest inside consistent,
-  understated desktop frames.
-- Keep motion short and functional; reduced-motion users see a stable, fully
+- Present WritersStudio as a serious modern product with confident sans-serif
+  type, a disciplined grid, and real application captures as the main proof.
+- Use coral and violet to give sections depth and momentum. Color belongs behind
+  product UI, in primary actions, and in large scene changes rather than in
+  ornamental illustration or soft editorial decoration.
+- Alternate warm light surfaces with deep plum product sections so a long page
+  has a clear rhythm without becoming monochrome or visually noisy.
+- Keep desktop frames crisp, dimensional, and large enough to inspect. Motion
+  should reveal useful product states; reduced-motion users see a stable, fully
   understandable sequence.
-- Responsive layouts preserve readable copy and place download actions before
-  secondary product detail.
+- Offer matching light and dark site themes, select the device preference on a
+  first visit, remember an explicit choice, and show the corresponding product
+  capture wherever both versions exist.
+- Keep the full converted screenshot set in `assets/screenshots` as a small
+  product-media library, while using only the clearest captures in the page.
+- Responsive layouts cover wide desktop, laptop, tablet, phone, and short
+  viewport conditions. They preserve readable copy, prevent horizontal
+  overflow, and place download actions before secondary product detail.
 
 ## Release behavior
 
@@ -108,6 +113,9 @@ screens rather than relying on decorative mockups.
 - Marketing claims must not promise macOS availability, cloud functionality,
   automatic backup, source availability, or analytics behavior that is not in
   the current product contract.
+- Windows must be described as an unsigned early-access beta and macOS as in
+  development. The History capture must be labelled as an illustrative sample,
+  not an authentic record of Jane Austen's writing process.
 
 ## Verification
 
@@ -128,6 +136,10 @@ screens rather than relying on decorative mockups.
   free and will remain free, and where downloads come from.
 - Windows and macOS have distinct states and older versions are discoverable.
 - Existing real product screenshots drive the scroll narrative.
+- Light and dark themes use matching captures, follow the device on first load,
+  and remain explicitly switchable.
+- The early-access platform states and the illustrative-history disclaimer are
+  visible in English, Russian, and Spanish.
 - English, Russian, and Spanish copy stays synchronized and the first visit
   selects a supported device language while defaulting safely to English.
 - The site passes the bounded validation plan and remains usable when GitHub's
