@@ -1,20 +1,20 @@
 :root {
   color-scheme: light;
-  --paper: #f3eee5;
-  --paper-deep: #e7ded0;
-  --paper-bright: #fbf8f1;
-  --ink: #211f1c;
-  --ink-soft: #5f5a53;
-  --line: rgba(42, 36, 31, 0.16);
-  --accent: #e36f53;
-  --accent-dark: #a94331;
-  --accent-soft: #f6d3c8;
-  --night: #1d1f23;
-  --night-raised: #292c31;
-  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --paper: #f4f4f1;
+  --paper-deep: #e5e5e1;
+  --paper-bright: #fafaf8;
+  --ink: #171716;
+  --ink-soft: #5c5c58;
+  --line: rgba(23, 23, 22, 0.16);
+  --accent: #e0644b;
+  --accent-dark: #b44632;
+  --accent-soft: #f1d4cd;
+  --night: #18191b;
+  --night-raised: #242529;
+  --serif: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --shadow-soft: 0 24px 70px rgba(41, 34, 27, 0.14);
-  --shadow-window: 0 44px 100px rgba(19, 18, 17, 0.28);
+  --shadow-soft: 0 12px 32px rgba(17, 17, 16, 0.09);
+  --shadow-window: 0 24px 64px rgba(17, 17, 16, 0.2);
   --content: 1240px;
 }
 
@@ -1745,6 +1745,382 @@ h1 em {
   margin: 0;
 }
 
+/* Strict product direction: restrained geometry, modern type, and UI-first hierarchy. */
+body {
+  background: var(--paper);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: #777772;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
+}
+
+.site-header {
+  min-height: 76px;
+}
+
+.brand {
+  font-weight: 800;
+}
+
+.brand img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.header-cta,
+.language-picker > button,
+.language-menu,
+.language-menu button {
+  border-radius: 0.4rem;
+}
+
+.language-picker > button,
+.language-menu {
+  background: rgba(250, 250, 248, 0.96);
+  backdrop-filter: none;
+}
+
+.language-menu {
+  box-shadow: 0 12px 28px rgba(17, 17, 16, 0.12);
+}
+
+.header-cta:hover,
+.button:hover,
+.button-download:hover {
+  transform: none;
+}
+
+.hero {
+  min-height: auto;
+  grid-template-columns: minmax(0, 0.86fr) minmax(32rem, 1.14fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  padding-top: clamp(8.5rem, 14vh, 10rem);
+  padding-bottom: clamp(5rem, 8vw, 7rem);
+}
+
+.hero::before {
+  opacity: 0.3;
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 68%);
+}
+
+.eyebrow,
+.section-kicker,
+.story-label {
+  letter-spacing: 0.09em;
+}
+
+h1 {
+  max-width: 42rem;
+  font-family: var(--sans);
+  font-size: clamp(3.5rem, 6vw, 6.3rem);
+  font-weight: 760;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+h1 em,
+.section-heading h2 em,
+.ownership-intro h2 em,
+.split-copy h2 em,
+.download-heading h2 em,
+.cloud-copy h2 em {
+  color: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
+.hero-lede,
+.section-heading > p:last-child,
+.ownership-intro > p:last-child,
+.split-copy > p,
+.download-heading > p:last-child,
+.cloud-copy > p:last-child {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.65;
+}
+
+.button {
+  border-radius: 0.42rem;
+  box-shadow: none;
+}
+
+.button-primary,
+.button-download {
+  background: var(--ink);
+  box-shadow: none;
+}
+
+.button-primary:hover,
+.button-download:hover {
+  background: var(--accent-dark);
+  box-shadow: none;
+}
+
+.app-window,
+.story-window {
+  border-radius: 0.65rem;
+  transform: none;
+}
+
+.free-seal {
+  top: -1rem;
+  right: 0;
+  width: auto;
+  height: auto;
+  flex-direction: row;
+  gap: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.35rem;
+  box-shadow: none;
+  font-family: var(--sans);
+  transform: none;
+}
+
+.free-seal::before {
+  display: none;
+}
+
+.free-seal span {
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 850;
+}
+
+.free-seal strong {
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.ownership-note {
+  border-radius: 0.4rem;
+  box-shadow: 0 8px 24px rgba(17, 17, 16, 0.11);
+  backdrop-filter: none;
+}
+
+.ownership-note-icon {
+  border-radius: 0.3rem;
+}
+
+.site-header.is-scrolled {
+  top: 0.5rem;
+  min-height: 3.7rem;
+  border-radius: 0.5rem;
+  background: rgba(244, 244, 241, 0.96);
+  box-shadow: 0 8px 24px rgba(17, 17, 16, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.reveal {
+  transform: translateY(0.75rem);
+  transition-duration: 360ms;
+}
+
+.trust-item {
+  min-height: 7rem;
+}
+
+.trust-item strong {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.55vw, 1.3rem);
+  font-weight: 760;
+  letter-spacing: -0.025em;
+}
+
+.story-section,
+.faq-section {
+  background: var(--paper-bright);
+}
+
+.section-heading,
+.download-heading {
+  margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.section-heading h2,
+.ownership-intro h2,
+.split-copy h2,
+.download-heading h2,
+.cloud-copy h2,
+.faq-heading h2,
+.final-cta h2 {
+  font-family: var(--sans);
+  font-size: clamp(3rem, 5.4vw, 5.4rem);
+  font-weight: 740;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.story-window,
+.split-image img {
+  box-shadow: var(--shadow-window);
+}
+
+.story-frame figcaption,
+.split-image span {
+  border-radius: 0.35rem;
+  backdrop-filter: none;
+}
+
+.story-progress button {
+  border-radius: 0;
+}
+
+.story-number {
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 750;
+}
+
+.story-step h3,
+.history-callout h3,
+.ownership-card h3,
+.release-meta h3,
+.faq-list summary {
+  font-family: var(--sans);
+  font-weight: 680;
+}
+
+.ownership-section {
+  background: var(--night);
+}
+
+.ownership-section::before {
+  display: none;
+}
+
+.ownership-grid {
+  margin-top: clamp(4rem, 7vw, 6rem);
+}
+
+.ownership-card {
+  min-height: 16rem;
+}
+
+.ownership-card > span {
+  margin-bottom: 2.5rem;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.history-callout {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.split-image::before,
+.download-glow {
+  display: none;
+}
+
+.split-image img {
+  border-radius: 0.65rem;
+}
+
+.download-section {
+  background: #121315;
+}
+
+.download-center {
+  border-radius: 0.65rem;
+  background: #202226;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.platform-tab,
+.older-releases > button,
+.release-menu,
+.release-menu a,
+.release-advisory {
+  border-radius: 0.4rem;
+}
+
+.release-advisory > span {
+  border-radius: 0.25rem;
+  font-family: var(--sans);
+  font-style: normal;
+}
+
+.cloud-boundary {
+  min-height: 38rem;
+}
+
+.cloud-status {
+  border-radius: 0.35rem;
+  background: transparent;
+}
+
+.cloud-status > span:first-child {
+  border-radius: 0.1rem;
+  box-shadow: none;
+}
+
+.cloud-orbit {
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.cloud-orbit::before {
+  width: 70%;
+  height: 1px;
+  border-radius: 0;
+  background: var(--accent-dark);
+  filter: none;
+  transform: rotate(-18deg);
+}
+
+.cloud-orbit img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+.orbit {
+  display: none;
+}
+
+.orbit-label {
+  border-radius: 0.3rem;
+  background: var(--paper-bright);
+  backdrop-filter: none;
+}
+
+.faq-list summary {
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+}
+
+.final-cta {
+  min-height: 34rem;
+  background: var(--night);
+}
+
+.final-cta h2 {
+  font-size: clamp(3.5rem, 7vw, 6.8rem);
+}
+
+.final-wordmark {
+  display: none;
+}
+
+.footer-brand > p {
+  font-family: var(--sans);
+}
+
 @media (max-width: 1050px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -1978,10 +2354,10 @@ h1 em {
   }
 
   .free-seal {
-    top: -2rem;
+    top: -1rem;
     right: 0;
-    width: 5.6rem;
-    height: 5.6rem;
+    width: auto;
+    height: auto;
   }
 
   .ownership-note {

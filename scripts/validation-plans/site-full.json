@@ -13,6 +13,11 @@
       "timeoutMilliseconds": 15000
     },
     {
+      "name": "Locale sync syntax",
+      "args": ["--check", "scripts/sync-default-locale.mjs"],
+      "timeoutMilliseconds": 15000
+    },
+    {
       "name": "Static site contract",
       "args": ["scripts/validate-site.mjs"],
       "timeoutMilliseconds": 30000

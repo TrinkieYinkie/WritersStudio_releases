@@ -41,10 +41,10 @@ const requiredHtmlPatterns = [
   /data-language-picker/u,
   /data-language-option="ru"/u,
   /data-language-option="es"/u,
-  /Free forever on desktop/u,
-  /Git-powered autosaves and story branches/u,
-  /Every version\. Zero terminal\./u,
-  /Desktop stays free\./u,
+  /The desktop app is free and will stay free/u,
+  /Every project keeps its own version history/u,
+  /Autosave without giving up the past\./u,
+  /The desktop app is free\./u,
   /data-i18n="cloud\.status">TO BE DONE</u
 ]
 

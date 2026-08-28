@@ -7,7 +7,7 @@ explains the value of WritersStudio, makes the free local desktop application
 the primary offer, and sends people to official GitHub release assets.
 
 The page is a narrative marketing surface: the first viewport must communicate
-the product, its free/local-first promise, and the primary download action. The
+the product, its free desktop promise, and the primary download action. The
 rest of the page should reward scrolling by progressively revealing real product
 screens rather than relying on decorative mockups.
 
@@ -18,13 +18,13 @@ screens rather than relying on decorative mockups.
 - Primary action: download the latest compatible WritersStudio release.
 - Secondary actions: inspect the product, choose an older release, open the
   sample project, or visit GitHub release notes.
-- Positioning: calm, capable, local-first, and permanently free for the desktop
+- Positioning: direct, capable, stored on the user's computer, and permanently free for the desktop
   application. A future optional WritersStudio Cloud service may be paid, but it
   is not required for local writing.
 
 ## Experience stages
 
-1. **Hero and trust:** concise promise, prominent `Free forever` treatment,
+1. **Hero and trust:** concise promise, prominent free-desktop treatment,
    Windows/macOS download controls, no-account/offline/local assurances, and a
    real manuscript screenshot.
 2. **Scroll story:** a sticky product frame changes between manuscript,
@@ -51,16 +51,35 @@ screens rather than relying on decorative mockups.
 - Keep English metadata in the static document as the crawler-safe fallback;
   update page title and description when the runtime locale loads.
 
+## Copy voice
+
+- Write like a person explaining a useful writing tool to another person. Prefer
+  concrete actions and file behavior over slogans, abstractions, and stacked
+  fragments.
+- Lead with automatic saves, version history, and the ability to return to an
+  older draft. Writers should not need to know what Git is before the product
+  becomes useful to them.
+- Mention Git once in the detailed history section, explain it immediately in
+  plain language, and avoid repeating the technology name in headlines or
+  benefit lists.
+- State the business model plainly: the desktop app is free and will remain
+  free; Cloud does not exist yet and may later be an optional paid service.
+
 ## Visual direction
 
-- Editorial, literary typography paired with a restrained product sans serif.
-- Warm paper background, ink surfaces, and the existing coral WritersStudio
-  accent; no generic SaaS gradient or invented product illustration.
-- Real application captures appear inside one consistent desktop frame.
-- Motion is purposeful and tied to scroll position; reduced-motion users see a
-  stable, fully understandable sequence.
+- Present WritersStudio as a serious working tool: modern sans-serif type,
+  neutral surfaces, crisp rules, compact spacing, and mostly rectangular
+  geometry.
+- Use the existing coral color only for functional emphasis such as status,
+  focus, and primary interaction. Avoid decorative gradients, paper texture,
+  calligraphic display type, seals, ornamental circles, and oversized romantic
+  composition.
+- Let real application captures carry the visual interest inside consistent,
+  understated desktop frames.
+- Keep motion short and functional; reduced-motion users see a stable, fully
+  understandable sequence.
 - Responsive layouts preserve readable copy and place download actions before
-  secondary narrative content.
+  secondary product detail.
 
 ## Release behavior
 
@@ -106,7 +125,7 @@ screens rather than relying on decorative mockups.
 - The landing page is production-ready on the feature branch without modifying
   repository-hosted workflow files.
 - The first viewport clearly says what WritersStudio is, that the desktop app is
-  free forever, and where downloads come from.
+  free and will remain free, and where downloads come from.
 - Windows and macOS have distinct states and older versions are discoverable.
 - Existing real product screenshots drive the scroll narrative.
 - English, Russian, and Spanish copy stays synchronized and the first visit

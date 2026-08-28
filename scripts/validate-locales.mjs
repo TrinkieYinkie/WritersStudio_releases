@@ -17,6 +17,20 @@ const htmlKeys = new Set(
 )
 const referenceKeys = Object.keys(catalog.locales.en.messages).sort()
 const templateTokens = (value) => [...value.matchAll(/\{([a-z][a-z0-9]*)\}/giu)].map((match) => match[1]).sort()
+const normalizeText = (value) => value.replace(/\s+/gu, ' ').trim()
+const decodeHtml = (value) => value
+  .replaceAll('&amp;', '&')
+  .replaceAll('&lt;', '<')
+  .replaceAll('&gt;', '>')
+const excludedGitKeys = /^(?:dynamic\.|release\.|faq\.(?:source|platform))/u
+const oldMarketingPhrases = [
+  'One calm place',
+  'Everything in its place',
+  'Одно спокойное место',
+  'Всё на своём месте',
+  'Un lugar tranquilo',
+  'Todo en su sitio'
+]
 
 for (const locale of expectedLocales) {
   const entry = catalog.locales[locale]
@@ -40,6 +54,25 @@ for (const locale of expectedLocales) {
       `Template variables differ for ${locale}.${key}.`
     )
   }
+
+  const productCopy = Object.entries(entry.messages)
+    .filter(([key]) => !excludedGitKeys.test(key))
+    .map(([, value]) => value)
+    .join('\n')
+  assert.equal((productCopy.match(/\bGit\b/gu) ?? []).length, 1, `${locale} should explain Git once in product copy.`)
+  for (const phrase of oldMarketingPhrases) {
+    assert(!productCopy.includes(phrase), `${locale} still contains retired marketing copy: ${phrase}`)
+  }
+}
+
+const defaultLeafPattern = /<(?<tag>[a-z][a-z0-9-]*)\b[^>]*\bdata-i18n="(?<key>[^"]+)"[^>]*>(?<body>[\s\S]*?)<\/\k<tag>>/giu
+for (const match of html.matchAll(defaultLeafPattern)) {
+  assert(!/<[a-z][^>]*>/iu.test(match.groups.body), `Default translation must remain a leaf element: ${match.groups.key}`)
+  assert.equal(
+    normalizeText(decodeHtml(match.groups.body)),
+    normalizeText(catalog.locales.en.messages[match.groups.key]),
+    `Static English fallback differs from locales.json: ${match.groups.key}`
+  )
 }
 
 console.log(`Localization catalog passed · ${expectedLocales.length} locales · ${referenceKeys.length} synchronized messages.`)
