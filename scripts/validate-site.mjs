@@ -64,6 +64,7 @@ const requiredHtmlPatterns = [
   /data-language-picker/u,
   /data-language-option="ru"/u,
   /data-language-option="es"/u,
+  /class="utility-controls"/u,
   /data-theme-toggle/u,
   /class="theme-shot theme-shot-light"/u,
   /class="theme-shot theme-shot-dark"/u,
@@ -94,6 +95,8 @@ for (const viewportContract of [
 }
 assert.match(css, /min-width:\s*320px/u)
 assert.match(css, /overflow-x:\s*hidden/u)
+assert.match(css, /\.utility-controls\s*\{/u)
+assert.match(css, /\.scroll-cue\s*\{[^}]*bottom:\s*clamp\(3rem,\s*5vh,\s*4\.25rem\)/su)
 assert.match(css, /\.eyebrow > span\[aria-hidden="true"\]/u)
 assert.match(css, /\.hero-promises li > span\[aria-hidden="true"\]/u)
 assert.doesNotMatch(css, /\.eyebrow span\s*\{/u, 'Translation wrappers must not inherit the eyebrow marker geometry.')
