@@ -68,6 +68,9 @@ const requiredHtmlPatterns = [
   /<a class="text-link" href="#inside"><span data-i18n="hero\.seeHow">/u,
   /<a class="scroll-cue" href="#inside">/u,
   /<section class="trust-strip" id="inside"/u,
+  /href="https:\/\/github\.com\/TrinkieYinkie\/WritersStudio_sample_project"/u,
+  /data-i18n="final\.sample">Get the sample on GitHub/u,
+  /data-i18n="final\.sampleNote">Install WritersStudio first\./u,
   /data-theme-toggle/u,
   /class="theme-shot theme-shot-light"/u,
   /class="theme-shot theme-shot-dark"/u,
@@ -83,6 +86,13 @@ const requiredHtmlPatterns = [
 for (const pattern of requiredHtmlPatterns) {
   assert(pattern.test(html), `Required HTML contract is missing: ${pattern}`)
 }
+assert.doesNotMatch(html, /samples\/pride-and-prejudice/u, 'The landing must not link to the removed embedded sample.')
+assert.doesNotMatch(html, /data-i18n="split\.sample"/u, 'The obsolete inline sample action must stay removed.')
+assert.match(readme, /https:\/\/github\.com\/TrinkieYinkie\/WritersStudio_sample_project/u)
+await assert.rejects(
+  access(resolve(repositoryRoot, 'samples/pride-and-prejudice')),
+  'The embedded sample directory must not remain in the releases repository.'
+)
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/u)
 assert.match(css, /@media \(forced-colors: active\)/u)
 assert.match(css, /scrollbar-color/u)
