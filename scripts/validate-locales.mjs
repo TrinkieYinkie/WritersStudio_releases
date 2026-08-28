@@ -63,6 +63,9 @@ for (const locale of expectedLocales) {
   for (const phrase of oldMarketingPhrases) {
     assert(!productCopy.includes(phrase), `${locale} still contains retired marketing copy: ${phrase}`)
   }
+
+  assert.equal(entry.messages['hero.title'], 'Write the book.', `${locale} must preserve the English hero title.`)
+  assert.equal(entry.messages['hero.titleEmphasis'], 'Keep every draft.', `${locale} must preserve the English hero emphasis.`)
 }
 
 const defaultLeafPattern = /<(?<tag>[a-z][a-z0-9-]*)\b[^>]*\bdata-i18n="(?<key>[^"]+)"[^>]*>(?<body>[\s\S]*?)<\/\k<tag>>/giu
