@@ -65,6 +65,9 @@ const requiredHtmlPatterns = [
   /data-language-option="ru"/u,
   /data-language-option="es"/u,
   /class="utility-controls"/u,
+  /<a class="text-link" href="#inside"><span data-i18n="hero\.seeHow">/u,
+  /<a class="scroll-cue" href="#inside">/u,
+  /<section class="trust-strip" id="inside"/u,
   /data-theme-toggle/u,
   /class="theme-shot theme-shot-light"/u,
   /class="theme-shot theme-shot-dark"/u,
@@ -99,6 +102,7 @@ assert.match(css, /\.utility-controls\s*\{/u)
 assert.match(css, /\.scroll-cue\s*\{[^}]*bottom:\s*clamp\(2\.1rem,\s*3vh,\s*2\.75rem\)/su)
 assert.match(css, /\.hero-promises\s*\{[^}]*flex-direction:\s*column/su)
 assert.match(css, /\.hero-actions \.text-link\s*\{[^}]*opacity:\s*0\.68/su)
+assert.match(css, /\.trust-strip\s*\{[^}]*scroll-margin-top:\s*5\.25rem/su)
 assert.match(css, /\.eyebrow > span\[aria-hidden="true"\]/u)
 assert.match(css, /\.hero-promises li > span\[aria-hidden="true"\]/u)
 assert.doesNotMatch(css, /\.eyebrow span\s*\{/u, 'Translation wrappers must not inherit the eyebrow marker geometry.')

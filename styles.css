@@ -712,6 +712,7 @@ h1 em {
   width: min(100%, var(--content));
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  scroll-margin-top: 5.25rem;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 3vw, 2.5rem);
   border-top: 1px solid var(--line);
