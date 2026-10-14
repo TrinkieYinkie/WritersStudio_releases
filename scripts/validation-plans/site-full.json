@@ -3,34 +3,66 @@
   "heartbeatMilliseconds": 5000,
   "steps": [
     {
+      "name": "Validation lifecycle regressions",
+      "command": "$NODE",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "scripts/run-bounded-validation.test.mjs"
+      ],
+      "timeoutMilliseconds": 60000
+    },
+    {
       "name": "Browser module syntax",
-      "args": ["--check", "app.js"],
-      "timeoutMilliseconds": 15000
+      "args": [
+        "--check",
+        "app.js"
+      ],
+      "timeoutMilliseconds": 15000,
+      "command": "$NODE"
     },
     {
       "name": "Lifecycle scripts syntax",
-      "args": ["--check", "scripts/serve-site.mjs"],
-      "timeoutMilliseconds": 15000
+      "args": [
+        "--check",
+        "scripts/serve-site.mjs"
+      ],
+      "timeoutMilliseconds": 15000,
+      "command": "$NODE"
     },
     {
       "name": "Locale sync syntax",
-      "args": ["--check", "scripts/sync-default-locale.mjs"],
-      "timeoutMilliseconds": 15000
+      "args": [
+        "--check",
+        "scripts/sync-default-locale.mjs"
+      ],
+      "timeoutMilliseconds": 15000,
+      "command": "$NODE"
     },
     {
       "name": "Static site contract",
-      "args": ["scripts/validate-site.mjs"],
-      "timeoutMilliseconds": 30000
+      "args": [
+        "scripts/validate-site.mjs"
+      ],
+      "timeoutMilliseconds": 30000,
+      "command": "$NODE"
     },
     {
       "name": "Localization catalog",
-      "args": ["scripts/validate-locales.mjs"],
-      "timeoutMilliseconds": 30000
+      "args": [
+        "scripts/validate-locales.mjs"
+      ],
+      "timeoutMilliseconds": 30000,
+      "command": "$NODE"
     },
     {
       "name": "GitHub release parser fixtures",
-      "args": ["scripts/test-release-parser.mjs"],
-      "timeoutMilliseconds": 30000
+      "args": [
+        "scripts/test-release-parser.mjs"
+      ],
+      "timeoutMilliseconds": 30000,
+      "command": "$NODE"
     }
-  ]
+  ],
+  "workingDirectory": "../.."
 }

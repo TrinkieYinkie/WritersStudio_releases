@@ -62,7 +62,7 @@ WritersStudio is local-first by design:
 - Manuscript content is stored in portable Markdown and structured project files.
 - Writing, editing, search, export, and History work offline.
 - No account is required to create or open a project.
-- Production builds currently have product analytics disabled.
+- Optional usage analytics requires your consent and never includes manuscript content.
 - Updating or uninstalling WritersStudio does not remove your project folders.
 
 Export selected sections to **DOCX** for further editing or **PDF** for sharing and review. You can also create a portable ZIP copy of a project whenever you want an independent backup.
@@ -115,8 +115,7 @@ Austen's text. The sample repository documents the exact source provenance.
 ## Download WritersStudio
 
 WritersStudio is in **early access**. The current **Windows beta** is distributed
-through GitHub Releases and is not digitally signed yet, so Windows may ask you
-to confirm the installer. Download builds only from this official repository.
+through GitHub Releases and has no digital signature, so Windows may show an unknown-publisher or SmartScreen warning. Download builds only from this official repository.
 
 The **macOS version is in development** and is not available for download yet.
 
@@ -137,7 +136,7 @@ Preview translations with an explicit English fallback are available for German,
 
 ## What comes next
 
-The first chapter of WritersStudio is deliberately local. Optional **WritersStudio Cloud** is **TO BE DONE**. It may later provide multi-device sync and off-device backup while keeping the local-first foundation intact. The desktop application will remain free.
+The first chapter of WritersStudio is deliberately local. Optional **WritersStudio Cloud** is planned and is not available yet. It may later provide multi-device sync and off-device backup while keeping the local-first foundation intact. The desktop application will remain free.
 
 ## Frequently asked questions
 
@@ -151,7 +150,7 @@ Yes. WritersStudio Local is free to download and use, and it will remain free.
 <details>
 <summary><strong>Do I need an account or an internet connection?</strong></summary>
 
-No. An account is not required, and the core writing experience works offline. Internet access is only needed to download releases and will be needed for optional online services in the future.
+No. An account is not required, and the core writing experience works offline. Internet access is used for downloads, update checks, and optional usage analytics if you enable it. Manuscripts remain on your computer.
 
 </details>
 

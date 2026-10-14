@@ -1,2 +1,3 @@
 scripts/.landing-preview.lock
 scripts/.site-validation.lock
+.test-out/

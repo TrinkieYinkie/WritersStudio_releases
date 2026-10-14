@@ -79,7 +79,7 @@ const requiredHtmlPatterns = [
   /The desktop app is free\./u,
   /data-i18n="download\.earlyAccess">Early access/u,
   /data-i18n="hero\.historyDisclaimer">Illustrative demo\./u,
-  /data-i18n="cloud\.status">TO BE DONE</u
+  /data-i18n="cloud\.status">Planned</u
 ]
 
 for (const pattern of requiredHtmlPatterns) {
