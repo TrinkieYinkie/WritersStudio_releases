@@ -194,3 +194,5 @@ This repository is the official home for public WritersStudio releases. It conta
 **Made for stories too large for a single document.**
 
 </div>
+
+The first installer requires Windows 10 or later on an x64 processor. This is the runtime platform floor, based on [Electron platform support](https://github.com/electron/electron#platform-support); it does not claim that every Windows configuration has passed manual acceptance. No minimum RAM or free-disk estimate is invented without measurements.
