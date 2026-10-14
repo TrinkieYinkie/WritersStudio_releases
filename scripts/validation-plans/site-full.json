@@ -73,22 +73,27 @@
       "timeoutMilliseconds": 30000
     },
     {
-      "name": "Statistics UI syntax",
+      "name": "Shared analytics UI syntax",
       "command": "$NODE",
       "args": [
         "--check",
-        "website-analytics-ui.js"
+        "landing-analytics-ui.js"
       ],
       "timeoutMilliseconds": 15000
     },
     {
-      "name": "Aggregate statistics regressions",
+      "name": "Shared landing protocol and behavior",
       "command": "$NODE",
       "args": [
-        "--test",
-        "--test-concurrency=1",
-        "scripts/website-analytics.test.mjs",
-        "scripts/website-analytics-ui.test.mjs"
+        "scripts/landing-analytics.test.mjs"
+      ],
+      "timeoutMilliseconds": 30000
+    },
+    {
+      "name": "Landing controls and disclosure integration",
+      "command": "$NODE",
+      "args": [
+        "scripts/landing-page.test.mjs"
       ],
       "timeoutMilliseconds": 30000
     }

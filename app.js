@@ -747,7 +747,7 @@ async function initializePage() {
   await initializeLocalization()
   void loadReleases()
   // Statistics are optional: loading or initializing them must never break the site.
-  void import('./website-analytics-ui.js')
+  void import('./landing-analytics-ui.js')
     .then(({ initializeWebsiteStatistics }) => initializeWebsiteStatistics())
     .catch(() => {})
 }

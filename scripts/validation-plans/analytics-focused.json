@@ -1,9 +1,24 @@
 {
-  "token": "writersstudio-analytics-focused",
+  "token": "writersstudio-unified-analytics",
   "workingDirectory": "../..",
   "heartbeatMilliseconds": 5000,
   "steps": [
-    { "name": "Statistics module syntax", "command": "$NODE", "args": ["--check", "website-analytics.js"], "timeoutMilliseconds": 15000 },
-    { "name": "Aggregate statistics privacy and transport", "command": "$NODE", "args": ["--test", "--test-concurrency=1", "scripts/website-analytics.test.mjs"], "timeoutMilliseconds": 30000 }
+    {
+      "name": "Shared client syntax",
+      "command": "$NODE",
+      "args": [
+        "--check",
+        "landing-analytics.js"
+      ],
+      "timeoutMilliseconds": 15000
+    },
+    {
+      "name": "Shared analytics behavior",
+      "command": "$NODE",
+      "args": [
+        "scripts/landing-analytics.test.mjs"
+      ],
+      "timeoutMilliseconds": 30000
+    }
   ]
 }

@@ -1,3 +1,5 @@
+> Historical v1 implementation. Superseded by [the unified v2 plan](unified-landing-analytics.md) and [contract](../contracts/landing-analytics-v2.md). The old envelope and delivery behavior are not current.
+
 # Landing aggregate statistics
 
 Status: client complete and informational handoff sent, 2026-10-14. Integration branch: feature/public-beta-release-2-3-0.

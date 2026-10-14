@@ -179,13 +179,14 @@
         "download.legal": "Read the terms and privacy information before downloading:",
         "statistics.short": "Website statistics and opt-out",
         "statistics.title": "Website statistics",
-        "statistics.description": "We use total page views and link clicks to improve this site, without visitor IDs or analytics cookies. You can exclude your visits at any time.",
+        "statistics.description": "When enabled, statistics measure page views, link clicks and source/campaign categories. A temporary ID connects events only within one opening of this page; there is no persistent visitor ID or analytics cookie.",
         "statistics.unavailable": "Collection is not enabled on this site yet. You can save your opt-out now.",
-        "statistics.active": "Aggregate statistics are on. No individual browsing history is recorded.",
+        "statistics.active": "Statistics are on. Events are connected only within this page opening.",
         "statistics.excluded": "This page will not send statistics. Your choice is remembered when browser storage is available.",
         "statistics.browser": "Statistics are off because your browser requests privacy.",
         "statistics.storage": "Statistics are off because your saved preference cannot be read.",
-        "statistics.exclude": "Exclude my visits"
+        "statistics.exclude": "Exclude my visits",
+        "statistics.details": "Only your opt-out choice is saved in this browser. It has no expiry. Opting out stops future sending and pending retries; it does not erase events already accepted by the server. These statistics are separate from app usage and download counts."
       }
     },
     "ru": {
@@ -360,13 +361,14 @@
         "download.legal": "Перед скачиванием ознакомьтесь с условиями и информацией о данных:",
         "statistics.short": "Статистика сайта и отключение сбора",
         "statistics.title": "Статистика сайта",
-        "statistics.description": "Чтобы улучшать сайт, мы считаем общее число просмотров и переходов по ссылкам, без ID посетителей и cookies аналитики. Вы можете в любой момент исключить свои посещения.",
+        "statistics.description": "Когда сбор включён, статистика учитывает просмотры страницы, нажатия на ссылки и категории источников и кампаний. Временный ID связывает события только в пределах одного открытия страницы; постоянного ID посетителя и cookies аналитики нет.",
         "statistics.unavailable": "Сбор на этом сайте пока не включён. Уже сейчас можно сохранить отказ.",
-        "statistics.active": "Общие счётчики включены. История действий отдельных посетителей не записывается.",
+        "statistics.active": "Статистика включена. События связываются только в пределах текущего открытия страницы.",
         "statistics.excluded": "Эта страница не будет отправлять статистику. Выбор сохраняется, когда доступно хранилище браузера.",
         "statistics.browser": "Статистика отключена согласно настройкам приватности браузера.",
         "statistics.storage": "Статистика отключена: не удалось прочитать сохранённый выбор.",
-        "statistics.exclude": "Не учитывать мои посещения"
+        "statistics.exclude": "Не учитывать мои посещения",
+        "statistics.details": "В браузере сохраняется только отказ от сбора, без срока истечения. Отказ останавливает будущую отправку и ожидающие повторы, но не удаляет события, уже принятые сервером. Эта статистика отделена от использования приложения и счётчиков скачиваний."
       }
     },
     "es": {
@@ -541,13 +543,14 @@
         "download.legal": "Antes de descargar, consulta los términos y la información de privacidad:",
         "statistics.short": "Estadísticas del sitio y exclusión",
         "statistics.title": "Estadísticas del sitio",
-        "statistics.description": "Contamos las visitas a la página y los clics para mejorar este sitio, sin identificadores de visitantes ni cookies de analítica. Puedes excluir tus visitas en cualquier momento.",
+        "statistics.description": "Cuando están activadas, las estadísticas miden visitas, clics y categorías de origen y campaña. Un ID temporal relaciona los eventos solo durante una apertura de esta página; no hay ID persistente de visitante ni cookies de analítica.",
         "statistics.unavailable": "La recopilación aún no está activada en este sitio. Puedes guardar tu exclusión ahora.",
-        "statistics.active": "Las estadísticas agregadas están activadas. No se registra el historial individual de navegación.",
+        "statistics.active": "Las estadísticas están activadas. Los eventos solo se relacionan durante esta apertura de la página.",
         "statistics.excluded": "Esta página no enviará estadísticas. Tu elección se guarda cuando el almacenamiento del navegador está disponible.",
         "statistics.browser": "Las estadísticas están desactivadas por la preferencia de privacidad de tu navegador.",
-        "statistics.storage": "Las estadísticas están desactivadas porque no se puede leer tu preferencia guardada.",
-        "statistics.exclude": "Excluir mis visitas"
+        "statistics.storage": "Las estadísticas están desactivadas porque no se pudo leer la preferencia guardada.",
+        "statistics.exclude": "Excluir mis visitas",
+        "statistics.details": "Solo se guarda en este navegador tu preferencia de exclusión, sin caducidad. La exclusión detiene los envíos futuros y los reintentos pendientes; no borra eventos ya aceptados por el servidor. Estas estadísticas son independientes del uso de la aplicación y de los recuentos de descargas."
       }
     }
   }

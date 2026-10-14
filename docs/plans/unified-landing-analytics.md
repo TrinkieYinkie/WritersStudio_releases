@@ -1,6 +1,6 @@
 # Unified landing analytics v2
 
-Status: implementation authorized; production collection remains disabled.
+Status: both implementation stages completed and verified; production collection remains disabled.
 
 ## Expected behavior
 
@@ -53,3 +53,24 @@ Run each full site check/build sequentially, inspect both themes, EN/RU/ES, keyb
 opt-out, persisted preference, narrow/short viewports, and public-asset loading.
 Leave both integration branches with atomic English commits and no task leftovers.
 Collection stays disabled; no Telemetry changes, deployment or hosted workflows.
+
+## Completion evidence
+
+- Both sites now load the same v2 client and UI. Yinkie has the statistics panel;
+  WritersStudio preserves its existing opt-out key. Old clients are removed.
+- Shared contract, example, digest map, EN/RU/ES disclosure catalog and tests match
+  byte for byte. The page test checks every marked static link against the catalog.
+- Yinkie lifecycle build passed all 15 stages, including 13 behavioral suites,
+  11 link owners, HTTP/public-boundary checks and the 16-file build output.
+- WritersStudio full validation passed all 11 stages, including lifecycle regression
+  tests, 174 localized messages, release data, 12 legal pages, 13 behavioral suites
+  and 17 static link owners. Dynamic older-release link ownership remains covered.
+- Browser checks on both local previews confirmed opt-out persistence after reload,
+  keyboard activation, EN/RU/ES copy, light/dark themes, 320x568 and 820x360 layouts,
+  and no console errors. The new controls fit their containers. WritersStudio's
+  pre-existing 320px body minimum remains outside this change.
+- Preview owners were stopped and their processes/locks audited. No production
+  analytics request, deployment, Telemetry change or hosted workflow was introduced.
+
+Server ingestion, retention, reports, real endpoint/CORS verification and enabling
+the deployment flags remain separate work under the v2 contract.

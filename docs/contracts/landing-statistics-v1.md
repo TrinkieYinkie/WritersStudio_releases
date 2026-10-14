@@ -1,3 +1,5 @@
+> Superseded: this is the historical aggregate-only v1 proposal. The current client uses [the shared v2 contract](landing-analytics-v2.md), temporary page/event IDs, and `landing-analytics-config.js`. The old envelope, endpoint and immediate-counter-only behavior below no longer apply.
+
 # WritersStudio landing aggregate statistics v1
 
 Status: client contract prepared; production sending disabled. This document is an

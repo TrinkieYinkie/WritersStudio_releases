@@ -638,10 +638,11 @@
     <section class="website-statistics" id="website-statistics" aria-labelledby="statistics-title">
       <div>
         <h2 id="statistics-title" data-i18n="statistics.title">Website statistics</h2>
-        <p data-i18n="statistics.description">We use total page views and link clicks to improve this site, without visitor IDs or analytics cookies. You can exclude your visits at any time.</p>
+        <p data-i18n="statistics.description">When enabled, statistics measure page views, link clicks and source/campaign categories. A temporary ID connects events only within one opening of this page; there is no persistent visitor ID or analytics cookie.</p>
+        <p data-i18n="statistics.details">Only your opt-out choice is saved in this browser. It has no expiry. Opting out stops future sending and pending retries; it does not erase events already accepted by the server. These statistics are separate from app usage and download counts.</p>
         <p class="statistics-state" aria-live="polite" aria-atomic="true">
           <span data-statistics-state="unavailable" data-i18n="statistics.unavailable">Collection is not enabled on this site yet. You can save your opt-out now.</span>
-          <span data-statistics-state="active" data-i18n="statistics.active" hidden>Aggregate statistics are on. No individual browsing history is recorded.</span>
+          <span data-statistics-state="active" data-i18n="statistics.active" hidden>Statistics are on. Events are connected only within this page opening.</span>
           <span data-statistics-state="excluded" data-i18n="statistics.excluded" hidden>This page will not send statistics. Your choice is remembered when browser storage is available.</span>
           <span data-statistics-state="browser" data-i18n="statistics.browser" hidden>Statistics are off because your browser requests privacy.</span>
           <span data-statistics-state="storage" data-i18n="statistics.storage" hidden>Statistics are off because your saved preference cannot be read.</span>
