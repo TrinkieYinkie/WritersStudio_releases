@@ -214,6 +214,9 @@ function createReleaseMenuItem(release, asset) {
   const link = document.createElement('a')
   link.href = asset.url
   link.setAttribute('role', 'menuitem')
+  link.dataset.statisticsLink = 'release'
+  link.dataset.statisticsPlacement = 'release-older'
+  link.dataset.statisticsPlatform = asset.platform
 
   const version = document.createElement('strong')
   version.textContent = release.tag
@@ -743,6 +746,10 @@ async function initializePage() {
   initializeReveal()
   await initializeLocalization()
   void loadReleases()
+  // Statistics are optional: loading or initializing them must never break the site.
+  void import('./website-analytics-ui.js')
+    .then(({ initializeWebsiteStatistics }) => initializeWebsiteStatistics())
+    .catch(() => {})
 }
 
 if (typeof document !== 'undefined') void initializePage()

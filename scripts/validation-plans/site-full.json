@@ -71,6 +71,26 @@
         "--check"
       ],
       "timeoutMilliseconds": 30000
+    },
+    {
+      "name": "Statistics UI syntax",
+      "command": "$NODE",
+      "args": [
+        "--check",
+        "website-analytics-ui.js"
+      ],
+      "timeoutMilliseconds": 15000
+    },
+    {
+      "name": "Aggregate statistics regressions",
+      "command": "$NODE",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "scripts/website-analytics.test.mjs",
+        "scripts/website-analytics-ui.test.mjs"
+      ],
+      "timeoutMilliseconds": 30000
     }
   ],
   "workingDirectory": "../.."

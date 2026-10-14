@@ -160,3 +160,14 @@ test('links distinguish section intent, official installers and empty/error rele
     assert.equal(link('release', 'release-latest', href, 'windows'), undefined)
   }
 })
+
+test('campaign queries do not suppress section clicks or enter their payload', () => {
+  const h = harness()
+  const event = statisticsEventForLink({kind:'download-section',placement:'hero',
+    href:'https://writersstudio.app/?utm_source=private&email=private#download'}, statisticsOrigin)
+  assert.deepEqual(event, {name:'landing_download_clicked',page:'home',
+    action:'open-download-section',placement:'hero',platform:'unspecified'})
+  assert.equal(h.client.record(event),true)
+  assert.doesNotMatch(h.calls[0][1].body,/private|utm|email|https/u)
+  h.client.dispose()
+})

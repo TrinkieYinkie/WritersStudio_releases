@@ -63,7 +63,7 @@
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#features" data-i18n="nav.studio">How it works</a>
         <a href="#ownership" data-i18n="nav.ownership">Files &amp; history</a>
-        <a href="#download" data-i18n="nav.download">Download</a>
+        <a href="#download" data-i18n="nav.download" data-statistics-link="download-section" data-statistics-placement="navigation">Download</a>
       </nav>
 
       <div class="header-actions">
@@ -104,7 +104,7 @@
             </div>
           </div>
         </div>
-        <a class="header-cta" href="#download" data-header-download data-i18n="nav.getFree">Download</a>
+        <a class="header-cta" href="#download" data-header-download data-i18n="nav.getFree" data-statistics-link="download-section" data-statistics-placement="header">Download</a>
       </div>
     </header>
 
@@ -116,7 +116,7 @@
           <p class="hero-lede" data-i18n="hero.lede">Write your manuscript and keep notes, characters, and a timeline in the same project. Autosave keeps your current work on disk; version history lets you revisit saved drafts and try another direction.</p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#download" data-hero-download>
+            <a class="button button-primary" href="#download" data-hero-download data-statistics-link="download-section" data-statistics-placement="hero">
               <span data-i18n="hero.download">Download free</span>
               <svg aria-hidden="true" viewBox="0 0 20 20">
                 <path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" />
@@ -131,6 +131,8 @@
             <li><span aria-hidden="true">✓</span> <span data-i18n="hero.promiseAccount">No account required</span></li>
             <li><span aria-hidden="true">✓</span> <span data-i18n="hero.promiseOffline">Works offline</span></li>
           </ul>
+
+          <p class="statistics-summary"><a href="#website-statistics" data-i18n="statistics.short">Website statistics and opt-out</a></p>
         </div>
 
         <div class="hero-stage" aria-label="WritersStudio version history preview">
@@ -483,11 +485,14 @@
                   class="button button-download"
                   href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases"
                   data-release-download
+                  data-statistics-link="release"
+                  data-statistics-placement="release-latest"
+                  data-statistics-platform="windows"
                 >
                   <span data-i18n="release.windowsView">View Windows releases</span>
                   <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" /></svg>
                 </a>
-                <a class="release-notes-link" href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-release-notes>
+                <a class="release-notes-link" href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-release-notes data-statistics-link="release-notes" data-statistics-placement="release-notes">
                   <span data-i18n="release.notes">Release notes</span> <span aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -503,7 +508,7 @@
               </div>
             </div>
 
-            <p class="download-legal"><span data-i18n="download.legal">Read the terms and privacy information before downloading:</span> <a href="terms/" data-legal-document="terms" data-i18n="footer.terms">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
+            <p class="download-legal"><span data-i18n="download.legal">Read the terms and privacy information before downloading:</span> <a href="terms/" data-legal-document="terms" data-i18n="footer.terms" data-statistics-link="terms" data-statistics-placement="download-legal">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy" data-statistics-link="privacy" data-statistics-placement="download-legal">Privacy Policy</a></p>
             <div class="release-advisory">
               <span aria-hidden="true">i</span>
               <p data-i18n="release.windowsAdvisory">This beta installer has no digital signature. Windows may show an unknown-publisher or SmartScreen warning. Use the official download linked here. A checksum verifies the file but does not replace a digital signature.</p>
@@ -530,11 +535,14 @@
                   class="button button-download"
                   href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases"
                   data-release-download
+                  data-statistics-link="release"
+                  data-statistics-placement="release-latest"
+                  data-statistics-platform="macos"
                 >
                   <span data-i18n="release.macosView">View macOS releases</span>
                   <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" /></svg>
                 </a>
-                <a class="release-notes-link" href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-release-notes>
+                <a class="release-notes-link" href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-release-notes data-statistics-link="release-notes" data-statistics-placement="release-notes">
                   <span data-i18n="release.notes">Release notes</span> <span aria-hidden="true">↗</span>
                 </a>
               </div>
@@ -615,7 +623,7 @@
           <p class="section-kicker" data-i18n="final.kicker">Ready when you are</p>
           <h2 id="final-title"><span data-i18n="final.title">Start a new project</span><br /><span data-i18n="final.titleSecond">from scratch.</span></h2>
           <div class="final-actions">
-            <a class="button button-primary" href="#download">
+            <a class="button button-primary" href="#download" data-statistics-link="download-section" data-statistics-placement="final">
               <span data-i18n="final.download">Download WritersStudio free</span>
               <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 15.5h12" /></svg>
             </a>
@@ -626,6 +634,24 @@
         <p class="final-wordmark" aria-hidden="true">Writers<br />Studio</p>
       </section>
     </main>
+
+    <section class="website-statistics" id="website-statistics" aria-labelledby="statistics-title">
+      <div>
+        <h2 id="statistics-title" data-i18n="statistics.title">Website statistics</h2>
+        <p data-i18n="statistics.description">We use total page views and link clicks to improve this site, without visitor IDs or analytics cookies. You can exclude your visits at any time.</p>
+        <p class="statistics-state" aria-live="polite" aria-atomic="true">
+          <span data-statistics-state="unavailable" data-i18n="statistics.unavailable">Collection is not enabled on this site yet. You can save your opt-out now.</span>
+          <span data-statistics-state="active" data-i18n="statistics.active" hidden>Aggregate statistics are on. No individual browsing history is recorded.</span>
+          <span data-statistics-state="excluded" data-i18n="statistics.excluded" hidden>This page will not send statistics. Your choice is remembered when browser storage is available.</span>
+          <span data-statistics-state="browser" data-i18n="statistics.browser" hidden>Statistics are off because your browser requests privacy.</span>
+          <span data-statistics-state="storage" data-i18n="statistics.storage" hidden>Statistics are off because your saved preference cannot be read.</span>
+        </p>
+      </div>
+      <div class="statistics-actions">
+        <button class="button statistics-toggle" type="button" aria-pressed="false" data-statistics-toggle data-i18n="statistics.exclude" hidden>Exclude my visits</button>
+        <a href="privacy/" data-legal-document="privacy" data-statistics-link="privacy" data-statistics-placement="statistics" data-i18n="footer.privacy">Privacy Policy</a>
+      </div>
+    </section>
 
     <footer class="site-footer">
       <div class="footer-brand">
@@ -639,14 +665,14 @@
         <p data-i18n="footer.product">Product</p>
         <a href="#features" data-i18n="nav.studio">How it works</a>
         <a href="#ownership" data-i18n="footer.localFirst">Files on your computer</a>
-        <a href="#download" data-i18n="nav.download">Download</a>
+        <a href="#download" data-i18n="nav.download" data-statistics-link="download-section" data-statistics-placement="footer">Download</a>
       </div>
       <div class="footer-links" aria-label="Support links">
         <p data-i18n="footer.support">Support</p>
-        <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-i18n="footer.releases">All releases</a>
-        <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/issues/new" data-i18n="footer.feedback">Share feedback</a>
-        <a href="mailto:support@writersstudio.app">support@writersstudio.app</a>
-        <a href="terms/" data-legal-document="terms" data-i18n="footer.terms">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-i18n="footer.releases" data-statistics-link="releases" data-statistics-placement="footer">All releases</a>
+        <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/issues/new" data-i18n="footer.feedback" data-statistics-link="feedback" data-statistics-placement="footer">Share feedback</a>
+        <a href="mailto:support@writersstudio.app" data-statistics-link="support" data-statistics-placement="footer">support@writersstudio.app</a>
+        <a href="terms/" data-legal-document="terms" data-i18n="footer.terms" data-statistics-link="terms" data-statistics-placement="footer">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy" data-statistics-link="privacy" data-statistics-placement="footer">Privacy Policy</a>
       </div>
       <div class="footer-bottom">
         <p>© <span data-current-year>2026</span> WritersStudio.</p>

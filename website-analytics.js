@@ -36,7 +36,7 @@ export function isStatisticsEvent(event) {
 export function statisticsEventForLink({ kind, placement, platform, href }, origin) {
   let url
   try { url = new URL(href, origin) } catch { return undefined }
-  if (url.username || url.password || url.search) return undefined
+  if (url.username || url.password || (url.search && kind !== 'download-section')) return undefined
   const download = (action, selectedPlatform) => ({
     name: 'landing_download_clicked', page: 'home', action, placement, platform: selectedPlatform
   })

@@ -1,0 +1,9 @@
+{
+  "token": "writersstudio-site-generate",
+  "workingDirectory": "../..",
+  "heartbeatMilliseconds": 5000,
+  "steps": [
+    { "name": "Synchronize static English copy", "command": "$NODE", "args": ["scripts/sync-default-locale.mjs"], "timeoutMilliseconds": 15000 },
+    { "name": "Generate versioned legal pages", "command": "$NODE", "args": ["scripts/generate-legal-pages.mjs"], "timeoutMilliseconds": 15000 }
+  ]
+}

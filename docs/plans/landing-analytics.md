@@ -1,6 +1,6 @@
 # Landing aggregate statistics
 
-Status: planned, 2026-10-14. Integration branch: feature/public-beta-release-2-3-0.
+Status: client implemented; integration audit and handoff pending, 2026-10-14. Integration branch: feature/public-beta-release-2-3-0.
 
 ## Expected behavior and boundaries
 
@@ -59,3 +59,15 @@ and activation requirements. Explicitly state this is information only, not a
 request to begin implementation.
 
 Stage 1 verified: 9 isolated contract/transport/privacy tests pass through analytics-focused.json. No network calls or browser identifiers. Production switch remains disabled.
+
+Stage 2 verified: the full 10-step site plan passes, including 15 statistics tests,
+8 lifecycle tests, 173 synchronized strings in three locales and all 12 legal pages.
+Browser checks cover EN/RU/ES, light/dark themes, keyboard opt-out and reload
+persistence, 320x568 and 390x844 narrow screens, 820x360 short-screen access, and
+desktop layouts. No console warnings/errors were observed. New controls fit within
+the narrow layout; the pre-existing body's 320px minimum width remains unchanged.
+Forced-color rules and reduced-motion compatibility were reviewed in source; the
+new control introduces no animation or scroll container. Dark panel contrast was
+corrected to use the semantic paper token. A campaign-query regression confirms
+that local download-section clicks still count without transmitting query data.
+The bounded preview and validation processes exited and their locks were removed.
