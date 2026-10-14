@@ -1,0 +1,24 @@
+{
+  "token": "writersstudio-unified-analytics",
+  "workingDirectory": "../..",
+  "heartbeatMilliseconds": 5000,
+  "steps": [
+    {
+      "name": "Shared client syntax",
+      "command": "$NODE",
+      "args": [
+        "--check",
+        "landing-analytics.js"
+      ],
+      "timeoutMilliseconds": 15000
+    },
+    {
+      "name": "Shared analytics behavior",
+      "command": "$NODE",
+      "args": [
+        "scripts/landing-analytics.test.mjs"
+      ],
+      "timeoutMilliseconds": 30000
+    }
+  ]
+}
