@@ -1,6 +1,6 @@
 # Landing aggregate statistics
 
-Status: client implemented; integration audit and handoff pending, 2026-10-14. Integration branch: feature/public-beta-release-2-3-0.
+Status: client complete and informational handoff sent, 2026-10-14. Integration branch: feature/public-beta-release-2-3-0.
 
 ## Expected behavior and boundaries
 
@@ -71,3 +71,23 @@ new control introduces no animation or scroll container. Dark panel contrast was
 corrected to use the semantic paper token. A campaign-query regression confirms
 that local download-section clicks still count without transmitting query data.
 The bounded preview and validation processes exited and their locks were removed.
+
+## Completion audit
+
+Both implementation stages are integrated into feature/public-beta-release-2-3-0.
+The combined diff was checked against the pre-task commit 0e96f67; no unrelated
+application code, desktop contracts or hosted workflows changed. Full validation
+ran against the final implementation before its fast-forward integration. The
+only subsequent changes are this completion record. No push, main merge or deploy.
+
+The informational handoff was sent successfully to chat
+01a13b57-98fe-70e1-a3b7-04d2d58dfb30 after integration, with the contract path,
+code commit 9d38f0b, event examples, closed combinations and server/privacy gates.
+It explicitly says not to start work or deploy on the basis of the message.
+
+External activation work remains: agree on and implement the dedicated backend,
+verify aggregate retention and edge/access logging, applicable legal conditions,
+exact-origin CORS and a staging journey. Production remains enabled:false.
+The completed client may be published with statistics disabled independently of
+that backend work. This does not resolve the previously identified domain/TLS
+and public release availability prerequisites for the overall site launch.
