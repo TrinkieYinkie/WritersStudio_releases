@@ -57,3 +57,5 @@ still disabled. Integration branch is clean; no owned processes or locks remain.
 Send chat 01a13b57-98fe-70e1-a3b7-04d2d58dfb30 the contract, examples, server changes
 and activation requirements. Explicitly state this is information only, not a
 request to begin implementation.
+
+Stage 1 verified: 9 isolated contract/transport/privacy tests pass through analytics-focused.json. No network calls or browser identifiers. Production switch remains disabled.
