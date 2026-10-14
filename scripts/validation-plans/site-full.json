@@ -62,6 +62,15 @@
       ],
       "timeoutMilliseconds": 30000,
       "command": "$NODE"
+    },
+    {
+      "name": "Versioned legal page consistency",
+      "command": "$NODE",
+      "args": [
+        "scripts/generate-legal-pages.mjs",
+        "--check"
+      ],
+      "timeoutMilliseconds": 30000
     }
   ],
   "workingDirectory": "../.."

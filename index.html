@@ -47,6 +47,7 @@
       })()
     </script>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="legal.css" />
     <script type="module" src="app.js"></script>
     <title>WritersStudio — autosaves and version history for writers</title>
   </head>
@@ -501,6 +502,7 @@
               </div>
             </div>
 
+            <p class="download-legal"><span data-i18n="download.legal">Read the terms and privacy information before downloading:</span> <a href="terms/" data-legal-document="terms" data-i18n="footer.terms">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
             <div class="release-advisory">
               <span aria-hidden="true">i</span>
               <p data-i18n="release.windowsAdvisory">This beta installer has no digital signature. Windows may show an unknown-publisher or SmartScreen warning. Use the official download linked here. A checksum verifies the file but does not replace a digital signature.</p>
@@ -586,7 +588,7 @@
           </details>
           <details>
             <summary data-i18n="faq.accountQuestion">Do I need an account or internet connection?</summary>
-            <p data-i18n="faq.accountAnswer">No account is needed. Writing, search, export, and version history work offline. With internet access, the app checks for updates and sends usage events only if you enable optional analytics. Manuscripts are not included in those events.</p>
+            <p data-i18n="faq.accountAnswer">No account is needed. Writing, search, export, and version history work offline. The app uses internet access to check for updates. It sends usage events only if you enable optional analytics; manuscripts are not included.</p>
           </details>
           <details>
             <summary data-i18n="faq.filesQuestion">Where does my manuscript live?</summary>
@@ -643,6 +645,7 @@
         <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/releases" data-i18n="footer.releases">All releases</a>
         <a href="https://github.com/TrinkieYinkie/WritersStudio_releases/issues/new" data-i18n="footer.feedback">Share feedback</a>
         <a href="mailto:support@writersstudio.app">support@writersstudio.app</a>
+        <a href="terms/" data-legal-document="terms" data-i18n="footer.terms">Terms of Use</a> · <a href="privacy/" data-legal-document="privacy" data-i18n="footer.privacy">Privacy Policy</a>
       </div>
       <div class="footer-bottom">
         <p>© <span data-current-year>2026</span> WritersStudio.</p>

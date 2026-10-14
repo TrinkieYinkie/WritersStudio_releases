@@ -175,6 +175,12 @@ The early-access beta is available for Windows. The Windows build is not digital
 
 </details>
 
+## Terms and privacy
+
+Read the [Terms of Use](https://writersstudio.app/terms/) and
+[Privacy Policy](https://writersstudio.app/privacy/) before downloading.
+Both documents have permanent version links and English, Russian, and Spanish editions.
+
 ## Feedback and beta notes
 
 WritersStudio is actively evolving. If something breaks, feels confusing, or gets in the way of writing, please **[open an issue](../../issues/new)**. Include the WritersStudio version and Windows version when reporting a bug, but never attach private manuscript content or unredacted local paths to a public issue.

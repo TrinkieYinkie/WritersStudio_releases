@@ -85,8 +85,10 @@ async function cleanup(exitCode = 0) {
   clearTimeout(lifetime)
   server.closeAllConnections?.()
   await new Promise((resolveClose) => server.close(resolveClose))
-  await lockHandle?.close()
-  await rm(lockPath, { force: true })
+  if (lockHandle) {
+    await lockHandle.close()
+    await rm(lockPath, { force: true })
+  }
   process.exitCode = exitCode
 }
 

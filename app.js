@@ -378,10 +378,9 @@ function renderReleaseState() {
 
   const current = releaseState.platforms[detectedPlatform()][0]
   if (current) {
-    const primaryAsset = current.assets[0]
-    if (heroDownload) heroDownload.href = primaryAsset.url
+    if (heroDownload) heroDownload.href = '#download'
     if (headerDownload) {
-      headerDownload.href = primaryAsset.url
+      headerDownload.href = '#download'
       headerDownload.textContent = translate('dynamic.getVersion', { version: current.tag })
     }
   } else {
@@ -400,6 +399,10 @@ function applyLocale(locale, { persist = false } = {}) {
   localeState.locale = locale
   localeState.messages = entry.messages
   document.documentElement.lang = locale
+  for (const link of document.querySelectorAll('[data-legal-document]')) {
+    const kind = link.dataset.legalDocument
+    if (kind === 'terms' || kind === 'privacy') link.href = kind + '/' + (locale === 'en' ? '' : locale + '/')
+  }
   document.title = entry.pageTitle
   const description = document.querySelector('meta[name="description"]')
   if (description) description.content = entry.pageDescription

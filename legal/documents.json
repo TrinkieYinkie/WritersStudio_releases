@@ -1,0 +1,451 @@
+{
+  "version": "2026-10-14",
+  "controller": "Alisa Petrova",
+  "contact": "support@writersstudio.app",
+  "locales": {
+    "en": {
+      "label": "English",
+      "home": "WritersStudio home",
+      "version": "Version",
+      "permalink": "Permanent link to this version",
+      "termsTitle": "Terms of Use",
+      "privacyTitle": "Privacy Policy",
+      "terms": [
+        [
+          "About these terms",
+          [
+            "WritersStudio is a free desktop application provided by Alisa Petrova. These terms describe the licence for the application and the conditions of the public beta. Contact: support@writersstudio.app."
+          ]
+        ],
+        [
+          "Your licence",
+          [
+            "You may install and use WritersStudio for personal or commercial writing, without a subscription or trial deadline. The application is proprietary. This licence does not transfer ownership of its code, name, or branding. Do not redistribute modified copies as official WritersStudio releases or remove licence notices. Rights granted by applicable law and by the licences of third-party components are preserved."
+          ]
+        ],
+        [
+          "Your writing belongs to you",
+          [
+            "You keep all rights to your manuscripts, notes, images, and other project content. Using WritersStudio does not give its developer a licence to publish, sell, or train AI on your content. You are responsible for having the rights to material you add to a project."
+          ]
+        ],
+        [
+          "Local files and backups",
+          [
+            "Projects are stored in folders you choose. Local editing does not require an account or internet access. Autosave and project History help you manage changes, but both depend on your local files. Keep a separate backup of important work. Uninstalling the application does not delete your project folders. Cloud sync and remote project backups are not part of this release."
+          ]
+        ],
+        [
+          "Public beta and updates",
+          [
+            "Version 2.3.0 is an unsigned Windows x64 public beta. Windows may show an unknown-publisher or SmartScreen warning. Download installers only from the official WritersStudio website or release repository. A checksum checks file integrity; it does not provide a digital signature.",
+            "The application checks the official GitHub release feed for newer ordinary and beta versions. It can notify you and open the official releases page, but it does not download or install updates automatically. You choose whether to install a newer version. Release notes describe changes and any compatibility limits."
+          ]
+        ],
+        [
+          "Optional analytics",
+          [
+            "Usage analytics is off until you choose to enable it. Refusing or later disabling it does not limit local writing features. The Privacy Policy explains the data, retention periods, update checks, and controls for disabling analytics or requesting deletion. Agreeing to these Terms alone does not enable analytics."
+          ]
+        ],
+        [
+          "Support and availability",
+          [
+            "You can report problems to support@writersstudio.app. Do not include private manuscripts unless you deliberately choose to share them for a support request. There is no guaranteed response time, release schedule, or service-level agreement for the free beta. Future optional services may have separate terms; they are not required for local writing."
+          ]
+        ],
+        [
+          "Warranty and responsibility",
+          [
+            "The beta may contain defects or change as development continues. To the extent permitted by applicable law, it is provided as available, without a promise that it will be uninterrupted, error-free, or suitable for every workflow. Keep independent backups and review exported files before relying on them.",
+            "Nothing in these Terms excludes liability that cannot legally be excluded, including fraud or other mandatory consumer protections. Any limitation applies only to the extent allowed by the law that protects you."
+          ]
+        ],
+        [
+          "Third-party components",
+          [
+            "WritersStudio includes third-party software, fonts, and other assets under their own licences. Their notices are included with the application. The corresponding source for the bundled Git distribution and covered components is provided with the release. Those licences continue to grant their own rights."
+          ]
+        ],
+        [
+          "Changes and ending use",
+          [
+            "You can stop using WritersStudio and uninstall it at any time. Your project files remain yours. If you enabled analytics, use the in-app deletion control before removing local application data if you want the application to authenticate a deletion request.",
+            "New versions of these Terms will have their own date and permanent link. Material changes will be presented with the affected release. Changes do not remove rights that applicable law gives you or retroactively grant rights over your writing."
+          ]
+        ]
+      ],
+      "privacy": [
+        [
+          "Who is responsible",
+          [
+            "Alisa Petrova is responsible for the WritersStudio processing described here. For privacy questions and requests, contact support@writersstudio.app. This policy covers the desktop application, official website, update checks, and support correspondence."
+          ]
+        ],
+        [
+          "Your manuscripts stay on your computer",
+          [
+            "WritersStudio does not upload manuscripts, project titles, character names, notes, images, file paths, or clipboard contents for analytics. Your projects remain in the folders you choose. Any cloud folder or backup service you choose yourself operates under that service’s terms."
+          ]
+        ],
+        [
+          "Optional usage analytics",
+          [
+            "Analytics is off by default. It starts only after you choose to enable it in the application. Refusing or withdrawing consent does not restrict local features.",
+            "With consent, the app sends events about starts and updates, creating and opening projects, first document creation and meaningful editing, exports, character and timeline creation, split views, and broad project-open or export failures. A meaningful edit is detected locally; the text and locally calculated counts are not sent.",
+            "Events contain random installation, session, and event identifiers; event type and time; application version; a broad operating-system category; interface language; and the limited feature, result, or error categories applicable to that event. A separate random credential authenticates deletion requests. Random identifiers make this pseudonymous usage data, not guaranteed anonymous data.",
+            "The purpose is to understand which features are used, whether people return to the app, and where supported operations fail. We do not collect advertising identifiers, record screens or keystrokes, replay sessions, or join analytics to support emails. We do not use this data for advertising or sell it."
+          ]
+        ],
+        [
+          "Your controls",
+          [
+            "Disable analytics stops new event collection and clears queued events. It keeps the existing random identity and deletion credential locally so you can still request deletion of earlier server data. Disabling alone is not a server deletion request.",
+            "Reset identity requests deletion of the old identity and starts an unrelated one while analytics remains enabled. Delete collected data turns analytics off and requests deletion without creating a replacement. Pending deletion requests survive restart and retry when the network is available. The app shows whether deletion is pending, completed, or needs attention.",
+            "Keep local application data until a requested deletion completes. Removing that data first can remove the credential needed to authenticate the request. Contact support if you need help; we do not identify analytics records by your email address."
+          ]
+        ],
+        [
+          "Where analytics is processed",
+          [
+            "The primary Telemetry server and database are hosted by Hetzner Online GmbH in Nuremberg (NBG1), Germany, European Union. Access is restricted to the operator and authorised infrastructure services. Backups are encrypted and managed separately by the operator; no additional cloud backup provider is used.",
+            "User IP addresses are not stored in telemetry events, application logs, or reverse-proxy HTTP access logs. HTTP access logging is disabled, and IP, User-Agent, Referer, and Cookie headers are not forwarded to the application. Network infrastructure necessarily processes connection metadata to deliver requests and protect the service. Hetzner may process such metadata for network operation, security, and attack prevention under its own policies."
+          ]
+        ],
+        [
+          "How long data is kept",
+          [
+            "Raw telemetry events are retained for 90 days.",
+            "Deletion-protection records are retained for 120 days so delayed retries or a restored backup do not recreate deleted data. They are used for that protection, not product analytics.",
+            "Encrypted backups expire within 30 days. Deletion from an active database does not rewrite every existing backup immediately. Deletion protections must be applied before a restored backup is used, and remaining backup copies expire within that 30-day limit.",
+            "On your device, the event queue holds at most 500 events for no more than 30 days. Pending deletion credentials are kept until deletion is confirmed; they are separate from the event queue."
+          ]
+        ],
+        [
+          "Update checks and GitHub",
+          [
+            "Update checks are separate from analytics and do not depend on analytics consent. The packaged application checks the public GitHub Releases API about 30 seconds after startup and then no more often than every six hours. A manual check is available in Settings. Requests contain no manuscript data, account token, or analytics identity. GitHub receives the connection IP and the generic WritersStudio-Update-Checker user agent.",
+            "The app keeps a small local cache of release information, check times, and reminder choices. It does not automatically download or install an update. The website also contacts GitHub to display available releases. Opening release pages or downloading installers is governed by GitHub’s privacy statement; GitHub may process information internationally."
+          ]
+        ],
+        [
+          "Website and support",
+          [
+            "The website stores your chosen language and colour theme in your browser’s local storage. It does not use advertising trackers or send desktop analytics events. Website hosting and GitHub requests still involve ordinary network metadata.",
+            "If you email support, we receive your email address, message, and anything you choose to attach. We use them to respond and resolve the request, not to identify analytics installations or send marketing. Correspondence is kept as long as needed to handle the request and necessary follow-up, or to meet a legal obligation. Please omit private manuscripts and unnecessary personal data. Public GitHub issues are visible to others."
+          ]
+        ],
+        [
+          "Legal basis and your rights",
+          [
+            "Optional analytics relies on your consent. Support correspondence is used to answer your request; essential website delivery and update checks serve the legitimate interest of providing and maintaining the application, subject to your applicable rights. We do not use analytics to make decisions with legal or similarly significant effects about you.",
+            "Depending on applicable law, you may request access, correction, deletion, restriction, or portability of your personal data, object to processing based on legitimate interests, and complain to a competent data-protection authority. You can withdraw analytics consent in Settings at any time; this does not change the lawfulness of earlier processing. Contact support@writersstudio.app for help. We may need proportionate verification to avoid exposing or deleting another person’s data.",
+            "If you cannot give valid consent under the law that applies to you, leave analytics off. Local writing remains available."
+          ]
+        ],
+        [
+          "Policy changes",
+          [
+            "Each policy version has a dated permanent link. A material change to analytics processing requires a new choice in the application before collection resumes. Previously published versions remain available."
+          ]
+        ]
+      ]
+    },
+    "ru": {
+      "label": "Русский",
+      "home": "Главная WritersStudio",
+      "version": "Версия",
+      "permalink": "Постоянная ссылка на эту версию",
+      "termsTitle": "Условия использования",
+      "privacyTitle": "Политика конфиденциальности",
+      "terms": [
+        [
+          "Об этих условиях",
+          [
+            "WritersStudio — бесплатное приложение для компьютера, которое предоставляет Alisa Petrova. Эти условия описывают лицензию на приложение и правила публичной бета-версии. Контакт: support@writersstudio.app."
+          ]
+        ],
+        [
+          "Лицензия на использование",
+          [
+            "Вы можете устанавливать WritersStudio и использовать его для личной и коммерческой работы над текстами без подписки и ограничения пробным периодом. Приложение распространяется с закрытым исходным кодом. Лицензия не передаёт права собственности на его код, название или фирменные обозначения. Не распространяйте изменённые копии под видом официальных выпусков и не удаляйте лицензионные уведомления. Права, предоставленные применимым законодательством и лицензиями сторонних компонентов, сохраняются."
+          ]
+        ],
+        [
+          "Ваши тексты принадлежат вам",
+          [
+            "Все права на ваши рукописи, заметки, изображения и другое содержимое проектов остаются у вас. Использование WritersStudio не даёт разработчику разрешения публиковать, продавать ваши материалы или обучать на них ИИ. Вы отвечаете за наличие прав на материалы, которые добавляете в проект."
+          ]
+        ],
+        [
+          "Локальные файлы и резервные копии",
+          [
+            "Проекты хранятся в выбранных вами папках. Для локальной работы не нужны аккаунт и интернет. Автосохранение и история проекта помогают управлять правками, но зависят от сохранности локальных файлов. Делайте отдельную резервную копию важных текстов. Удаление приложения не удаляет папки проектов. Облачная синхронизация и удалённое резервное копирование проектов в этот выпуск не входят."
+          ]
+        ],
+        [
+          "Публичная бета и обновления",
+          [
+            "Версия 2.3.0 — публичная бета для Windows x64 без цифровой подписи. Windows может показать предупреждение о неизвестном издателе или SmartScreen. Скачивайте установщики только с официального сайта WritersStudio или из официального репозитория релизов. Контрольная сумма проверяет целостность файла, но не является цифровой подписью.",
+            "Приложение проверяет официальный список релизов GitHub и сообщает о более новых обычных и бета-версиях. Оно может открыть страницу релизов, но не скачивает и не устанавливает обновления автоматически. Решение об установке остаётся за вами. Изменения и ограничения совместимости описываются в примечаниях к выпуску."
+          ]
+        ],
+        [
+          "Необязательная аналитика",
+          [
+            "Аналитика использования выключена, пока вы сами её не включите. Отказ или последующее отключение не ограничивают локальную работу. Политика конфиденциальности описывает данные, сроки хранения, проверку обновлений, отключение аналитики и запрос удаления данных. Само по себе согласие с этими Условиями не включает аналитику."
+          ]
+        ],
+        [
+          "Поддержка и доступность",
+          [
+            "О проблемах можно написать на support@writersstudio.app. Не прикладывайте личные рукописи, если вы не решили специально поделиться ими для разбора обращения. Для бесплатной беты не предусмотрены гарантированные сроки ответа, график выпусков или соглашение об уровне обслуживания. Будущие дополнительные сервисы могут иметь отдельные условия; для локальной работы они не обязательны."
+          ]
+        ],
+        [
+          "Гарантии и ответственность",
+          [
+            "Бета-версия может содержать ошибки и меняться в процессе разработки. В пределах, разрешённых применимым законодательством, она предоставляется по мере доступности, без обещания бесперебойной, безошибочной работы или пригодности для любого рабочего процесса. Храните независимые резервные копии и проверяйте экспортированные документы перед использованием.",
+            "Эти Условия не исключают ответственность, которую нельзя исключить по закону, включая ответственность за мошенничество и обязательные гарантии защиты потребителей. Любое ограничение действует только в той мере, в какой это допускает защищающее вас законодательство."
+          ]
+        ],
+        [
+          "Сторонние компоненты",
+          [
+            "WritersStudio включает сторонние программы, шрифты и другие материалы под собственными лицензиями. Их уведомления поставляются с приложением. Соответствующие исходники встроенного дистрибутива Git и компонентов, на которые распространяются такие требования, предоставляются вместе с выпуском. Права по их лицензиям сохраняются."
+          ]
+        ],
+        [
+          "Изменения условий и прекращение использования",
+          [
+            "Вы можете прекратить использование WritersStudio и удалить приложение в любое время. Файлы проектов остаются вашими. Если вы включали аналитику и хотите удалить собранные данные, воспользуйтесь этой функцией в приложении до удаления его локальных данных: в них хранится ключ для подтверждения запроса.",
+            "Новые версии Условий будут иметь свою дату и постоянную ссылку. Существенные изменения будут представлены вместе с соответствующим выпуском. Изменения не отменяют ваши законные права и не дают задним числом прав на ваши тексты."
+          ]
+        ]
+      ],
+      "privacy": [
+        [
+          "Кто отвечает за данные",
+          [
+            "За описанную здесь обработку данных WritersStudio отвечает Alisa Petrova. Вопросы и запросы о конфиденциальности: support@writersstudio.app. Политика охватывает приложение, официальный сайт, проверку обновлений и переписку с поддержкой."
+          ]
+        ],
+        [
+          "Рукописи остаются на вашем компьютере",
+          [
+            "WritersStudio не отправляет рукописи, названия проектов, имена персонажей, заметки, изображения, пути к файлам или содержимое буфера обмена для аналитики. Проекты остаются в выбранных вами папках. Если вы сами используете облачную папку или сервис резервного копирования, к нему применяются условия этого сервиса."
+          ]
+        ],
+        [
+          "Необязательная аналитика использования",
+          [
+            "По умолчанию аналитика выключена. Она начинает работать только после вашего выбора в приложении. Отказ или отзыв согласия не ограничивают локальные функции.",
+            "При согласии приложение отправляет события о запусках и обновлениях, создании и открытии проектов, первом документе и первом содержательном редактировании, экспорте, создании персонажей и событий хронологии, разделении рабочего пространства, а также общие категории ошибок открытия проекта и экспорта. Содержательное редактирование определяется локально; текст и рассчитанные на устройстве количества не отправляются.",
+            "События содержат случайные идентификаторы установки, сеанса и события; тип и время события; версию приложения; общую категорию операционной системы; язык интерфейса; ограниченные категории функции, результата или ошибки, подходящие этому событию. Отдельный случайный ключ подтверждает запросы удаления. Это данные со случайными идентификаторами, а не гарантированно анонимные данные.",
+            "Цель — понять, какие функции используются, возвращаются ли люди к приложению и где происходят ошибки поддерживаемых операций. Мы не собираем рекламные идентификаторы, не записываем экран или нажатия клавиш, не воспроизводим сеансы и не связываем аналитику с письмами в поддержку. Эти данные не используются для рекламы и не продаются."
+          ]
+        ],
+        [
+          "Ваши настройки",
+          [
+            "Отключение аналитики останавливает сбор новых событий и очищает очередь отправки. Существующие случайный идентификатор и ключ удаления сохраняются локально, чтобы вы могли запросить удаление ранее отправленных данных. Само отключение не является запросом удаления с сервера.",
+            "Сброс идентификатора запрашивает удаление старой записи и создаёт новый несвязанный идентификатор, оставляя аналитику включённой. Удаление собранных данных выключает аналитику и запрашивает удаление без создания нового идентификатора. Незавершённый запрос сохраняется после перезапуска и повторяется при наличии сети. Приложение показывает, ожидается ли удаление, завершено ли оно или требует внимания.",
+            "Сохраняйте локальные данные приложения до завершения запроса удаления. Если стереть их раньше, может быть утрачен ключ подтверждения запроса. При необходимости напишите в поддержку; мы не ищем записи аналитики по вашему email."
+          ]
+        ],
+        [
+          "Где обрабатывается аналитика",
+          [
+            "Основной сервер Telemetry и база данных размещены у Hetzner Online GmbH в Nuremberg (NBG1), Германия, Европейский союз. Доступ ограничен оператором и уполномоченными инфраструктурными сервисами. Резервные копии зашифрованы и управляются оператором отдельно; дополнительный облачный провайдер резервного копирования не используется.",
+            "IP-адреса пользователей не сохраняются в событиях телеметрии, журналах приложения и HTTP access-логах reverse proxy. Access-логи отключены; заголовки с IP, User-Agent, Referer и Cookie не передаются приложению. Для доставки запросов и защиты сервиса сетевая инфраструктура неизбежно обрабатывает метаданные соединения. Hetzner может обрабатывать их для работы сети, безопасности и защиты от атак по своим правилам."
+          ]
+        ],
+        [
+          "Сроки хранения",
+          [
+            "Сырые события телеметрии хранятся 90 дней.",
+            "Защитные записи об удалении хранятся 120 дней, чтобы отложенные повторные запросы или восстановленная резервная копия не вернули удалённые данные. Эти записи используются для такой защиты, а не для продуктовой аналитики.",
+            "Зашифрованные резервные копии удаляются не позднее чем через 30 дней. Удаление из рабочей базы не переписывает немедленно каждую существующую копию. Перед использованием восстановленной базы должны применяться записи об удалении; оставшиеся копии истекают в пределах указанного 30-дневного срока.",
+            "На вашем устройстве очередь содержит не более 500 событий и хранит их не дольше 30 дней. Ключи незавершённых запросов удаления сохраняются до подтверждения удаления отдельно от очереди событий."
+          ]
+        ],
+        [
+          "Проверка обновлений и GitHub",
+          [
+            "Проверка обновлений отделена от аналитики и не зависит от согласия на неё. Установленное приложение обращается к публичному GitHub Releases API примерно через 30 секунд после запуска, затем не чаще раза в шесть часов. В настройках доступна ручная проверка. Запросы не содержат рукописей, токена аккаунта или идентификатора аналитики. GitHub получает IP соединения и общий user agent WritersStudio-Update-Checker.",
+            "Приложение хранит небольшой локальный кэш сведений о релизах, времени проверок и напоминаниях. Обновления не скачиваются и не устанавливаются автоматически. Сайт также обращается к GitHub, чтобы показать доступные выпуски. Открытие страниц релизов и скачивание установщиков регулируются политикой GitHub; GitHub может обрабатывать информацию в разных странах."
+          ]
+        ],
+        [
+          "Сайт и поддержка",
+          [
+            "Сайт сохраняет выбранные язык и цветовую тему в локальном хранилище браузера. Он не использует рекламные трекеры и не отправляет события аналитики приложения. Работа хостинга и запросы GitHub при этом связаны с обычными сетевыми метаданными.",
+            "При обращении по почте мы получаем ваш email, сообщение и добровольно приложенные файлы. Они используются для ответа и решения вопроса, а не для поиска вашей установки в аналитике или маркетинговых рассылок. Переписка хранится столько, сколько нужно для обработки обращения и необходимого продолжения, либо исполнения обязанности по закону. Не прикладывайте личные рукописи и лишние персональные данные. Публичные обращения в GitHub видны другим людям."
+          ]
+        ],
+        [
+          "Основания обработки и ваши права",
+          [
+            "Необязательная аналитика основана на вашем согласии. Переписка с поддержкой используется для ответа на ваше обращение; необходимая доставка сайта и проверка обновлений служат законному интересу предоставлять и поддерживать приложение с учётом применимых к вам прав. Аналитика не используется для решений о вас с юридическими или сходными существенными последствиями.",
+            "В зависимости от применимого законодательства вы можете запросить доступ, исправление, удаление, ограничение обработки или переносимость своих данных, возразить против обработки на основании законного интереса и обратиться в компетентный орган защиты данных. Согласие на аналитику можно отозвать в настройках в любое время; это не меняет правомерность предшествующей обработки. Для помощи напишите на support@writersstudio.app. Может потребоваться соразмерное подтверждение, чтобы не раскрыть и не удалить чужие данные.",
+            "Если применимое к вам законодательство не позволяет вам дать действительное согласие самостоятельно, оставьте аналитику выключенной. Локальная работа доступна."
+          ]
+        ],
+        [
+          "Изменения политики",
+          [
+            "У каждой версии политики есть дата и постоянная ссылка. Существенное изменение обработки для аналитики требует нового выбора в приложении до возобновления сбора. Ранее опубликованные версии остаются доступными."
+          ]
+        ]
+      ]
+    },
+    "es": {
+      "label": "Español",
+      "home": "Inicio de WritersStudio",
+      "version": "Versión",
+      "permalink": "Enlace permanente a esta versión",
+      "termsTitle": "Términos de uso",
+      "privacyTitle": "Política de privacidad",
+      "terms": [
+        [
+          "Acerca de estos términos",
+          [
+            "WritersStudio es una aplicación de escritorio gratuita proporcionada por Alisa Petrova. Estos términos describen la licencia de la aplicación y las condiciones de la beta pública. Contacto: support@writersstudio.app."
+          ]
+        ],
+        [
+          "Tu licencia",
+          [
+            "Puedes instalar y utilizar WritersStudio para escribir con fines personales o comerciales, sin suscripción ni límite de prueba. La aplicación es propietaria. Esta licencia no transfiere la propiedad de su código, nombre o marca. No distribuyas copias modificadas como versiones oficiales ni elimines los avisos de licencia. Se conservan los derechos otorgados por la ley aplicable y las licencias de componentes de terceros."
+          ]
+        ],
+        [
+          "Tus textos te pertenecen",
+          [
+            "Conservas todos los derechos sobre manuscritos, notas, imágenes y demás contenido de tus proyectos. Utilizar WritersStudio no concede a su desarrolladora una licencia para publicar, vender o entrenar IA con ese contenido. Eres responsable de tener los derechos sobre el material que añadas a un proyecto."
+          ]
+        ],
+        [
+          "Archivos locales y copias de seguridad",
+          [
+            "Los proyectos se guardan en las carpetas que elijas. El trabajo local no necesita cuenta ni conexión a internet. El guardado automático y el historial ayudan a gestionar cambios, pero dependen de tus archivos locales. Conserva una copia de seguridad independiente del trabajo importante. Desinstalar la aplicación no borra las carpetas de tus proyectos. Esta versión no incluye sincronización en la nube ni copias remotas de proyectos."
+          ]
+        ],
+        [
+          "Beta pública y actualizaciones",
+          [
+            "La versión 2.3.0 es una beta pública para Windows x64 sin firma digital. Windows puede mostrar una advertencia de editor desconocido o de SmartScreen. Descarga los instaladores solo del sitio oficial o del repositorio oficial de versiones. Una suma de comprobación verifica la integridad del archivo; no proporciona una firma digital.",
+            "La aplicación consulta las versiones oficiales de GitHub y puede avisarte de nuevas versiones normales o beta. Puede abrir la página de versiones, pero no descarga ni instala actualizaciones automáticamente. Tú decides si instalas una nueva versión. Las notas de cada versión describen cambios y límites de compatibilidad."
+          ]
+        ],
+        [
+          "Analítica opcional",
+          [
+            "La analítica de uso está desactivada hasta que decidas activarla. Rechazarla o desactivarla después no limita las funciones locales. La Política de privacidad explica los datos, los plazos, las comprobaciones de actualizaciones y los controles para desactivar la analítica o solicitar la eliminación. Aceptar estos Términos por sí solo no activa la analítica."
+          ]
+        ],
+        [
+          "Soporte y disponibilidad",
+          [
+            "Puedes informar de problemas a support@writersstudio.app. No adjuntes manuscritos privados salvo que elijas compartirlos para resolver una consulta. La beta gratuita no tiene un plazo de respuesta, calendario de versiones o acuerdo de nivel de servicio garantizados. Los futuros servicios opcionales pueden tener términos separados; no son necesarios para escribir localmente."
+          ]
+        ],
+        [
+          "Garantía y responsabilidad",
+          [
+            "La beta puede contener defectos y cambiar durante el desarrollo. En la medida permitida por la ley aplicable, se proporciona según disponibilidad, sin prometer un funcionamiento ininterrumpido, libre de errores o adecuado para cualquier forma de trabajo. Mantén copias independientes y revisa los documentos exportados antes de utilizarlos.",
+            "Estos Términos no excluyen responsabilidades que legalmente no puedan excluirse, incluido el fraude y las protecciones obligatorias de los consumidores. Cualquier limitación se aplica solo en la medida permitida por la ley que te protege."
+          ]
+        ],
+        [
+          "Componentes de terceros",
+          [
+            "WritersStudio incluye programas, fuentes y otros recursos de terceros bajo sus propias licencias. Sus avisos se incluyen con la aplicación. Las fuentes correspondientes a la distribución Git incluida y a los componentes sujetos a ese requisito se proporcionan con la versión. Esas licencias siguen otorgando sus propios derechos."
+          ]
+        ],
+        [
+          "Cambios y fin del uso",
+          [
+            "Puedes dejar de usar WritersStudio y desinstalarlo en cualquier momento. Los archivos de tus proyectos siguen siendo tuyos. Si activaste la analítica y deseas eliminar los datos recopilados, utiliza el control de eliminación antes de borrar los datos locales de la aplicación, que contienen la credencial necesaria para autenticar la solicitud.",
+            "Las nuevas versiones de estos Términos tendrán fecha y enlace permanente propios. Los cambios sustanciales se presentarán con la versión afectada. No eliminan los derechos que te otorga la ley ni conceden retroactivamente derechos sobre tus textos."
+          ]
+        ]
+      ],
+      "privacy": [
+        [
+          "Responsable de los datos",
+          [
+            "Alisa Petrova es responsable del tratamiento de WritersStudio descrito aquí. Para consultas o solicitudes de privacidad, escribe a support@writersstudio.app. Esta política cubre la aplicación, el sitio oficial, las comprobaciones de actualizaciones y la correspondencia de soporte."
+          ]
+        ],
+        [
+          "Los manuscritos permanecen en tu ordenador",
+          [
+            "WritersStudio no envía manuscritos, títulos de proyectos, nombres de personajes, notas, imágenes, rutas de archivos ni contenido del portapapeles para analítica. Los proyectos permanecen en las carpetas que elijas. Los servicios de carpetas en la nube o copias de seguridad que elijas por tu cuenta se rigen por sus propios términos."
+          ]
+        ],
+        [
+          "Analítica de uso opcional",
+          [
+            "La analítica está desactivada por defecto. Solo empieza cuando decides activarla en la aplicación. Rechazar o retirar el consentimiento no limita las funciones locales.",
+            "Con tu consentimiento, la aplicación envía eventos sobre inicios y actualizaciones, creación y apertura de proyectos, primer documento y primera edición significativa, exportaciones, creación de personajes y eventos de cronología, vistas divididas y categorías generales de fallos de apertura o exportación. La edición significativa se detecta localmente; no se envían el texto ni los recuentos calculados en el dispositivo.",
+            "Los eventos incluyen identificadores aleatorios de instalación, sesión y evento; tipo y hora del evento; versión de la aplicación; categoría general del sistema operativo; idioma de interfaz; y categorías limitadas de función, resultado o error aplicables al evento. Una credencial aleatoria separada autentica las solicitudes de eliminación. Son datos de uso seudonimizados, no datos cuya anonimidad esté garantizada.",
+            "La finalidad es entender qué funciones se utilizan, si las personas vuelven a la aplicación y dónde fallan las operaciones compatibles. No recopilamos identificadores publicitarios, grabamos pantallas o pulsaciones, reproducimos sesiones ni vinculamos la analítica con correos de soporte. No utilizamos estos datos para publicidad ni los vendemos."
+          ]
+        ],
+        [
+          "Tus controles",
+          [
+            "Desactivar la analítica detiene la recopilación de nuevos eventos y vacía la cola. Conserva localmente la identidad aleatoria y la credencial para que puedas solicitar la eliminación de datos enviados anteriormente. Desactivarla por sí solo no solicita la eliminación del servidor.",
+            "Restablecer la identidad solicita eliminar la anterior y crea otra no relacionada, manteniendo la analítica activada. Eliminar los datos recopilados desactiva la analítica y solicita su eliminación sin crear una identidad nueva. Las solicitudes pendientes sobreviven al reinicio y se reintentan cuando hay conexión. La aplicación muestra si la eliminación está pendiente, completada o necesita atención.",
+            "Conserva los datos locales de la aplicación hasta que se complete la eliminación. Borrarlos antes puede eliminar la credencial de autenticación. Contacta con soporte si necesitas ayuda; no identificamos los registros analíticos por tu correo electrónico."
+          ]
+        ],
+        [
+          "Dónde se procesa la analítica",
+          [
+            "El servidor principal de Telemetry y su base de datos están alojados en Hetzner Online GmbH, Nuremberg (NBG1), Alemania, Unión Europea. El acceso se limita al operador y a servicios de infraestructura autorizados. Las copias de seguridad están cifradas y se gestionan por separado por el operador, sin otro proveedor de copias en la nube.",
+            "Las IP de usuarios no se guardan en eventos de telemetría, registros de aplicación ni registros HTTP de acceso del proxy inverso. Los registros de acceso están desactivados y no se reenvían a la aplicación las cabeceras IP, User-Agent, Referer o Cookie. La infraestructura necesita procesar metadatos de conexión para entregar solicitudes y proteger el servicio. Hetzner puede procesarlos para operar la red, mantener la seguridad y prevenir ataques según sus políticas."
+          ]
+        ],
+        [
+          "Plazos de conservación",
+          [
+            "Los eventos de telemetría sin agregar se conservan durante 90 días.",
+            "Los registros de protección de eliminaciones se conservan durante 120 días para impedir que reintentos tardíos o copias restauradas recuperen datos eliminados. Se utilizan para esa protección, no para analítica del producto.",
+            "Las copias cifradas caducan en un máximo de 30 días. Eliminar datos de la base activa no reescribe inmediatamente todas las copias existentes. Antes de utilizar una copia restaurada deben aplicarse las protecciones de eliminación; las copias restantes caducan dentro del límite de 30 días.",
+            "En tu dispositivo, la cola contiene como máximo 500 eventos durante no más de 30 días. Las credenciales de eliminación pendiente se conservan hasta la confirmación, separadas de la cola de eventos."
+          ]
+        ],
+        [
+          "Actualizaciones y GitHub",
+          [
+            "Las comprobaciones de actualizaciones son independientes de la analítica y de su consentimiento. La aplicación instalada consulta la API pública de GitHub Releases unos 30 segundos después del inicio y, después, no más de una vez cada seis horas. También puedes comprobarlas manualmente en Ajustes. Las solicitudes no contienen manuscritos, tokens de cuenta ni identidades analíticas. GitHub recibe la IP de conexión y el agente genérico WritersStudio-Update-Checker.",
+            "La aplicación guarda una pequeña caché local de versiones, horas de comprobación y recordatorios. No descarga ni instala actualizaciones automáticamente. El sitio también consulta GitHub para mostrar las versiones disponibles. Las páginas de versiones y descargas se rigen por la política de GitHub, que puede procesar información internacionalmente."
+          ]
+        ],
+        [
+          "Sitio web y soporte",
+          [
+            "El sitio guarda el idioma y el tema elegidos en el almacenamiento local del navegador. No utiliza rastreadores publicitarios ni envía eventos de analítica de escritorio. El alojamiento y las solicitudes a GitHub siguen implicando metadatos de red ordinarios.",
+            "Si escribes a soporte, recibimos tu dirección de correo, mensaje y los archivos que decidas adjuntar. Los utilizamos para responder y resolver la consulta, no para identificar instalaciones analíticas ni enviar publicidad. La correspondencia se conserva mientras sea necesaria para la consulta, su seguimiento o una obligación legal. Omite manuscritos privados y datos personales innecesarios. Las incidencias públicas de GitHub son visibles para otras personas."
+          ]
+        ],
+        [
+          "Base legal y tus derechos",
+          [
+            "La analítica opcional se basa en tu consentimiento. La correspondencia de soporte se utiliza para responder a tu solicitud; la entrega esencial del sitio y las comprobaciones de actualizaciones responden al interés legítimo de proporcionar y mantener la aplicación, sujeto a tus derechos aplicables. No utilizamos la analítica para decisiones sobre ti con efectos jurídicos o similares significativos.",
+            "Según la ley aplicable, puedes solicitar acceso, corrección, eliminación, limitación o portabilidad de tus datos, oponerte al tratamiento basado en intereses legítimos y reclamar ante una autoridad competente de protección de datos. Puedes retirar el consentimiento en Ajustes en cualquier momento; no cambia la licitud del tratamiento anterior. Escribe a support@writersstudio.app si necesitas ayuda. Podemos necesitar una verificación proporcionada para no divulgar o eliminar datos de otra persona.",
+            "Si no puedes otorgar un consentimiento válido según la ley que te corresponde, deja la analítica desactivada. Puedes seguir escribiendo localmente."
+          ]
+        ],
+        [
+          "Cambios de la política",
+          [
+            "Cada versión tiene fecha y enlace permanente. Un cambio sustancial en el tratamiento analítico requiere una nueva elección en la aplicación antes de reanudar la recopilación. Las versiones publicadas anteriormente permanecen disponibles."
+          ]
+        ]
+      ]
+    }
+  }
+}

@@ -138,7 +138,7 @@
         "faq.freeQuestion": "Is the desktop app really free?",
         "faq.freeAnswer": "Yes. There is no trial period and no subscription for the desktop app. It will remain free. The planned Cloud service may be paid, but it will be optional.",
         "faq.accountQuestion": "Do I need an account or internet connection?",
-        "faq.accountAnswer": "No account is needed. Writing, search, export, and version history work offline. With internet access, the app checks for updates and sends usage events only if you enable optional analytics. Manuscripts are not included in those events.",
+        "faq.accountAnswer": "No account is needed. Writing, search, export, and version history work offline. The app uses internet access to check for updates. It sends usage events only if you enable optional analytics; manuscripts are not included.",
         "faq.filesQuestion": "Where does my manuscript live?",
         "faq.filesAnswer": "In the project folder you chose. The manuscript is stored as Markdown alongside the files WritersStudio uses to describe the project.",
         "faq.uninstallQuestion": "Will uninstalling remove my projects?",
@@ -172,7 +172,10 @@
         "dynamic.loadedMany": "Loaded directly from the official GitHub repository · {count} public releases",
         "dynamic.apiUnavailable": "GitHub release data is unavailable right now. The official Releases page remains available.",
         "dynamic.releaseUnavailable": "Could not reach GitHub · try the official releases page",
-        "dynamic.getVersion": "Get {version}"
+        "dynamic.getVersion": "Get {version}",
+        "footer.terms": "Terms of Use",
+        "footer.privacy": "Privacy Policy",
+        "download.legal": "Read the terms and privacy information before downloading:"
       }
     },
     "ru": {
@@ -306,7 +309,7 @@
         "faq.freeQuestion": "Версия для компьютера действительно бесплатна?",
         "faq.freeAnswer": "Да. У приложения для компьютера нет пробного периода и подписки. Оно останется бесплатным. Запланированный Cloud может быть платным, но пользоваться им будет необязательно.",
         "faq.accountQuestion": "Нужен аккаунт или интернет?",
-        "faq.accountAnswer": "Аккаунт не нужен. Редактор, поиск, экспорт и история версий работают без интернета. При доступе к сети приложение проверяет обновления и отправляет события использования, только если вы включили необязательную аналитику. Тексты рукописей в эти события не входят.",
+        "faq.accountAnswer": "Аккаунт не нужен. Редактор, поиск, экспорт и история версий работают без интернета. Приложение использует сеть для проверки обновлений. События использования отправляются только при включённой вами аналитике; тексты рукописей в них не входят.",
         "faq.filesQuestion": "Где хранится моя рукопись?",
         "faq.filesAnswer": "В выбранной вами папке проекта. Рукопись хранится в Markdown рядом с файлами, в которых WritersStudio описывает структуру проекта.",
         "faq.uninstallQuestion": "Удаление программы удалит проекты?",
@@ -340,7 +343,10 @@
         "dynamic.loadedMany": "Загружено из официального репозитория GitHub · публичных релизов: {count}",
         "dynamic.apiUnavailable": "Сейчас не удалось получить данные GitHub. Официальная страница Releases по-прежнему доступна.",
         "dynamic.releaseUnavailable": "Не удалось связаться с GitHub · откройте официальную страницу релизов",
-        "dynamic.getVersion": "Скачать {version}"
+        "dynamic.getVersion": "Скачать {version}",
+        "footer.terms": "Условия использования",
+        "footer.privacy": "Конфиденциальность",
+        "download.legal": "Перед скачиванием ознакомьтесь с условиями и информацией о данных:"
       }
     },
     "es": {
@@ -474,7 +480,7 @@
         "faq.freeQuestion": "¿La aplicación de escritorio es realmente gratuita?",
         "faq.freeAnswer": "Sí. La aplicación de escritorio no tiene periodo de prueba ni suscripción y seguirá siendo gratuita. El servicio Cloud previsto puede ser de pago, pero será opcional.",
         "faq.accountQuestion": "¿Necesito una cuenta o conexión a internet?",
-        "faq.accountAnswer": "No necesitas una cuenta. El editor, la búsqueda, la exportación y el historial funcionan sin conexión. Con acceso a internet, la aplicación busca actualizaciones y envía eventos de uso solo si activas la analítica opcional. Estos eventos no incluyen tus manuscritos.",
+        "faq.accountAnswer": "No necesitas una cuenta. El editor, la búsqueda, la exportación y el historial funcionan sin conexión. La aplicación usa internet para buscar actualizaciones. Solo envía eventos de uso si activas la analítica opcional; no incluyen manuscritos.",
         "faq.filesQuestion": "¿Dónde vive mi manuscrito?",
         "faq.filesAnswer": "En la carpeta del proyecto que elegiste. El manuscrito se guarda como Markdown junto a los archivos que WritersStudio utiliza para describir el proyecto.",
         "faq.uninstallQuestion": "¿Desinstalar la aplicación borrará mis proyectos?",
@@ -508,7 +514,10 @@
         "dynamic.loadedMany": "Cargado desde el repositorio oficial de GitHub · {count} versiones públicas",
         "dynamic.apiUnavailable": "Los datos de GitHub no están disponibles ahora mismo. La página oficial de Releases sigue disponible.",
         "dynamic.releaseUnavailable": "No se pudo acceder a GitHub · abre la página oficial de versiones",
-        "dynamic.getVersion": "Obtener {version}"
+        "dynamic.getVersion": "Obtener {version}",
+        "footer.terms": "Términos de uso",
+        "footer.privacy": "Privacidad",
+        "download.legal": "Antes de descargar, consulta los términos y la información de privacidad:"
       }
     }
   }

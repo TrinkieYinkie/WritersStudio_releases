@@ -21,5 +21,5 @@ Validation uses sequential bounded plans with exact task-owned process cleanup.
 Definition of done: coherent copy in all three locales, versioned legal pages
 without unresolved facts, working links and clean checked task branch.
 
-Pending: telemetry provider/country, backup retention and infrastructure logging.
+Confirmed deployment specification: Hetzner NBG1 Germany; raw events 90 days; deletion protection 120 days; encrypted operator-managed backups 30 days; no separate 24-month aggregate store. User IP addresses are excluded from telemetry/application/access logs. Deployment verification remains external. Personal location is not included at the owner’s request.
 Controller supplied by owner: Alisa Petrova; contact support@writersstudio.app.
