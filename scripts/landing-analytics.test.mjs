@@ -95,7 +95,8 @@ export async function runLandingAnalyticsTests() {
       const h = harness(options); h.client.pageView(); h.client.record(section)
       assert.equal(h.identities(), 0); assert.equal(h.contextReads(), 0); assert.equal(h.requests.length, 0); h.client.dispose()
     }
-    assert.equal(config.enabled, false)
+    assert.equal(config.enabled, true)
+    assert.equal(config.siteVersion, '1.1.0')
   })
   await check('exact versioned envelope, selected locale, privacy-safe transport and document-only identity', async () => {
     const h = harness({ locale: 'ru', search: '?utm_source=github&utm_campaign=launch&private=secret' })

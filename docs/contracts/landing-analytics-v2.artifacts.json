@@ -1,7 +1,7 @@
 {
   "landing-analytics.js": "1217272eb09d35ea5da20d6ead4ee5218c9e612bfb878a6266ea9424b70b0a53",
   "landing-analytics-ui.js": "cdf24bddbbec1acf6b886cb23fe925b5cac495b9fd416857f5794b4b23b6efd7",
-  "scripts/landing-analytics.test.mjs": "59d70d3b6fa17a6e5908a5383c24de40a2941a6103b9cf94b169f2b78b5b2eed",
+  "scripts/landing-analytics.test.mjs": "3de0a03000f3d349edfebe18bee969717b8e5bc654e0be59a2d781d6d006a1cd",
   "docs/contracts/landing-analytics-v2.md": "f90e6e9e5f4a051c6cb9ac50e9d61331bd03d77a7147ea78699b096f43d6bb9f",
   "docs/contracts/landing-analytics-v2.example.json": "3453fcfe7a957d1661f2f8102771537a8b4590982c3900059fe1121a5ffb9dc2",
   "scripts/landing-page.test.mjs": "e99f79484c22e7f67485ce7daf71c19aac71b64aca8fa20c28add79a2024fded",

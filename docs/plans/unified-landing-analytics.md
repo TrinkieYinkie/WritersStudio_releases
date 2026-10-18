@@ -1,6 +1,7 @@
 # Unified landing analytics v2
 
-Status: both implementation stages completed and verified; production collection remains disabled.
+Status: implementation and local release verification complete. Release configuration 1.1.0
+is enabled; explicit visitor consent remains mandatory. Production deployment is separate.
 
 ## Consent and release follow-up (2026-10-18)
 
@@ -32,7 +33,7 @@ verified: DNS/TLS, logging, database roles and backup/restore checks remain oper
 This follow-up supersedes earlier no-main-merge and disabled-client statements below. Earlier
 completion evidence describes the prior opt-out implementation, not the new consent behavior.
 
-## Expected behavior
+## Original expected behavior (superseded by the consent follow-up)
 
 Both landing sites use the same versioned event envelope, dependency-free sender,
 link semantics, attribution catalogs, bounded delivery and opt-out controller.
@@ -42,7 +43,7 @@ bounded retry deduplication. There is no persistent visitor identity, fingerprin
 application identity or download attribution join. The only analytics storage is
 an opt-out flag. Do not change the Telemetry repository, publish, push or merge main.
 
-## Stages
+## Original stages
 
 1. `feature/unified-landing-contract`: publish a common v2 specification, fixtures,
    client and protocol tests in both repositories. Preserve v1 as superseded history.
@@ -55,7 +56,7 @@ Use each existing non-main branch as its integration branch. Complete, verify an
 commit each stage on its branch before merging back and starting the next stage.
 Use the primary checkouts only. Preserve pre-existing sample changes.
 
-## Edge cases and compatibility
+## Original edge cases and compatibility
 
 - Every activation creates one event; distinguish opening download options,
   opening Releases and requesting an installer. None proves a download/install.
@@ -72,7 +73,7 @@ Use the primary checkouts only. Preserve pre-existing sample changes.
 - Keep product datasets separate. Reports describe observed page views, not unique
   people, application activity, retention or verified downloads. No backend exists yet.
 
-## Verification strategy and definition of done
+## Original verification strategy and definition of done
 
 Use existing lifecycle owners only: direct shell:false child launches, single-run
 locks, explicit stage deadlines, heartbeats, interruption and exact tree cleanup.
@@ -84,7 +85,7 @@ opt-out, persisted preference, narrow/short viewports, and public-asset loading.
 Leave both integration branches with atomic English commits and no task leftovers.
 Collection stays disabled; no Telemetry changes, deployment or hosted workflows.
 
-## Completion evidence
+## Original completion evidence
 
 - Both sites now load the same v2 client and UI. Yinkie has the statistics panel;
   WritersStudio preserves its existing opt-out key. Old clients are removed.
@@ -118,3 +119,15 @@ forced-colors styles are retained and no new motion was added.
 Both preview owners and locks were removed. Yinkie's preview stdin was unavailable; only its
 verified child PID was stopped, and its lifecycle owner removed the lock and exited. The audit
 confirmed that both exact PIDs were gone. No production telemetry was sent.
+
+## Release configuration verification (2026-10-18)
+
+The final enabled configuration (site version 1.1.0) passed the full owned sequential runner:
+Yinkie passed all 15 build stages and emitted 16 allowlisted public files; WritersStudio passed
+all 11 validation stages, including 188 translated messages and 12 current legal pages. Each
+passed 18 shared behavioral suites. Eight shared artifacts match byte for byte; the receiver
+pins the same client/specification/fixture. Telemetry precommit passed 208 tests with two
+Windows platform skips, including all eight consent-category combinations. No workflow files
+were changed. Local main integration is explicitly authorized; publishing is separate.
+
+See [release-readiness.md](../release-readiness.md) for the remaining production gates.
