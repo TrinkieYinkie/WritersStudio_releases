@@ -2,6 +2,36 @@
 
 Status: both implementation stages completed and verified; production collection remains disabled.
 
+## Consent and release follow-up (2026-10-18)
+
+The user authorizes a common consent popup, release configuration activation and local main merges
+after the unfinished telemetry work is complete. The telemetry implementation now passes its full
+suite. Push, deployment and repository-hosted workflows remain outside this authorization.
+
+Stage 3, feature/landing-consent: replace default inclusion with explicit consent. Present Accept,
+Configure and Reject on the first layer; configure independent page-view, download-click and other
+link-click categories, with optional categories initially unchecked. Save a versioned choice for
+180 days, preserve legacy opt-outs, honor DNT/GPC, fail closed on storage failure, and allow easy
+withdrawal from the footer. Closing or Escape never grants consent. No pre-consent IDs, context
+reads, requests or replay. Filter categories before producing events and cancel pending delivery
+when preferences change, including other tabs. A click without a view stays a click; do not infer
+visits. Explain common metadata, 90-day raw retention and infrastructure connection metadata.
+Do not promise absolute anonymity or blanket legal compliance. The operator is an individual
+publishing a free personal project; jurisdiction remains unspecified.
+
+Verify malformed/expired choices, partial consent, legacy records, blocked storage, cross-tab
+withdrawal, retries, visibility, BFCache and exact v2 compatibility. Keep shared files identical.
+Use the existing bounded sequential runners, then browser-check both themes, EN/RU/ES, keyboard,
+Escape, focus return and short/mobile overflow. Preserve unrelated sample edits.
+
+Stage 4, feature/landing-release-ready: enable the reviewed client configuration with the consent
+gate, run the full local site checks/builds, review public output and merge verified stages to the
+integration branch and then main. Do not claim the receiver is deployed or production collection
+verified: DNS/TLS, logging, database roles and backup/restore checks remain operational gates.
+
+This follow-up supersedes earlier no-main-merge and disabled-client statements below. Earlier
+completion evidence describes the prior opt-out implementation, not the new consent behavior.
+
 ## Expected behavior
 
 Both landing sites use the same versioned event envelope, dependency-free sender,
