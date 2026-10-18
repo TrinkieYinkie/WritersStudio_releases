@@ -1,5 +1,9 @@
 // Shared landing protocol v2. Keep this file identical in both public repositories.
 export const contractVersion = 2
+export const consentLifetime = 180 * 24 * 60 * 60 * 1000
+export const consentCategories = Object.freeze(['views', 'downloads', 'links'])
+const emptyConsent = () => ({ views: false, downloads: false, links: false })
+const categoryForEvent = { landing_page_viewed: 'views', landing_download_clicked: 'downloads', landing_link_clicked: 'links' }
 export const limits = Object.freeze({ events: 32, batch: 8, inFlight: 2, attempts: 3, timeout: 5000, bodyBytes: 16384 })
 const placements = ['header', 'hero', 'navigation', 'platforms', 'free', 'final', 'footer', 'release-latest', 'release-older', 'release-notes', 'download-legal', 'statistics']
 const downloadSections = ['header', 'hero', 'navigation', 'platforms', 'final', 'footer']
@@ -118,25 +122,42 @@ export function createLandingAnalytics({ config, location, storage, privacySigna
   setTimeout: schedule = setTimeout, clearTimeout: cancel = clearTimeout }) {
   const active = new Map()
   let memoryOff = false, storageUnavailable = false, disposed = false, departing = false
-  let pageViewId, attribution, counted = false, sequence = 0, produced = 0, wake, generation = 0
-  let queue = []
+  let pageViewId, attribution, counted = false, sequence = 0, wake, generation = 0
+  let queue = [], permissionSignature
+  const consentKey = config.preferenceKey + '.consent.v1'
   const configured = config.enabled === true && location.origin === config.origin
     && /^https:\/\/[^/:?#]+$/u.test(config.origin)
     && config.endpoint === config.origin.replace('https://', 'https://telemetry.') + '/api/telemetry/landing/events'
     && ['/', '/index.html'].includes(location.pathname)
     && /^\d{1,3}\.\d{1,3}\.\d{1,3}$/u.test(config.siteVersion)
     && typeof send === 'function' && typeof randomUUID === 'function'
-  function excluded() {
-    try { const value = storage.getItem(config.preferenceKey); storageUnavailable = false; return memoryOff || value !== null }
-    catch { storageUnavailable = true; return true }
+  function savedConsent() {
+    try {
+      const legacy = storage.getItem(config.preferenceKey)
+      const raw = storage.getItem(consentKey)
+      storageUnavailable = false
+      if (memoryOff || legacy !== null) return { categories: emptyConsent() }
+      if (raw === null) return null
+      let value
+      try { value = JSON.parse(raw) } catch { return null }
+      if (!exact(value, ['version', 'savedAt', 'categories']) || value.version !== 1
+        || !Number.isSafeInteger(value.savedAt) || value.savedAt > now()
+        || now() - value.savedAt >= consentLifetime || !validCategories(value.categories)) return null
+      return value
+    } catch { storageUnavailable = true; return null }
   }
+  function validCategories(value) {
+    return exact(value, consentCategories) && consentCategories.every(key => typeof value[key] === 'boolean')
+  }
+  function preferences() { return Object.freeze({ ...(savedConsent()?.categories ?? emptyConsent()) }) }
   function status() {
-    const off = excluded()
+    const consent = savedConsent()
     if (disposed) return 'unavailable'
     if (privacySignal()) return 'browser'
     if (storageUnavailable) return 'storage'
-    if (off) return 'excluded'
-    return configured ? 'active' : 'unavailable'
+    if (consent && !Object.values(consent.categories).some(Boolean)) return 'excluded'
+    if (!configured) return 'unavailable'
+    return consent ? 'active' : 'pending'
   }
   function stopPending() {
     generation++
@@ -147,17 +168,27 @@ export function createLandingAnalytics({ config, location, storage, privacySigna
   }
   function synchronize() {
     const current = status()
-    if (current !== 'active') stopPending()
+    const signature = JSON.stringify(preferences())
+    if (current !== 'active' || signature !== permissionSignature) stopPending()
+    permissionSignature = signature
     return current
   }
-  function exclude(value) {
-    if (value) memoryOff = true
+  function setConsent(categories) {
+    if (!validCategories(categories)) throw new TypeError('Invalid consent categories.')
+    stopPending()
+    memoryOff = true
     try {
-      if (value) storage.setItem(config.preferenceKey, 'off')
-      else storage.removeItem(config.preferenceKey)
+      const raw = JSON.stringify({ version: 1, savedAt: now(), categories })
+      storage.setItem(consentKey, raw)
+      if (storage.getItem(consentKey) !== raw) throw Error('Preference was not saved.')
+      storage.removeItem(config.preferenceKey)
+      if (storage.getItem(config.preferenceKey) !== null) throw Error('Legacy preference remains.')
       memoryOff = false
-    } catch { memoryOff = true }
+    } catch { /* Failed or silently discarded writes never grant consent. */ }
     return synchronize()
+  }
+  function exclude(value) {
+    return setConsent(Object.fromEntries(consentCategories.map(key => [key, !value])))
   }
   function scheduleFlush() {
     cancel(wake)
@@ -211,8 +242,12 @@ export function createLandingAnalytics({ config, location, storage, privacySigna
     scheduleFlush()
   }
   function record(action) {
-    if (!counted || synchronize() !== 'active' || !isLandingAction(action)
-      || produced >= limits.events || action.eventName === 'landing_page_viewed') return false
+    if (synchronize() !== 'active' || !isLandingAction(action)
+      || !preferences()[categoryForEvent[action.eventName]] || sequence >= limits.events
+      || action.eventName === 'landing_page_viewed') return false
+    if (!initializePage()) return false
+    // Sequence 1 belongs exclusively to a real view. Reserve it when views were declined.
+    if (sequence === 0) sequence = 1
     return enqueue(action)
   }
   function enqueue(action) {
@@ -225,24 +260,28 @@ export function createLandingAnalytics({ config, location, storage, privacySigna
         occurredAt: new Date(now()).toISOString(), attribution,
         properties: Object.freeze({ ...action.properties })
       })
-      produced++
       queue.push({ event, attempts: 0, readyAt: 0 })
       flush()
       return true
     } catch { disposed = true; stopPending(); return false }
   }
-  function pageView() {
-    if (counted || synchronize() !== 'active') return false
+  function initializePage() {
+    if (pageViewId) return true
     try {
       const value = context()
       pageViewId = randomUUID()
       attribution = classifyAttribution({ search: value.search, referrer: value.referrer,
         internalOrigins: [config.origin, ...(config.webOrigin ? [config.webOrigin] : [])] })
-      counted = true
-      return enqueue({ eventName: 'landing_page_viewed', properties: {} })
+      return true
     } catch { disposed = true; stopPending(); return false }
   }
-  return Object.freeze({ record, pageView, status, synchronize, exclude,
+  function pageView() {
+    if (counted || sequence !== 0 || synchronize() !== 'active' || !preferences().views) return false
+    if (!initializePage()) return false
+    counted = true
+    return enqueue({ eventName: 'landing_page_viewed', properties: {} })
+  }
+  return Object.freeze({ record, pageView, status, synchronize, exclude, setConsent, preferences,
     pageHide() { departing = true; queue = queue.filter(item => item.attempts === 0); flush() },
     pageShow() { departing = false; scheduleFlush() },
     dispose() { disposed = true; stopPending(); pageViewId = undefined; attribution = undefined }

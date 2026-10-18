@@ -131,8 +131,6 @@
             <li><span aria-hidden="true">✓</span> <span data-i18n="hero.promiseAccount">No account required</span></li>
             <li><span aria-hidden="true">✓</span> <span data-i18n="hero.promiseOffline">Works offline</span></li>
           </ul>
-
-          <p class="statistics-summary"><a href="#website-statistics" data-i18n="statistics.short">Website statistics and opt-out</a></p>
         </div>
 
         <div class="hero-stage" aria-label="WritersStudio version history preview">
@@ -635,24 +633,29 @@
       </section>
     </main>
 
-    <section class="website-statistics" id="website-statistics" aria-labelledby="statistics-title">
-      <div>
-        <h2 id="statistics-title" data-i18n="statistics.title">Website statistics</h2>
-        <p data-i18n="statistics.description">When enabled, statistics measure page views, link clicks and source/campaign categories. A temporary ID connects events only within one opening of this page; there is no persistent visitor ID or analytics cookie.</p>
-        <p data-i18n="statistics.details">Only your opt-out choice is saved in this browser. It has no expiry. Opting out stops future sending and pending retries; it does not erase events already accepted by the server. These statistics are separate from app usage and download counts.</p>
-        <p class="statistics-state" aria-live="polite" aria-atomic="true">
-          <span data-statistics-state="unavailable" data-i18n="statistics.unavailable">Collection is not enabled on this site yet. You can save your opt-out now.</span>
-          <span data-statistics-state="active" data-i18n="statistics.active" hidden>Statistics are on. Events are connected only within this page opening.</span>
-          <span data-statistics-state="excluded" data-i18n="statistics.excluded" hidden>This page will not send statistics. Your choice is remembered when browser storage is available.</span>
-          <span data-statistics-state="browser" data-i18n="statistics.browser" hidden>Statistics are off because your browser requests privacy.</span>
-          <span data-statistics-state="storage" data-i18n="statistics.storage" hidden>Statistics are off because your saved preference cannot be read.</span>
-        </p>
+    <div class="statistics-settings" id="website-statistics"><button class="statistics-open" type="button" data-statistics-open aria-haspopup="dialog" aria-controls="statistics-dialog" data-i18n="statistics.short" hidden>Website statistics</button></div>
+    <dialog class="statistics-dialog" id="statistics-dialog" data-statistics-dialog aria-labelledby="statistics-title" aria-describedby="statistics-intro">
+      <h2 id="statistics-title" data-statistics-title tabindex="-1" data-i18n="statistics.title">Help make this site better</h2>
+      <p id="statistics-intro" data-i18n="statistics.description">May we use optional statistics to understand which pages and links are useful? Your choice does not affect the site or downloads.</p>
+      <p class="statistics-reassurance" data-i18n="statistics.summary">No names, email addresses or document content. No advertising trackers or persistent visitor ID. Choose what to share, or continue without statistics.</p>
+      <div data-statistics-settings hidden>
+        <fieldset class="statistics-categories"><legend data-i18n="statistics.settings">Choose optional statistics</legend>
+          <label class="statistics-option"><input type="checkbox" data-statistics-category="views" aria-labelledby="statistics-views-label" aria-describedby="statistics-views-detail"><span><strong id="statistics-views-label" data-i18n="statistics.views">Page views</strong><span id="statistics-views-detail" data-i18n="statistics.viewsDetail">Count openings of this landing page after your permission, with language and source/campaign categories. This is not a count of people.</span></span></label>
+          <label class="statistics-option"><input type="checkbox" data-statistics-category="downloads" aria-labelledby="statistics-downloads-label" aria-describedby="statistics-downloads-detail"><span><strong id="statistics-downloads-label" data-i18n="statistics.downloads">Download clicks</strong><span id="statistics-downloads-detail" data-i18n="statistics.downloadsDetail">Count clicks on download options, release pages and installer links, with button location and selected platform. These are not completed downloads or installations.</span></span></label>
+          <label class="statistics-option"><input type="checkbox" data-statistics-category="links" aria-labelledby="statistics-links-label" aria-describedby="statistics-links-detail"><span><strong id="statistics-links-label" data-i18n="statistics.links">Other link clicks</strong><span id="statistics-links-detail" data-i18n="statistics.linksDetail">Count clicks on supported product, help and legal links using predefined destination and location categories. Link addresses are not sent.</span></span></label>
+        </fieldset>
+        <p class="statistics-detail" data-i18n="statistics.details">With your permission, events include their type and time, language, site version, a temporary page ID, retry IDs and predefined source/campaign and action categories. The page ID links events only during this page opening. Full URLs, raw search parameters, document content and browser/device details are not sent. Raw events are retained for up to 90 days. Connection metadata, including your IP address, necessarily reaches the hosting infrastructure; absence of a name is not a guarantee of absolute anonymity.</p>
+        <p class="statistics-detail" data-i18n="statistics.choice">Your choice is saved only in this browser for 180 days. You can change it using Website statistics in the footer. Withdrawal stops future sending and pending retries; it does not erase events already received. App analytics and GitHub download counters are separate.</p>
+        <a class="statistics-contact" href="mailto:support@writersstudio.app" data-i18n="statistics.contact">Privacy questions</a>
       </div>
+      <p class="statistics-state" aria-live="polite" aria-atomic="true"><span data-statistics-state="pending" data-i18n="statistics.pending">Statistics are off until you choose.</span><span data-statistics-state="unavailable" data-i18n="statistics.unavailable" hidden>Sending statistics is unavailable on this page. You can still save your preference.</span><span data-statistics-state="active" data-i18n="statistics.active" hidden>Only the categories you allowed are enabled.</span><span data-statistics-state="excluded" data-i18n="statistics.excluded" hidden>Statistics are off. You can use the site and downloads as usual.</span><span data-statistics-state="browser" data-i18n="statistics.browser" hidden>Statistics are off because your browser requests privacy.</span><span data-statistics-state="storage" data-i18n="statistics.storage" hidden>Statistics are off because your saved preference cannot be read.</span></p>
       <div class="statistics-actions">
-        <button class="button statistics-toggle" type="button" aria-pressed="false" data-statistics-toggle data-i18n="statistics.exclude" hidden>Exclude my visits</button>
-        <a href="privacy/" data-legal-document="privacy" data-statistics-link="privacy" data-statistics-placement="statistics" data-i18n="footer.privacy">Privacy Policy</a>
+        <button class="statistics-action" type="button" data-statistics-accept data-i18n="statistics.accept">Accept</button>
+        <button class="statistics-action" type="button" data-statistics-reject data-i18n="statistics.reject">Reject</button>
+        <button class="statistics-action statistics-customize" type="button" data-statistics-configure aria-controls="statistics-dialog" data-i18n="statistics.configure">Configure</button>
+        <button class="statistics-action statistics-customize" type="button" data-statistics-save data-i18n="statistics.save" hidden>Save choices</button>
       </div>
-    </section>
+    </dialog>
 
     <footer class="site-footer">
       <div class="footer-brand">

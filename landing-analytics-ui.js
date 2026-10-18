@@ -1,12 +1,21 @@
 import { landingAnalyticsConfig } from './landing-analytics-config.js'
-import { createLandingAnalytics, landingActionForLink } from './landing-analytics.js'
+import { createLandingAnalytics, landingActionForLink, consentCategories } from './landing-analytics.js'
 
 const owners = new WeakMap()
 export function initializeWebsiteStatistics({ doc = document, win = window, config = landingAnalyticsConfig } = {}) {
   if (owners.has(doc)) return owners.get(doc)
-  const control = doc.querySelector('[data-statistics-toggle]')
+  const dialog = doc.querySelector('[data-statistics-dialog]')
+  const openers = [...doc.querySelectorAll('[data-statistics-open]')]
   const states = [...doc.querySelectorAll('[data-statistics-state]')]
-  if (!control || !states.length) return undefined
+  const accept = doc.querySelector('[data-statistics-accept]')
+  const reject = doc.querySelector('[data-statistics-reject]')
+  const configure = doc.querySelector('[data-statistics-configure]')
+  const save = doc.querySelector('[data-statistics-save]')
+  const settings = doc.querySelector('[data-statistics-settings]')
+  const title = doc.querySelector('[data-statistics-title]')
+  const choices = [...doc.querySelectorAll('[data-statistics-category]')]
+  if (!dialog || typeof dialog.showModal !== 'function' || !accept || !reject || !configure
+    || !save || !settings || !title || choices.length !== consentCategories.length) return undefined
   const client = createLandingAnalytics({
     config, location: win.location,
     storage: {
@@ -22,24 +31,52 @@ export function initializeWebsiteStatistics({ doc = document, win = window, conf
     setTimeout: (callback, duration) => win.setTimeout(callback, duration),
     clearTimeout: timer => win.clearTimeout(timer)
   })
-  function refresh() {
+  let prompted = false
+  function refresh(syncChoices = false) {
     const state = client.synchronize()
     for (const element of states) element.hidden = element.dataset.statisticsState !== state
     const forced = state === 'browser' || state === 'storage'
-    control.disabled = forced
-    control.setAttribute('aria-pressed', String(forced || state === 'excluded'))
-    control.hidden = false
+    accept.disabled = forced
+    save.disabled = forced
+    const selected = client.preferences()
+    for (const choice of choices) {
+      choice.disabled = forced
+      if (syncChoices) choice.checked = selected[choice.dataset.statisticsCategory] === true
+    }
+    return state
+  }
+  function open(event) {
+    event?.preventDefault()
+    prompted = true
+    refresh(true)
+    delete dialog.dataset.configuring
+    settings.hidden = true
+    configure.hidden = false
+    save.hidden = true
+    if (!dialog.open) dialog.showModal()
+    title.focus()
   }
   function viewWhenVisible() {
-    refresh()
-    if (doc.visibilityState === 'visible' && !doc.prerendering) client.pageView()
+    const state = refresh()
+    if (doc.visibilityState !== 'visible' || doc.prerendering) return
+    if (state === 'pending' && !prompted) open()
+    client.pageView()
   }
-  function toggle() {
-    client.exclude(control.getAttribute('aria-pressed') !== 'true')
+  function choose(categories) {
+    client.setConsent(categories)
+    dialog.close()
     viewWhenVisible()
   }
+  function allow() { choose(Object.fromEntries(consentCategories.map(key => [key, true]))) }
+  function decline() { choose(Object.fromEntries(consentCategories.map(key => [key, false]))) }
+  function customize() { dialog.dataset.configuring = 'true'; settings.hidden = false; configure.hidden = true; save.hidden = false; (choices[0].disabled ? title : choices[0]).focus() }
+  function saveChoices() { choose(Object.fromEntries(choices.map(choice => [choice.dataset.statisticsCategory, choice.checked]))) }
+  function cancel(event) { event.preventDefault(); dialog.close(); refresh() }
   function onStorage(event) {
-    if (event.key === config.preferenceKey || event.key === null) viewWhenVisible()
+    if (event.key === config.preferenceKey || event.key === config.preferenceKey + '.consent.v1' || event.key === null) {
+      refresh(true)
+      viewWhenVisible()
+    }
   }
   function onLink(event) {
     if (!event.isTrusted || event.defaultPrevented || doc.visibilityState !== 'visible' || doc.prerendering
@@ -53,25 +90,17 @@ export function initializeWebsiteStatistics({ doc = document, win = window, conf
   }
   function onPageHide() { client.pageHide() }
   function onPageShow() { client.pageShow(); viewWhenVisible() }
-  control.addEventListener('click', toggle)
-  doc.addEventListener('click', onLink)
-  doc.addEventListener('auxclick', onLink)
-  doc.addEventListener('visibilitychange', viewWhenVisible)
-  doc.addEventListener('prerenderingchange', viewWhenVisible)
-  win.addEventListener('storage', onStorage)
-  win.addEventListener('pageshow', onPageShow)
-  win.addEventListener('pagehide', onPageHide)
+  const listeners = [[accept, 'click', allow], [reject, 'click', decline], [configure, 'click', customize],
+    [save, 'click', saveChoices], [dialog, 'cancel', cancel], ...openers.map(node => [node, 'click', open]),
+    [doc, 'click', onLink], [doc, 'auxclick', onLink], [doc, 'visibilitychange', viewWhenVisible],
+    [doc, 'prerenderingchange', viewWhenVisible], [win, 'storage', onStorage],
+    [win, 'pageshow', onPageShow], [win, 'pagehide', onPageHide]]
+  for (const [node, event, handler] of listeners) node.addEventListener(event, handler)
+  for (const opener of openers) opener.hidden = false
   const owner = Object.freeze({ dispose() {
-    control.removeEventListener('click', toggle)
-    doc.removeEventListener('click', onLink)
-    doc.removeEventListener('auxclick', onLink)
-    doc.removeEventListener('visibilitychange', viewWhenVisible)
-    doc.removeEventListener('prerenderingchange', viewWhenVisible)
-    win.removeEventListener('storage', onStorage)
-    win.removeEventListener('pageshow', onPageShow)
-    win.removeEventListener('pagehide', onPageHide)
+    for (const [node, event, handler] of listeners) node.removeEventListener(event, handler)
+    if (dialog.open) dialog.close()
     client.dispose()
-    // Keep the disposed owner registered: reinitialization must not count another view.
   } })
   owners.set(doc, owner)
   viewWhenVisible()

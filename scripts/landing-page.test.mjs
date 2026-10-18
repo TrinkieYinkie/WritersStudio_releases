@@ -24,10 +24,13 @@ export async function runLandingPageTests() {
     for (const [key, value] of Object.entries(messages)) assert.equal(locales[locale][key], value, locale + ':' + key)
   }
   assert.match(html, /id="website-statistics"/u)
-  assert.match(html, /href="#website-statistics"/u)
   assert.match(html, /aria-live="polite"/u)
-  assert.match(html, /<button[^>]*aria-pressed="false"[^>]*data-statistics-toggle/u)
-  assert.equal((html.match(/data-statistics-toggle/gu) ?? []).length, 1)
+  assert.match(html, /<dialog[^>]*data-statistics-dialog[^>]*aria-labelledby="statistics-title"/u)
+  assert.equal((html.match(/data-statistics-category=/gu) ?? []).length, 3)
+  assert.doesNotMatch(html, /<input[^>]*data-statistics-category[^>]*checked/u)
+  for (const action of ['accept', 'reject', 'configure', 'save']) assert.match(html, new RegExp('data-statistics-' + action, 'u'))
+  assert.match(html, /data-statistics-open/u)
+  assert.doesNotMatch(html, /data-statistics-toggle/u)
   assert.doesNotMatch(html, /without visitor IDs|No individual browsing history/u)
   const actions = []
   for (const match of html.matchAll(/<a\b[^>]+>/gu)) {
@@ -44,6 +47,6 @@ export async function runLandingPageTests() {
   assert.ok(actions.some(action => action.properties.action === 'open-releases'))
   assert.ok(actions.some(action => action.properties.destination === 'support-email'))
   if (config.webOrigin) assert.ok(actions.some(action => action.properties.destination === 'web-app'))
-  console.log(`PASS page integration: ${actions.length} exact link owners, shared EN/RU/ES copy, accessible opt-out and isolated v2 entry point.`)
+  console.log(`PASS page integration: ${actions.length} exact link owners, shared EN/RU/ES copy, accessible explicit consent and isolated v2 entry point.`)
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await runLandingPageTests()

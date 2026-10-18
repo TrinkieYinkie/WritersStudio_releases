@@ -1,9 +1,9 @@
 {
-  "landing-analytics.js": "e9b44859a2b0e438317721538b7a169f73a65b6207bd26028be125b9ccb2590e",
-  "landing-analytics-ui.js": "8353b21ed35843d2ee7eb37ccc8e1ff5df50d0f02db186122cf2d015186f4bd5",
-  "scripts/landing-analytics.test.mjs": "6042fc9b68e1a6b192106c36085c04ca55baef7686baed5170f2c1d7665fdab9",
-  "docs/contracts/landing-analytics-v2.md": "6c06ecde6b5af215034c2a0d7bd96ba7ba4cf0d2a00529415b79ed43ea51d1eb",
+  "landing-analytics.js": "1217272eb09d35ea5da20d6ead4ee5218c9e612bfb878a6266ea9424b70b0a53",
+  "landing-analytics-ui.js": "cdf24bddbbec1acf6b886cb23fe925b5cac495b9fd416857f5794b4b23b6efd7",
+  "scripts/landing-analytics.test.mjs": "59d70d3b6fa17a6e5908a5383c24de40a2941a6103b9cf94b169f2b78b5b2eed",
+  "docs/contracts/landing-analytics-v2.md": "f90e6e9e5f4a051c6cb9ac50e9d61331bd03d77a7147ea78699b096f43d6bb9f",
   "docs/contracts/landing-analytics-v2.example.json": "3453fcfe7a957d1661f2f8102771537a8b4590982c3900059fe1121a5ffb9dc2",
-  "scripts/landing-page.test.mjs": "4375e484b72654556f2ca9e3cd04d7a6cff60ded2dc26ccbb6df74e472b45172",
-  "docs/contracts/landing-analytics-v2.ui-copy.json": "1016fe1e3744e8e9cb92805d635aa5b0a7e0e3e3bca7ba85d85f729ec56b1479"
+  "scripts/landing-page.test.mjs": "e99f79484c22e7f67485ce7daf71c19aac71b64aca8fa20c28add79a2024fded",
+  "docs/contracts/landing-analytics-v2.ui-copy.json": "590c9a5eb918f3c8acb7c84cbd506d7dd74cf5a2733493de7fd4d2b38f2a63ed"
 }

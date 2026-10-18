@@ -104,3 +104,17 @@ Collection stays disabled; no Telemetry changes, deployment or hosted workflows.
 
 Server ingestion, retention, reports, real endpoint/CORS verification and enabling
 the deployment flags remain separate work under the v2 contract.
+
+## Consent stage completion (2026-10-18)
+
+Explicit consent is implemented with 18 passing shared behavioral suites. Yinkie's 15-stage
+build and WritersStudio's 11-stage full validation pass. Shared source, contract, copy and tests
+match byte for byte. Historical policy pages are preserved; WS current policies use 2026-10-18.
+Browser verification covered EN/RU/ES, both themes, keyboard selection, persisted partial choices,
+Escape/focus return, 320x568 and 820x360 overflow, and 1280x800 desktop layout. Buttons stay visible
+while settings scroll. Browser warning/error logs were empty. WS equivalent scrollable surfaces
+now use one semantic scrollbar treatment. Native dialog supplies modal keyboard/focus behavior;
+forced-colors styles are retained and no new motion was added.
+Both preview owners and locks were removed. Yinkie's preview stdin was unavailable; only its
+verified child PID was stopped, and its lifecycle owner removed the lock and exited. The audit
+confirmed that both exact PIDs were gone. No production telemetry was sent.

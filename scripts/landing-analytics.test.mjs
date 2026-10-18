@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { pathToFileURL } from 'node:url'
-import { createLandingAnalytics, classifyAttribution, landingActionForLink, isLandingAction } from '../landing-analytics.js'
+import { createLandingAnalytics, consentLifetime, classifyAttribution, landingActionForLink, isLandingAction } from '../landing-analytics.js'
 import { landingAnalyticsConfig as config } from '../landing-analytics-config.js'
 import { initializeWebsiteStatistics } from '../landing-analytics-ui.js'
 
@@ -14,9 +14,10 @@ function harness(options = {}) {
   const schedule = (fn, delay) => { timers.set(++serial, { fn, due: time + delay }); return serial }
   const storage = {
     getItem: key => { if (options.storageError) throw Error('unreadable'); return values.get(key) ?? null },
-    setItem: (key, value) => { if (options.writeError) throw Error('unwritable'); values.set(key, value) },
+    setItem: (key, value) => { if (options.writeError) throw Error('unwritable'); if (!options.silentWrite) values.set(key, value) },
     removeItem: key => { if (options.writeError) throw Error('unwritable'); values.delete(key) }
   }
+  if (options.consent !== false) values.set(config.preferenceKey + '.consent.v1', JSON.stringify({ version: 1, savedAt: time, categories: options.categories ?? { views: true, downloads: true, links: true } }))
   if (options.excluded) values.set(config.preferenceKey, 'off')
   const activeConfig = { ...config, enabled: true, ...options.config }
   const client = createLandingAnalytics({ config: activeConfig,
@@ -54,17 +55,24 @@ class Surface {
   fire(type, detail = {}) { for (const fn of this.handlers.get(type) ?? []) fn({ type, ...detail }) }
   setAttribute(key, value) { this.attributes.set(key, value) }
   getAttribute(key) { return this.attributes.get(key) ?? null }
+  focus() { this.focused = true }
+  showModal() { this.open = true }
+  close() { this.open = false }
 }
 function page(options = {}) {
-  const doc = new Surface(), win = new Surface(), button = new Surface()
-  const states = ['active', 'excluded', 'unavailable', 'browser', 'storage'].map(state => {
+  const doc = new Surface(), win = new Surface()
+  const elements = Object.fromEntries(['dialog', 'accept', 'reject', 'configure', 'save', 'settings', 'title', 'open'].map(key => [key, new Surface()]))
+  const choices = ['views', 'downloads', 'links'].map(key => { const node = new Surface(); node.dataset.statisticsCategory = key; node.checked = false; return node })
+  const states = ['pending', 'active', 'excluded', 'unavailable', 'browser', 'storage'].map(state => {
     const node = new Surface(); node.dataset.statisticsState = state; return node
   })
   const values = new Map(), requests = [], timers = new Map()
   let ids = 0
   doc.visibilityState = options.hidden ? 'hidden' : 'visible'; doc.prerendering = options.prerendering ?? false
   doc.documentElement = { lang: 'en' }; doc.referrer = ''
-  doc.querySelector = () => button; doc.querySelectorAll = () => states
+  doc.querySelector = selector => elements[selector.match(/data-statistics-([a-z]+)/u)?.[1]]
+  doc.querySelectorAll = selector => selector.includes('-state]') ? states : selector.includes('-open]') ? [elements.open] : choices
+  if (options.consent !== false) values.set(config.preferenceKey + '.consent.v1', JSON.stringify({ version: 1, savedAt: Date.now(), categories: { views: true, downloads: true, links: true } }))
   win.navigator = { globalPrivacyControl: options.privacy ?? false }
   win.location = { origin: config.origin, pathname: '/', search: '' }
   win.crypto = { randomUUID: () => `20000000-0000-4000-8000-${String(++ids).padStart(12, '0')}` }
@@ -74,7 +82,7 @@ function page(options = {}) {
   win.fetch = (_, init) => { requests.push(init); return Promise.resolve({ status: 204 }) }
   const activeConfig = { ...config, enabled: options.enabled ?? true }
   const owner = initializeWebsiteStatistics({ doc, win, config: activeConfig })
-  return { doc, win, button, values, requests, owner, timers, activeConfig,
+  return { doc, win, elements, choices, values, requests, owner, timers, activeConfig,
     selected: () => states.filter(node => !node.hidden).map(node => node.dataset.statisticsState) }
 }
 
@@ -100,7 +108,7 @@ export async function runLandingAnalyticsTests() {
     assert.equal(event.eventVersion, 2); assert.equal(event.locale, 'ru'); assert.equal(event.sequence, 1)
     assert.equal(h.requests[1].body.events[0].pageViewId, event.pageViewId)
     assert.equal(h.requests[1].body.events[0].sequence, 2)
-    assert.notEqual(event.eventId, event.pageViewId); assert.equal(h.values.size, 0)
+    assert.notEqual(event.eventId, event.pageViewId); assert.equal(h.values.size, 1)
     assert.equal(init.credentials, 'omit'); assert.equal(init.referrerPolicy, 'no-referrer')
     assert.equal(init.redirect, 'error'); assert.equal(init.keepalive, true)
     assert.deepEqual(init.headers, { 'Content-Type': 'text/plain;charset=UTF-8' })
@@ -171,7 +179,7 @@ export async function runLandingAnalyticsTests() {
     const h = harness({ pending: true }); h.client.pageView(); h.client.record(section); h.client.record(section)
     h.client.exclude(true); h.client.exclude(false); await h.advance(60000)
     assert.equal(h.requests.length, 2); assert.ok(h.requests.every(r => r.init.signal.aborted))
-    assert.equal(h.values.size, 0); assert.equal(h.client.pageView(), false); h.client.dispose()
+    assert.equal(h.values.size, 1); assert.equal(h.client.pageView(), false); h.client.dispose()
     const w = harness({ writeError: true }); w.client.pageView(); w.client.exclude(true)
     assert.equal(w.client.status(), 'excluded'); assert.equal(w.client.record(section), false); w.client.dispose()
   })
@@ -180,23 +188,88 @@ export async function runLandingAnalyticsTests() {
     await h.advance(20000); h.client.pageShow(); h.client.pageView(); await h.advance(20000)
     assert.equal(h.requests.length, 1); h.client.dispose()
   })
-  await check('shared UI saves opt-out while disabled and respects browser signals', () => {
-    const p = page({ enabled: false }); assert.deepEqual(p.selected(), ['unavailable'])
-    p.button.fire('click'); assert.equal(p.values.get(config.preferenceKey), 'off')
-    assert.equal(p.button.getAttribute('aria-pressed'), 'true'); assert.deepEqual(p.selected(), ['excluded'])
-    p.button.fire('click'); assert.deepEqual(p.selected(), ['unavailable']); assert.equal(p.requests.length, 0); p.owner.dispose()
-    const g = page({ privacy: true }); assert.equal(g.button.disabled, true); assert.deepEqual(g.selected(), ['browser']); assert.equal(g.requests.length, 0); g.owner.dispose()
+  await check('no consent means no identity, context, events or replay; allow starts only current observations', async () => {
+    const h = harness({ consent: false })
+    assert.equal(h.client.status(), 'pending')
+    assert.equal(h.client.pageView(), false); assert.equal(h.client.record(section), false)
+    await h.advance(10000)
+    assert.equal(h.identities(), 0); assert.equal(h.contextReads(), 0); assert.equal(h.requests.length, 0)
+    h.client.setConsent({ views: true, downloads: true, links: true }); h.client.pageView(); await h.advance(0)
+    assert.deepEqual(h.requests.flatMap(r => r.body.events).map(e => e.eventName), ['landing_page_viewed'])
+    h.client.dispose()
   })
-  await check('UI visibility, prerender, BFCache, duplicate initialization and cross-tab exclusion', async () => {
+  await check('partial consent emits only selected categories and never manufactures a page view', async () => {
+    const h = harness({ categories: { views: false, downloads: true, links: false } })
+    assert.equal(h.client.pageView(), false); assert.equal(h.identities(), 0)
+    assert.equal(h.client.record({ eventName: 'landing_link_clicked', properties: { destination: 'support-email', placement: 'footer' } }), false)
+    h.client.record(section); await h.advance(0)
+    assert.equal(h.requests.length, 1)
+    assert.equal(h.requests[0].body.events[0].sequence, 2)
+    assert.equal(h.requests[0].body.events[0].eventName, 'landing_download_clicked')
+    h.client.setConsent({ views: true, downloads: true, links: false })
+    assert.equal(h.client.pageView(), false, 'Do not insert a late synthetic view before prior clicks')
+    h.client.dispose()
+    const views = harness({ categories: { views: true, downloads: false, links: false } })
+    views.client.pageView(); assert.equal(views.client.record(section), false); views.client.dispose()
+  })
+  await check('expired, future, malformed, legacy and failed persistence cannot silently grant consent', async () => {
+    const key = config.preferenceKey + '.consent.v1'
+    for (const raw of ['true', '{', '{}', JSON.stringify({ version: 1, savedAt: 0, categories: { views: true, downloads: true, links: true } }),
+      JSON.stringify({ version: 1, savedAt: Date.parse('2099-01-01'), categories: { views: true, downloads: true, links: true } })]) {
+      const h = harness({ consent: false }); h.values.set(key, raw)
+      assert.equal(h.client.pageView(), false); assert.equal(h.identities(), 0); h.client.dispose()
+    }
+    const h = harness(); await h.advance(consentLifetime)
+    assert.equal(h.client.status(), 'pending'); assert.equal(h.client.pageView(), false); h.client.dispose()
+    for (const options of [{ consent: false, writeError: true }, { consent: false, silentWrite: true }, { excluded: true }]) {
+      const p = harness(options)
+      if (!options.excluded) p.client.setConsent({ views: true, downloads: true, links: true })
+      assert.equal(p.client.pageView(), false); assert.equal(p.identities(), 0); p.client.dispose()
+    }
+  })
+  await check('changing categories aborts mixed pending requests and discards their retries', async () => {
+    const h = harness({ pending: true }); h.client.pageView(); h.client.record(section)
+    h.values.set(config.preferenceKey + '.consent.v1', JSON.stringify({ version: 1, savedAt: Date.parse('2026-10-14T12:00:00Z'), categories: { views: false, downloads: false, links: true } }))
+    h.client.synchronize(); await h.advance(60000)
+    assert.ok(h.requests.every(r => r.init.signal.aborted)); assert.equal(h.requests.length, 2)
+    assert.equal(h.client.record(section), false); h.client.dispose()
+  })
+  await check('popup supports explicit accept, reject, unchecked settings and Escape without consent', () => {
+    const p = page({ consent: false })
+    assert.equal(p.elements.dialog.open, true); assert.equal(p.elements.title.focused, true)
+    assert.equal(p.requests.length, 0); assert.deepEqual(p.selected(), ['pending'])
+    p.elements.configure.fire('click')
+    assert.equal(p.elements.settings.hidden, false); assert.ok(p.choices.every(c => !c.checked))
+    p.choices[1].checked = true; p.elements.save.fire('click')
+    assert.equal(p.elements.dialog.open, false); assert.equal(p.requests.length, 0)
+    assert.deepEqual(JSON.parse(p.values.get(config.preferenceKey + '.consent.v1')).categories, { views: false, downloads: true, links: false })
+    p.elements.open.fire('click', { preventDefault() {} }); p.elements.reject.fire('click')
+    assert.deepEqual(p.selected(), ['excluded']); p.owner.dispose()
+    const a = page({ consent: false }); a.elements.accept.fire('click')
+    assert.equal(a.requests.length, 1); a.owner.dispose()
+    const e = page({ consent: false }); e.elements.dialog.fire('cancel', { preventDefault() {} })
+    e.doc.fire('visibilitychange'); assert.equal(e.elements.dialog.open, false)
+    assert.equal(e.values.size, 0); assert.equal(e.requests.length, 0); e.owner.dispose()
+  })
+  await check('disabled preview saves choices without network, and privacy signals cannot be overridden', () => {
+    const p = page({ enabled: false, consent: false }); assert.deepEqual(p.selected(), ['unavailable'])
+    p.elements.open.fire('click', { preventDefault() {} }); p.elements.accept.fire('click')
+    assert.deepEqual(p.selected(), ['unavailable']); assert.equal(p.requests.length, 0); p.owner.dispose()
+    const g = page({ privacy: true }); assert.equal(g.elements.accept.disabled, true)
+    assert.ok(g.choices.every(choice => choice.disabled)); assert.deepEqual(g.selected(), ['browser'])
+    assert.equal(g.requests.length, 0); g.owner.dispose()
+  })
+  await check('UI visibility, prerender, BFCache, duplicate initialization and cross-tab withdrawal', async () => {
     const p = page({ hidden: true, prerendering: true }); assert.equal(p.requests.length, 0)
     p.doc.visibilityState = 'visible'; p.doc.fire('visibilitychange'); assert.equal(p.requests.length, 0)
     p.doc.prerendering = false; p.doc.fire('prerenderingchange'); await settle()
     p.win.fire('pageshow', { persisted: true }); p.doc.fire('visibilitychange')
     assert.equal(initializeWebsiteStatistics({ doc: p.doc, win: p.win, config: p.activeConfig }), p.owner)
     assert.equal(p.requests.length, 1)
-    p.values.set(config.preferenceKey, 'off'); p.win.fire('storage', { key: config.preferenceKey })
+    p.values.set(config.preferenceKey + '.consent.v1', JSON.stringify({ version: 1, savedAt: Date.now(), categories: { views: false, downloads: false, links: false } }))
+    p.win.fire('storage', { key: config.preferenceKey + '.consent.v1' })
     assert.deepEqual(p.selected(), ['excluded']); p.owner.dispose()
-    assert.ok([...p.doc.handlers.values(), ...p.win.handlers.values()].every(set => set.size === 0))
+    assert.ok([...p.doc.handlers.values(), ...p.win.handlers.values(), ...Object.values(p.elements).flatMap(element => [...element.handlers.values()])].every(set => set.size === 0))
   })
   await check('trusted keyboard/modifier and middle clicks preserve native navigation', async () => {
     const p = page(); await settle()
@@ -209,7 +282,7 @@ export async function runLandingAnalyticsTests() {
     p.doc.fire('click', { ...click, isTrusted: false }); p.doc.fire('click', { ...click, defaultPrevented: true })
     p.doc.fire('auxclick', { ...click, button: 2 }); assert.equal(p.requests.length, 3)
     assert.ok(p.requests.slice(1).every(init => JSON.parse(init.body).events.length === 1))
-    p.button.fire('click'); p.doc.fire('click', click); assert.equal(p.requests.length, 3); p.owner.dispose()
+    p.elements.reject.fire('click'); p.doc.fire('click', click); assert.equal(p.requests.length, 3); p.owner.dispose()
   })
   await check('published fixture and shared artifact digest prevent unnoticed contract drift', async () => {
     const fixture = JSON.parse(await readFile(new URL('../docs/contracts/landing-analytics-v2.example.json', import.meta.url)))

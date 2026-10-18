@@ -1,6 +1,6 @@
 # Shared landing analytics v2
 
-Status: client implemented for both landing sites; production sending is disabled.
+Status: shared explicit-consent client implemented for both landing sites; release activation is a separate configuration step.
 This specification supersedes both incompatible landing v1 proposals. It does not
 change application telemetry or authorize deployment. Keep this document, the JSON
 catalog/example and the shared client/UI/tests byte-identical in both repositories.
@@ -14,13 +14,25 @@ and hash navigation do not add a view. No persistent visitor/session/installatio
 identity, cookies, fingerprint or connection to editor/download identities exists.
 These observations are not unique people, returning users or completed downloads.
 
-The only analytics browser storage is `<product>.websiteStatistics = off`. Keep
-the existing WritersStudio preference key. Opt-out has no expiry; re-enabling
-removes the flag. Read failure, GPC or DNT suppresses sending. Failed writes still
-exclude the current document. Cross-tab changes update the UI and stop pending
-requests/retries. Opt-out discards the in-memory outbox and aborts requests but
-cannot undo a request already accepted by the server. Re-inclusion does not replay
-previous actions or create another view in an already-counted document.
+Collection requires an explicit, versioned choice; no default inclusion. Accept enables all
+three optional categories; Reject disables all; Configure starts unchecked and permits independent
+views, download clicks and other link clicks. Closing or Escape does not grant consent. The footer
+reopens the same controls. Accept and Reject are equally reachable on the first layer.
+
+The consent key is the existing preference key plus ".consent.v1". Its exact JSON shape is
+{version:1,savedAt:epochMilliseconds,categories:{views:boolean,downloads:boolean,links:boolean}}.
+Both allow and deny choices expire after 180 days. This preference contains no random visitor ID.
+Legacy non-null opt-out flags remain refusals until an explicit new choice successfully replaces
+them. Missing, expired, malformed or future-dated records never grant consent. Writes must be
+read back successfully; unreadable or unavailable storage fails closed. DNT/GPC take precedence.
+
+No IDs or attribution context are created before an allowed event. No earlier actions are replayed.
+Only granted categories produce events. A click without view consent reserves sequence 1 and starts
+at sequence 2; the missing view is never reconstructed. If clicks already exist, later enabling
+views does not insert an earlier view into that document. Reload starts a fresh document identity.
+All queued/in-flight attempts are cancelled when the category selection changes, even if some
+categories remain enabled, including cross-tab changes. Already accepted requests cannot be undone.
+These reports describe consenting observations, not all visits; consent creates selection bias.
 
 Capture only reviewed coarse context. Never send full URLs/referrers, arbitrary
 UTM values, query/hash, link text, user-agent, device/OS details, content, email,
@@ -35,7 +47,7 @@ identifiers, IP, UA, Cookie or Referer. Audit actual edge/hosting logs before us
 The configured exact landing origin must match the browser origin; only `/` and
 `/index.html` collect. Product/store resolution belongs to the server hostname.
 The body never selects another product or its database. Preview/local origins and
-altered endpoint paths are disabled. Both deployment flags remain `enabled: false`.
+altered endpoint paths are disabled. The release flag does not bypass visitor consent or the exact production-origin gate.
 
 Root keys are exactly `schemaVersion: 1`, `contractVersion: 2`, `events` (1–8 items).
 Each event contains exactly:
@@ -101,7 +113,7 @@ known referrer domains use safe subdomain boundaries; the configured landing and
 web origins are internal. Unknown/invalid referrers are referral. No referrer is
 direct, including browser-hidden referrers. No browser header is forwarded.
 `utm_term` and `utm_content` are ignored. Add campaign codes to both clients and
-the future server together; arbitrary campaigns never leave the browser verbatim.
+the server together; arbitrary campaigns never leave the browser verbatim.
 
 ## Delivery, validation and storage requirements
 
@@ -119,18 +131,18 @@ is respected with a minimum 1-second delay; longer or date-form instructions dro
 the retry instead of retrying early. No persisted queue or beacon. Page departure
 flushes eligible new events but starts no more retries. Delivery remains best-effort.
 
-The future receiver must validate exact fields/catalogs and property combinations,
+The receiver must validate exact fields/catalogs and property combinations,
 UUIDs, timestamp bounds and same-page batches; reject malformed batches atomically.
 Return 2xx only after durable acceptance. Deduplicate exact retries atomically and
 reject an event-ID collision with changed data. Tolerate out-of-order sequences;
 do not reconstruct a missing view from clicks. Do not trust client input as bot
 proof. Keep identifiers only within the landing dataset and out of logs.
 
-Proposed maximum raw-event/page-ID retention is 90 days, subject to explicit server
-and backup-policy agreement before activation. Bounded aggregate retention must
-also be specified. There is no durable identity for per-person deletion; the UI
-must not claim that opting out erases accepted events. No production retention or
-legal compliance is established by this client-only implementation.
+The receiver implements at most 90 days of raw-event/page-ID retention, including a readiness gate
+and expiry purge on restore. Actual deployment and backup behavior must still be verified before
+publishing an active site. There is no durable identity for per-person deletion; withdrawal cannot
+erase accepted events. Hosting infrastructure necessarily receives connection metadata. Do not
+describe random page IDs or absence of names as proof of absolute anonymity or legal compliance.
 
 ## Reporting and activation
 
