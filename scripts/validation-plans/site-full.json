@@ -22,6 +22,15 @@
       "command": "$NODE"
     },
     {
+      "name": "Legal page theme module syntax",
+      "command": "$NODE",
+      "args": [
+        "--check",
+        "legal.js"
+      ],
+      "timeoutMilliseconds": 15000
+    },
+    {
       "name": "Lifecycle scripts syntax",
       "args": [
         "--check",

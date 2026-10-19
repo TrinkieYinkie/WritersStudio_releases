@@ -1,0 +1,15 @@
+{
+  "token": "writersstudio-site-full",
+  "workingDirectory": "../..",
+  "heartbeatMilliseconds": 15000,
+  "steps": [
+    {
+      "name": "Public legal pages preview (three minute lifetime)",
+      "command": "$NODE",
+      "args": [
+        "scripts/preview-legal-pages.mjs"
+      ],
+      "timeoutMilliseconds": 210000
+    }
+  ]
+}

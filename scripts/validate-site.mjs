@@ -9,6 +9,8 @@ const requiredFiles = [
   'CNAME',
   'README.md',
   'app.js',
+  'legal.js',
+  'legal.css',
   'assets/og.png',
   'assets/writersstudio-icon.png',
   'index.html',
@@ -173,3 +175,29 @@ assert.equal(png.readUInt32BE(16), 1200, 'Social card width must be 1200px.')
 assert.equal(png.readUInt32BE(20), 630, 'Social card height must be 630px.')
 
 console.log(`Site contract passed · ${requiredFiles.length} required files · ${requiredScreenshotFiles.length} product captures · ${localReferences.size} local references.`)
+
+
+// Check actual links at every locale/version depth, including archived documents.
+let legalPageCount = 0
+async function checkLegalDirectory(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const target = resolve(directory, entry.name)
+    if (entry.isDirectory()) { await checkLegalDirectory(target); continue }
+    if (entry.name !== 'index.html') continue
+    const page = await readFile(target, 'utf8')
+    const pageIds = new Set([...page.matchAll(/\sid="([^"]+)"/gu)].map(match => match[1]))
+    for (const match of page.matchAll(/\s(?:href|src)="([^"]+)"/gu)) {
+      const reference = match[1]
+      if (reference.startsWith('#')) {
+        assert(pageIds.has(reference.slice(1)), 'Missing legal section: ' + target + reference)
+      } else if (!/^(?:https?:|mailto:)/u.test(reference)) {
+        await access(resolve(directory, reference))
+      }
+    }
+    assert.doesNotMatch(page, /src="[^"]*(?:app\.js|landing-analytics)/u, 'Legal pages must not load release or analytics clients.')
+    legalPageCount += 1
+  }
+}
+await checkLegalDirectory(resolve(repositoryRoot, 'privacy'))
+await checkLegalDirectory(resolve(repositoryRoot, 'terms'))
+console.log('Legal references passed · ' + legalPageCount + ' current and historical pages.')

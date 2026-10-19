@@ -1,0 +1,41 @@
+{
+  "en": {
+    "documents": "Documents",
+    "language": "Document language",
+    "navigation": "Legal documents",
+    "contents": "On this page",
+    "skip": "Skip to the document",
+    "questions": "Questions about these documents?",
+    "toDark": "Switch to dark theme",
+    "toLight": "Switch to light theme",
+    "termsIntro": "The terms for using WritersStudio, your rights to your work, and what to expect from the application.",
+    "privacyIntro": "What stays on your computer, what optional analytics sends, and how you control your data.",
+    "providers": "Service providers"
+  },
+  "ru": {
+    "documents": "Документы",
+    "language": "Язык документа",
+    "navigation": "Правовые документы",
+    "contents": "В этом документе",
+    "skip": "Перейти к документу",
+    "questions": "Есть вопросы по документам?",
+    "toDark": "Включить тёмную тему",
+    "toLight": "Включить светлую тему",
+    "termsIntro": "Условия использования WritersStudio, ваши права на собственные тексты и возможности приложения.",
+    "privacyIntro": "Что остаётся на вашем компьютере, что передаёт добровольная аналитика и как управлять своими данными.",
+    "providers": "Поставщики услуг"
+  },
+  "es": {
+    "documents": "Documentos",
+    "language": "Idioma del documento",
+    "navigation": "Documentos legales",
+    "contents": "En esta página",
+    "skip": "Ir al documento",
+    "questions": "¿Tienes preguntas sobre estos documentos?",
+    "toDark": "Cambiar al tema oscuro",
+    "toLight": "Cambiar al tema claro",
+    "termsIntro": "Las condiciones de uso de WritersStudio, tus derechos sobre tu obra y qué puedes esperar de la aplicación.",
+    "privacyIntro": "Qué se queda en tu ordenador, qué envían las estadísticas opcionales y cómo controlas tus datos.",
+    "providers": "Proveedores de servicios"
+  }
+}
